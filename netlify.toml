@@ -1,6 +1,6 @@
+# Publish directory is managed by the plugin (v5); do not set publish to .next in UI or here.
 [build]
   command = "npm run build"
-  publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
