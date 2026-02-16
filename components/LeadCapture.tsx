@@ -11,12 +11,11 @@ export default function LeadCapture() {
     if (!email.trim()) return;
     setStatus("submitting");
 
-    const formData = new FormData(e.currentTarget);
     try {
-      const res = await fetch("/", {
+      const res = await fetch("https://formspree.io/f/maqdjnll", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
       });
       if (res.ok) setStatus("success");
       else setStatus("error");
@@ -37,12 +36,9 @@ export default function LeadCapture() {
       ) : (
         <form
           name="lead-capture"
-          method="POST"
-          data-netlify="true"
           onSubmit={handleSubmit}
           className="flex flex-col gap-3"
         >
-          <input type="hidden" name="form-name" value="lead-capture" />
           <label htmlFor="lead-email" className="sr-only">
             E-mailadres
           </label>
