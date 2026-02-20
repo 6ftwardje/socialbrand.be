@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import StickyMobileCTA from "@/components/layout/StickyMobileCTA";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SocialBrand",
-  description: "Menselijk, authentiek, autoritair, strategisch en schaalbaar merkadvies.",
+  title: "SocialBrand | Personal Branding Agency",
+  description:
+    "Thought leadership en persoonlijk merk in 90 dagen. Value-based content voor coaches, gezonde merken en vastgoed. Geen aftermovies—wel autoriteit.",
+  openGraph: {
+    title: "SocialBrand | Personal Branding Agency",
+    description:
+      "Thought leadership en persoonlijk merk in 90 dagen. Value-based content voor coaches, gezonde merken en vastgoed.",
+    locale: "nl_BE",
+  },
 };
 
 export const viewport = {
@@ -30,9 +40,12 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased pb-24 md:pb-0`}
       >
-        {children}
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <StickyMobileCTA />
       </body>
     </html>
   );

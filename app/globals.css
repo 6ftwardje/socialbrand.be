@@ -24,23 +24,23 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --background-gradient: linear-gradient(to bottom, #000000 0%, #050101 30%, #0f0303 70%, #0a0a0a 100%);
+  --foreground: #ededed;
+  --foreground-muted: #a3a3a3;
+  --accent: #e11d48;
+  --accent-hover: #be123c;
   --font-neue-montreal: "Neue Montreal", var(--font-geist-sans), system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-neue-montreal);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
