@@ -3,34 +3,34 @@ import { methodSteps } from "@/lib/content";
 
 export default function MethodeTeaser() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16" id="methode-teaser">
-      <h2 className="mb-8 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-        De Content Engine in 7 stappen
-      </h2>
-      <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {methodSteps.slice(0, 7).map((step, i) => (
-          <li
-            key={i}
-            className="flex gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 p-4"
-          >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/20 text-sm font-bold text-[var(--accent)]">
-              {i + 1}
-            </span>
-            <div>
-              <span className="font-medium text-white">{step.title}</span>
-              <p className="mt-0.5 text-sm text-zinc-400">{step.description}</p>
+    <section className="w-full py-16 md:py-24 bg-zinc-950/80 border-t border-zinc-800/50" id="methode-teaser">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl mb-12">
+          De methode in 3 stappen
+        </h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          {methodSteps.map((step, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 md:p-8 flex flex-col"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/20 text-lg font-bold text-[var(--accent)]">
+                {i + 1}
+              </span>
+              <h3 className="mt-4 text-xl font-bold text-white md:text-2xl">{step.title}</h3>
+              <p className="mt-2 text-zinc-400 font-medium">{step.description}</p>
             </div>
-          </li>
-        ))}
-      </ol>
-      <p className="mt-8 text-center">
-        <Link
-          href="/methode"
-          className="text-sm font-medium text-[var(--accent)] hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
-        >
-          Lees onze methode →
-        </Link>
-      </p>
+          ))}
+        </div>
+        <div className="mt-12 aspect-video w-full max-w-4xl mx-auto rounded-xl bg-zinc-800/80 flex items-center justify-center text-zinc-500 text-sm uppercase tracking-wider border border-zinc-700/50">
+          Video placeholder – methode / behind the scenes
+        </div>
+        <p className="mt-10 text-center">
+          <Link href="/methode" className="text-base font-bold text-[var(--accent)] hover:underline">
+            Lees onze methode →
+          </Link>
+        </p>
+      </div>
     </section>
   );
 }

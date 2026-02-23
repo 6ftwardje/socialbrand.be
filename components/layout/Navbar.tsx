@@ -2,12 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { navLinks } from "@/lib/content";
 import { cn } from "@/lib/utils";
-
-const LOGO_URL =
-  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/HTP/socialbrand%20png.png";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,9 +13,10 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6" aria-label="Hoofdnavigatie">
         <Link
           href="/"
-          className="flex shrink-0 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+          className="flex shrink-0 font-bold text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+          style={{ fontFamily: "var(--font-neue-montreal)" }}
         >
-          <Image src={LOGO_URL} alt="SocialBrand" width={140} height={56} className="h-9 w-auto" priority />
+          <span className="text-lg tracking-tight md:text-xl">SOCIALBRAND</span>
         </Link>
 
         <ul className="hidden md:flex md:items-center md:gap-8">

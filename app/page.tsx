@@ -1,8 +1,9 @@
 import Hero from "@/components/home/Hero";
-import SocialProofMicro from "@/components/home/SocialProofMicro";
-import ProblemFraming from "@/components/home/ProblemFraming";
-import PackagesTeaser from "@/components/home/PackagesTeaser";
-import MethodeTeaser from "@/components/home/MethodeTeaser";
+import Positionering from "@/components/home/Positionering";
+import Traject90 from "@/components/home/Traject90";
+import ExpressFormat from "@/components/home/ExpressFormat";
+import ProfielOptimalisatie from "@/components/home/ProfielOptimalisatie";
+import WatHetOplevert from "@/components/home/WatHetOplevert";
 import CasesTeaser from "@/components/home/CasesTeaser";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/ui/CTASection";
@@ -12,15 +13,19 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SocialProofMicro />
-      <ProblemFraming />
-      <PackagesTeaser />
-      <MethodeTeaser />
+      <Positionering />
+      <Traject90 />
+      <ExpressFormat />
+      <ProfielOptimalisatie />
+      <WatHetOplevert />
       <CasesTeaser />
       <FAQSection />
       <CTASection
-        title="Klaar om je persoonlijk merk te versterken?"
-        subtitle="Boek een vrijblijvende call. We bespreken je situatie en of we bij elkaar passen."
+        title="Jouw persoonlijke merk begint hier."
+        subtitle="Je personal brand is je superkracht."
+        paragraph="Wij zorgen dat jouw zichtbaarheid net zo krachtig wordt als jouw ideeën. Klaar om dominant te worden in jouw niche?"
+        primaryCtaText="Plan een strategiegesprek"
+        showSecondaryLink={false}
         showContactForm
       >
         <ContactForm />

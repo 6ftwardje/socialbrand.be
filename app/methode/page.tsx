@@ -6,7 +6,7 @@ import CTASection from "@/components/ui/CTASection";
 export const metadata = {
   title: "Methode | SocialBrand",
   description:
-    "Content Engine in 7 stappen: intake, story extraction, contentplan, shoots, edit, revisies, publicatie. Geen aftermovies—wel value-based thought leadership.",
+    "Onze methode in 3 stappen: intake & strategie, story extraction & shoot, edit & publicatie. Value-based thought leadership.",
 };
 
 export default function MethodePage() {
@@ -21,7 +21,7 @@ export default function MethodePage() {
         </p>
       </section>
 
-      <Section title="Content Engine: 7 stappen" id="stappen">
+      <Section title="Content Engine: 3 stappen" id="stappen">
         <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {methodSteps.map((step, i) => (
             <li
