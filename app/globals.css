@@ -41,10 +41,53 @@
   --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-neue-montreal);
   --font-mono: var(--font-geist-mono);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-neue-montreal);
+}
+
+/* Subtiele bewegende gradient voor Traject90-section */
+@keyframes traject-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.traject-90-bg {
+  background: linear-gradient(
+    120deg,
+    var(--accent) 0%,
+    var(--accent-hover) 35%,
+    #9f1239 60%,
+    var(--accent) 100%
+  );
+  background-size: 200% 200%;
+  animation: traject-gradient 18s ease infinite;
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const EXPRESS_ILLUSTRATION =
+const EXPRESS_IMAGE =
   "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/express.png";
 
 const BULLETS = [
@@ -33,13 +33,14 @@ export default function ExpressFormat() {
                 <br />
                 Maximale impact.
               </h2>
-              <div className="relative h-28 w-28 shrink-0 lg:hidden" aria-hidden>
+              <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-lg lg:hidden" aria-hidden>
                 <Image
-                  src={EXPRESS_ILLUSTRATION}
+                  src={EXPRESS_IMAGE}
                   alt=""
                   fill
                   className="object-contain"
                   sizes="112px"
+                  aria-hidden
                 />
               </div>
             </header>
@@ -68,13 +69,13 @@ export default function ExpressFormat() {
             </div>
           </div>
           {/* Illustratie alleen op desktop (rechterkolom); op mobile staat hij in de header */}
-          <div className="relative hidden min-h-[280px] w-full lg:block lg:min-h-0">
+          <div className="relative hidden min-h-[280px] w-full lg:block lg:min-h-0 lg:aspect-[4/3]">
             <Image
-              src={EXPRESS_ILLUSTRATION}
+              src={EXPRESS_IMAGE}
               alt="Socialbrand Express – snelle content, maximale impact"
               fill
               className="object-contain object-center lg:object-right"
-              sizes="50vw"
+              sizes="(max-width: 1024px) 0px, 50vw"
             />
           </div>
         </div>

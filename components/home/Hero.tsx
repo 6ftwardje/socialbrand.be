@@ -35,10 +35,6 @@ export default function Hero() {
         <p className="mt-6 text-lg md:text-xl text-zinc-300 font-medium max-w-2xl mx-auto">
           Je publiek wil verbinden met mensen. Niet met een merk.
         </p>
-        <p className="mt-4 text-base md:text-lg text-zinc-400 max-w-2xl mx-auto">
-          Personal branding draait om het zichtbaar maken van de persoon achter het bedrijf – jouw visie, jouw ideeën, jouw energie.
-          Wij bouwen jouw personal brand uit tot een autoriteit in jouw niche, zonder dat je je bedrijf verliest.
-        </p>
         <div className="mt-10">
           <Link
             href="/contact"
