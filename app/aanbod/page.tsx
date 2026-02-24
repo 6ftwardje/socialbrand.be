@@ -41,7 +41,7 @@ export default function AanbodPage() {
           We vragen een minimum van 3 maanden. Thought leadership en een sterk persoonlijk merk bouw je niet in een paar weken. Na de onboarding (week 1–2) draait de Content Engine; na 3 maanden zie je duidelijke resultaten in autoriteit en herkenning.
         </p>
         <Link
-          href="/contact"
+          href="/intake"
           className="mt-6 inline-flex items-center rounded-lg bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-[var(--accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
         >
           Boek een call

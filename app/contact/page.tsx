@@ -1,9 +1,9 @@
-import ContactForm from "@/components/ContactForm";
+import Link from "next/link";
 
 export const metadata = {
   title: "Contact | Boek een call | SocialBrand",
   description:
-    "Boek een vrijblijvende call met SocialBrand. Of stuur een bericht—we reageren binnen 1–2 werkdagen.",
+    "Boek een vrijblijvende call met SocialBrand. Vul ons korte intake formulier in—we reageren binnen 24 uur.",
 };
 
 export default function ContactPage() {
@@ -14,27 +14,33 @@ export default function ContactPage() {
           Boek een call
         </h1>
         <p className="mt-4 max-w-2xl text-zinc-400 md:text-lg">
-          Klaar om je persoonlijk merk te versterken? Boek een call of vul het formulier in. We nemen binnen 1–2 werkdagen contact op.
+          Klaar om je persoonlijk merk te versterken? Vul ons korte intake formulier in. We nemen binnen 24 uur contact op.
         </p>
 
         <div className="mt-10 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 md:p-8">
           <h2 className="text-xl font-semibold text-white">Plan een gesprek</h2>
           <p className="mt-2 text-zinc-400">
-            Koppel hier later je Calendly (of ander boekingssysteem) aan. Tot die tijd gebruik je het formulier hieronder.
+            Beantwoord 7 korte vragen (±2 min). Daarna nemen we binnen 24 uur contact met je op.
           </p>
-          <div className="mt-6 flex min-h-[200px] items-center justify-center rounded-lg border border-dashed border-zinc-700 bg-zinc-900/30 text-zinc-500">
-            [Calendly-embed placeholder]
-          </div>
+          <Link
+            href="/intake"
+            className="mt-6 inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-8 py-4 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors"
+          >
+            Start intake
+          </Link>
         </div>
 
         <div className="mt-12">
-          <h2 className="text-xl font-semibold text-white">Of stuur een bericht</h2>
+          <h2 className="text-xl font-semibold text-white">Of plan direct in</h2>
           <p className="mt-2 text-zinc-400">
-            Vul het formulier in; we reageren zo snel mogelijk.
+            Ga naar het intake formulier om je gegevens door te geven.
           </p>
-          <div className="mt-6">
-            <ContactForm />
-          </div>
+          <Link
+            href="/intake"
+            className="mt-4 inline-flex items-center rounded-lg border border-zinc-600 px-6 py-3 text-base font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
+          >
+            Naar intake formulier →
+          </Link>
         </div>
       </section>
     </>

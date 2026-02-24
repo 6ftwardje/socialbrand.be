@@ -2,7 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const EXPRESS_IMAGE =
-  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/express.png";
+  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/express.png?v=2";
+
+const SMOKE_IMAGE =
+  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/smoke.png";
 
 const BULLETS = [
   "Video's voor LinkedIn, Instagram en TikTok",
@@ -18,6 +21,16 @@ export default function ExpressFormat() {
       className="relative w-full overflow-hidden border-t border-zinc-800/50 bg-zinc-950/80 py-16 md:py-24"
       aria-labelledby="express-heading"
     >
+      {/* Rook-achtergrond op 25% opacity */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-25"
+        style={{
+          backgroundImage: `url(${SMOKE_IMAGE})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        aria-hidden
+      />
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-12 lg:items-stretch">
           <div>
@@ -61,7 +74,7 @@ export default function ExpressFormat() {
             </p>
             <div className="mt-10">
               <Link
-                href="/contact"
+                href="/intake"
                 className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-8 py-4 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors"
               >
                 Boek een content sessie

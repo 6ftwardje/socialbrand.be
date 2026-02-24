@@ -29,7 +29,7 @@ export default function PackageCard({ pkg, variant = "teaser" }: PackageCardProp
         </>
       )}
       <Link
-        href={variant === "teaser" ? "/aanbod" : "/contact"}
+        href={variant === "teaser" ? "/aanbod" : "/intake"}
         className="mt-6 inline-flex items-center text-base font-bold text-[var(--accent)] hover:underline"
       >
         {variant === "teaser" ? "Bekijk aanbod" : "Boek een call"}

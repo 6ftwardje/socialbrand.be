@@ -95,7 +95,7 @@ export default function Traject90() {
         </p>
         <div className="mt-6 md:mt-8">
           <Link
-            href="/contact"
+            href="/intake"
             className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-bold text-[var(--accent)] transition-colors hover:bg-zinc-100"
           >
             Start jouw traject

@@ -6,7 +6,6 @@ import ExpressFormat from "@/components/home/ExpressFormat";
 import CasesTeaser from "@/components/home/CasesTeaser";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/ui/CTASection";
-import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -23,11 +22,9 @@ export default function Home() {
         subtitle="Je personal brand is je superkracht."
         paragraph="Wij zorgen dat jouw zichtbaarheid net zo krachtig wordt als jouw ideeën. Klaar om dominant te worden in jouw niche?"
         primaryCtaText="Plan een strategiegesprek"
+        primaryCtaHref="/intake"
         showSecondaryLink={false}
-        showContactForm
-      >
-        <ContactForm />
-      </CTASection>
+      />
     </>
   );
 }

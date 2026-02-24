@@ -7,10 +7,10 @@ interface CTASectionProps {
   paragraph?: string;
   /** Primary CTA label (default: Boek een call) */
   primaryCtaText?: string;
+  /** Primary CTA link (default: /intake) */
+  primaryCtaHref?: string;
   /** Show secondary "Bekijk cases" link (default: true) */
   showSecondaryLink?: boolean;
-  showContactForm?: boolean;
-  children?: React.ReactNode;
 }
 
 export default function CTASection({
@@ -18,9 +18,8 @@ export default function CTASection({
   subtitle = "Boek een call. We kijken of we bij elkaar passen.",
   paragraph,
   primaryCtaText = "Boek een call",
+  primaryCtaHref = "/intake",
   showSecondaryLink = true,
-  showContactForm = false,
-  children,
 }: CTASectionProps) {
   return (
     <section className="w-full py-16 md:py-24 bg-[var(--background)] border-t border-zinc-800/50" aria-labelledby="cta-heading">
@@ -33,7 +32,7 @@ export default function CTASection({
           {paragraph && <p className="mx-auto mt-4 max-w-xl text-lg text-zinc-400 font-medium">{paragraph}</p>}
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href="/contact"
+              href={primaryCtaHref}
               className="inline-flex w-full items-center justify-center rounded-lg bg-[var(--accent)] px-8 py-4 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors sm:w-auto"
             >
               {primaryCtaText}
@@ -47,7 +46,6 @@ export default function CTASection({
               </Link>
             )}
           </div>
-          {showContactForm && children && <div className="mt-12">{children}</div>}
         </div>
       </div>
     </section>

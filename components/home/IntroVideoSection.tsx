@@ -64,7 +64,7 @@ export default function IntroVideoSection() {
           </p>
           <div className="pt-2">
             <Link
-              href="/contact"
+              href="/intake"
               className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors"
             >
               Plan een strategiegesprek

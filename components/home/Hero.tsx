@@ -37,7 +37,7 @@ export default function Hero() {
         </p>
         <div className="mt-10">
           <Link
-            href="/contact"
+            href="/intake"
             className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-8 py-4 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors"
           >
             Plan een strategiegesprek
