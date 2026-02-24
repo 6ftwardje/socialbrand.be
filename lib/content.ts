@@ -84,7 +84,6 @@ export const cases: CaseStudy[] = [
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/aanbod", label: "Aanbod" },
-  { href: "/methode", label: "Methode" },
   { href: "/cases", label: "Cases" },
   { href: "/over-ons", label: "Over ons" },
   { href: "/contact", label: "Contact" },
@@ -94,7 +93,6 @@ export const navLinks = [
 export const mobilePrimaryLinks = [
   { href: "/", label: "Home" },
   { href: "/aanbod", label: "Aanbod" },
-  { href: "/methode", label: "Methode" },
   { href: "/cases", label: "Cases" },
   { href: "/over-ons", label: "Over ons" },
 ] as const;

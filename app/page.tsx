@@ -1,9 +1,8 @@
 import Hero from "@/components/home/Hero";
 import Positionering from "@/components/home/Positionering";
+import IntroVideoSection from "@/components/home/IntroVideoSection";
 import Traject90 from "@/components/home/Traject90";
 import ExpressFormat from "@/components/home/ExpressFormat";
-import ProfielOptimalisatie from "@/components/home/ProfielOptimalisatie";
-import WatHetOplevert from "@/components/home/WatHetOplevert";
 import CasesTeaser from "@/components/home/CasesTeaser";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/ui/CTASection";
@@ -14,10 +13,9 @@ export default function Home() {
     <>
       <Hero />
       <Positionering />
+      <IntroVideoSection />
       <Traject90 />
       <ExpressFormat />
-      <ProfielOptimalisatie />
-      <WatHetOplevert />
       <CasesTeaser />
       <FAQSection />
       <CTASection

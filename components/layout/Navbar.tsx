@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { navLinks, mobilePrimaryLinks } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -99,13 +100,24 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Header: volledig transparant bovenaan, donkere bar pas na scrollen
+  const headerStyle: React.CSSProperties = scrolled
+    ? {
+        backgroundColor: "rgba(10, 10, 10, 0.9)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }
+    : {
+        backgroundColor: "transparent",
+        backdropFilter: "none",
+        WebkitBackdropFilter: "none",
+      };
+
   return (
     <>
       <header
-        className={cn(
-          "sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-300 supports-[backdrop-filter]:backdrop-blur-md",
-          scrolled ? "bg-[var(--background)]/90" : "bg-[var(--background)]/50"
-        )}
+        style={headerStyle}
+        className="sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-300"
       >
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6"
@@ -116,7 +128,14 @@ export default function Navbar() {
             className="flex shrink-0 font-bold text-white focus-visible:outline-none rounded transition-opacity hover:opacity-90"
             style={{ fontFamily: "var(--font-neue-montreal)" }}
           >
-            <span className="text-lg tracking-tight md:text-xl">SOCIALBRAND</span>
+            <Image
+              src="https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/navbar.png"
+              alt="Socialbrand"
+              width={160}
+              height={44}
+              className="h-5 w-auto md:h-6 object-contain"
+              priority
+            />
           </Link>
 
           <ul className="hidden md:flex md:items-center md:gap-10">
