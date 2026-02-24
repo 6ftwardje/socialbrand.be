@@ -45,8 +45,13 @@ export function validateStep6TeamSize(data: IntakeData): boolean {
 }
 
 export function validateStep7RevenueRange(data: IntakeData): boolean {
-  if (!data.revenueRange) return false;
-  if (data.revenueRange === "anders") return data.revenueOther.trim().length > 0;
+  return data.revenueRange.trim().length > 0;
+}
+
+export function validateStep8Platforms(data: IntakeData): boolean {
+  if (!data.platforms.length) return false;
+  const hasOther = data.platforms.includes("anders");
+  if (hasOther) return data.platformsOther.trim().length > 0;
   return true;
 }
 
@@ -59,6 +64,7 @@ const validators: ((data: IntakeData) => boolean)[] = [
   validateStep5MarketingPartners,
   validateStep6TeamSize,
   validateStep7RevenueRange,
+  validateStep8Platforms,
 ];
 
 export function isStepValid(stepIndex: number, data: IntakeData): boolean {
@@ -79,7 +85,8 @@ export function getStepValidationMessage(
     4: "Kies minstens één optie voor je brand. Bij «Anders» vul je het veld in.",
     5: "Kies minstens één optie voor marketingpartners. Bij «Anders» vul je het veld in.",
     6: "Kies een optie voor teamgrootte. Bij «Anders» vul je het veld in.",
-    7: "Kies een optie voor jaaromzet. Bij «Anders» vul je het veld in.",
+    7: "Selecteer je omzetrange.",
+    8: "Kies minstens één platform waarop je actief bent. Bij «Anders» vul je het veld in.",
   };
   return messages[stepIndex] ?? "Vul dit veld in.";
 }

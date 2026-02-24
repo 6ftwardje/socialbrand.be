@@ -9,7 +9,7 @@ export default function PackagesTeaser() {
         <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl mb-12">
           Pakketten
         </h2>
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           {packages.map((pkg) => (
             <PackageCard key={pkg.id} pkg={pkg} variant="teaser" />
           ))}

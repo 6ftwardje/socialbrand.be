@@ -101,7 +101,7 @@ export default function CaseCard({ caseStudy, variant = "teaser" }: CaseCardProp
 
   if (variant === "teaser") {
     return (
-      <Link href="/cases" className="block outline-none">
+      <Link href={`/cases/${caseStudy.slug}`} className="block outline-none">
         {article}
       </Link>
     );

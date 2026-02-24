@@ -10,6 +10,7 @@ import {
   marketingPartnersOptions,
   teamSizeOptions,
   revenueRangeOptions,
+  platformOptions,
   type IntakeData,
 } from "@/lib/intake-types";
 import { isStepValid, getStepValidationMessage } from "@/lib/intake-validation";
@@ -300,21 +301,44 @@ export default function IntakeForm() {
             {step === 7 && (
               <>
                 <h2 className="text-xl font-bold text-[var(--foreground)] md:text-2xl">
-                  Jaaromzet
+                  Wat is je maandelijkse omzet?
                 </h2>
+                <p className="mt-1 text-sm text-[var(--foreground-muted)]">
+                  We werken het beste met ondernemers vanaf ca. €10k/maand omzet. De kennismakingscall is voor iedereen — we bepalen samen of het past.
+                </p>
                 <div className="mt-6">
                   <RadioCardGroup
                     id="intake-revenueRange"
                     name="revenueRange"
-                    label="Kies één optie"
+                    label="Kies je omzetrange"
                     options={revenueRangeOptions}
                     value={data.revenueRange}
+                    onChange={(v) => setData((d) => ({ ...d, revenueRange: v }))}
+                    otherValue=""
+                    onOtherChange={() => {}}
+                    autoFocus
+                  />
+                </div>
+              </>
+            )}
+
+            {step === 8 && (
+              <>
+                <h2 className="text-xl font-bold text-[var(--foreground)] md:text-2xl">
+                  Op welke platforms ben je al actief?
+                </h2>
+                <div className="mt-6">
+                  <ChipMultiSelect
+                    id="intake-platforms"
+                    label="Kies één of meer"
+                    options={platformOptions}
+                    value={data.platforms}
                     onChange={(v) =>
-                      setData((d) => ({ ...d, revenueRange: v }))
+                      setData((d) => ({ ...d, platforms: v }))
                     }
-                    otherValue={data.revenueOther}
+                    otherValue={data.platformsOther}
                     onOtherChange={(v) =>
-                      setData((d) => ({ ...d, revenueOther: v }))
+                      setData((d) => ({ ...d, platformsOther: v }))
                     }
                     otherPlaceholder="Specifieer"
                     autoFocus

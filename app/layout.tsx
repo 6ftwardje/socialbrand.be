@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Serif_Display } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import StickyMobileCTA from "@/components/layout/StickyMobileCTA";
+import StickyCTAOrNothing from "@/components/layout/StickyCTAOrNothing";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -51,7 +51,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <StickyMobileCTA />
+        <StickyCTAOrNothing />
       </body>
     </html>
   );

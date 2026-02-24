@@ -32,15 +32,15 @@ export default function IntroVideoSection() {
           <button
             type="button"
             onClick={() => setVideoPlaying(true)}
-            className="absolute inset-0 w-full h-full flex items-center justify-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+            className="absolute inset-0 w-full h-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             aria-label="Video afspelen: hoe het werkt, wie we zijn en wat de bedoeling is"
           >
             <div
-              className="absolute inset-0 bg-zinc-800/60 group-hover:bg-zinc-800/80 transition-colors duration-200"
+              className="absolute inset-0 bg-zinc-800/60"
               aria-hidden
             />
-            <div className="relative flex flex-col items-center gap-2 text-zinc-400 group-hover:text-white transition-colors duration-200">
-              <span className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-[var(--accent)]/90 text-white shadow-lg group-hover:bg-[var(--accent)] group-hover:opacity-100 group-hover:scale-110 transition-all duration-200 opacity-95">
+            <div className="relative flex flex-col items-center gap-2 text-zinc-400">
+              <span className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-[var(--accent)]/90 text-white shadow-lg opacity-95">
                 <svg className="h-6 w-6 md:h-7 md:w-7 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path d="M8 5v14l11-7L8 5z" />
                 </svg>

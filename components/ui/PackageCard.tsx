@@ -4,12 +4,27 @@ import type { Package } from "@/lib/content";
 interface PackageCardProps {
   pkg: Package;
   variant?: "teaser" | "full";
+  /** Mark as recommended (e.g. Authority) — badge + stronger border */
+  recommended?: boolean;
+  /** Show price indication line (full variant on aanbod page) */
+  showPriceIndication?: boolean;
 }
 
-export default function PackageCard({ pkg, variant = "teaser" }: PackageCardProps) {
+export default function PackageCard({ pkg, variant = "teaser", recommended, showPriceIndication }: PackageCardProps) {
   return (
-    <article className="flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/40 overflow-hidden transition-colors hover:border-zinc-700">
-      {variant === "teaser" && (
+    <article
+      className={`flex flex-col rounded-xl border overflow-hidden transition-colors hover:border-zinc-600 ${
+        recommended
+          ? "border-[var(--accent)]/60 bg-zinc-900/60 ring-1 ring-[var(--accent)]/20"
+          : "border-zinc-800 bg-zinc-900/40 hover:border-zinc-700"
+      }`}
+    >
+      {recommended && (
+        <div className="bg-[var(--accent)]/15 px-6 py-2 text-center">
+          <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Meest gekozen</span>
+        </div>
+      )}
+      {variant === "teaser" && !recommended && (
         <div className="aspect-video w-full bg-zinc-800/80 flex items-center justify-center text-zinc-500 text-xs uppercase tracking-wider shrink-0">
           Foto / video placeholder
         </div>
@@ -20,19 +35,26 @@ export default function PackageCard({ pkg, variant = "teaser" }: PackageCardProp
       <p className="mt-2 text-zinc-400 font-medium">{pkg.description}</p>
       {variant === "full" && (
         <>
-          <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-zinc-400">
+          {pkg.deliverablesLabel && (
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-zinc-500">{pkg.deliverablesLabel}</p>
+          )}
+          <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-zinc-400">
             {pkg.deliverables.map((d, i) => (
               <li key={i}>{d}</li>
             ))}
           </ul>
           <p className="mt-4 text-sm text-zinc-500">Commitment: {pkg.commitment}</p>
+          {pkg.note && <p className="mt-1 text-sm text-zinc-500 italic">{pkg.note}</p>}
+          {showPriceIndication && (
+            <p className="mt-4 text-sm text-zinc-400">Investering op maat — prijsindicatie op de kennismakingscall.</p>
+          )}
         </>
       )}
       <Link
         href={variant === "teaser" ? "/aanbod" : "/intake"}
         className="mt-6 inline-flex items-center text-base font-bold text-[var(--accent)] hover:underline"
       >
-        {variant === "teaser" ? "Bekijk aanbod" : "Boek een call"}
+        {variant === "teaser" ? "Bekijk aanbod" : "Boek een kennismakingscall"}
         <span className="ml-1" aria-hidden>→</span>
       </Link>
       </div>

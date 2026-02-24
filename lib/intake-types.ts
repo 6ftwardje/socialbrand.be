@@ -18,7 +18,8 @@ export interface IntakeData {
   teamSize: string;
   teamSizeOther: string;
   revenueRange: string;
-  revenueOther: string;
+  platforms: string[];
+  platformsOther: string;
 }
 
 export const initialIntakeData: IntakeData = {
@@ -32,7 +33,8 @@ export const initialIntakeData: IntakeData = {
   teamSize: "",
   teamSizeOther: "",
   revenueRange: "",
-  revenueOther: "",
+  platforms: [],
+  platformsOther: "",
 };
 
 export type StepFieldType =
@@ -83,15 +85,24 @@ export const teamSizeOptions: RadioOption[] = [
   { value: "anders", label: "Anders", isOther: true },
 ];
 
+/** Omzetrange voor pre-kwalificatie (min. €10k/maand). */
 export const revenueRangeOptions: RadioOption[] = [
-  { value: "under-100k", label: "< €100k" },
-  { value: "100k-250k", label: "€100k – €250k" },
-  { value: "250k-500k", label: "€250k – €500k" },
-  { value: "500k-1m", label: "€500k – €1M" },
-  { value: "1m-3m", label: "€1M – €3M" },
-  { value: "3m+", label: "€3M+" },
-  { value: "liever-niet", label: "Liever niet zeggen" },
+  { value: "10k-25k", label: "€10k – €25k/maand" },
+  { value: "25k-50k", label: "€25k – €50k/maand" },
+  { value: "50k-100k", label: "€50k – €100k/maand" },
+  { value: "100k+", label: "€100k+/maand" },
+];
+
+export const platformOptions: ChipOption[] = [
+  { value: "instagram", label: "Instagram" },
+  { value: "linkedin", label: "LinkedIn" },
+  { value: "tiktok", label: "TikTok" },
+  { value: "facebook", label: "Facebook" },
+  { value: "youtube", label: "YouTube" },
+  { value: "x-twitter", label: "X (Twitter)" },
+  { value: "pinterest", label: "Pinterest" },
+  { value: "nog-nergens", label: "Nog nergens actief" },
   { value: "anders", label: "Anders", isOther: true },
 ];
 
-export const TOTAL_FORM_STEPS = 7;
+export const TOTAL_FORM_STEPS = 8;
