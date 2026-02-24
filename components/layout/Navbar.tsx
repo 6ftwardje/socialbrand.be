@@ -133,7 +133,7 @@ export default function Navbar() {
               alt="Socialbrand"
               width={160}
               height={44}
-              className="h-5 w-auto md:h-6 object-contain"
+              className="h-4 w-auto md:h-6 object-contain"
               priority
             />
           </Link>

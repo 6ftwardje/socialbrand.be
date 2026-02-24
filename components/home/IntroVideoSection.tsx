@@ -12,7 +12,7 @@ export default function IntroVideoSection() {
   return (
     <section
       id="intro-video"
-      className="grid grid-cols-1 lg:grid-cols-2 w-full border-t border-zinc-800/50 bg-zinc-950/80 min-h-0"
+      className="grid grid-cols-1 lg:grid-cols-2 w-full bg-zinc-950/80 min-h-0"
       aria-labelledby="intro-video-heading"
     >
       {/* Video – linkerkant (gespiegeld t.o.v. Positionering: daar is beeld rechts) */}

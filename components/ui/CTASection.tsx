@@ -22,7 +22,7 @@ export default function CTASection({
   showSecondaryLink = true,
 }: CTASectionProps) {
   return (
-    <section className="w-full py-16 md:py-24 bg-[var(--background)] border-t border-zinc-800/50" aria-labelledby="cta-heading">
+    <section className="w-full py-16 md:py-24 bg-[var(--background)]" aria-labelledby="cta-heading">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 text-center md:p-12 lg:p-16">
           <h2 id="cta-heading" className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">

@@ -24,7 +24,7 @@ export default function Traject90() {
   return (
     <section
       id="traject-90"
-      className="traject-90-bg relative w-full overflow-hidden border-t border-white/20 py-16 md:py-24"
+      className="traject-90-bg relative w-full overflow-hidden py-16 md:py-24"
       aria-labelledby="traject-90-title"
     >
       <div className="relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8">

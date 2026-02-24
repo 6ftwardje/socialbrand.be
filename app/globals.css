@@ -41,6 +41,7 @@
   --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-neue-montreal);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -184,4 +185,47 @@ body {
 }
 .animate-step-in {
   animation: step-in 0.2s ease-out forwards;
+}
+
+/* --- Loader overlay (BrandLoader / RouteLoader) --- */
+.loader-overlay {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Indeterminate progress bar (initial load): sliding fill */
+.loader-progress-bar--indeterminate {
+  width: 36%;
+  animation: loader-indeterminate 1.4s ease-in-out infinite;
+}
+
+@keyframes loader-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(180%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Optional: subtle glow on progress bar */
+.loader-progress-bar {
+  box-shadow: 0 0 12px rgba(225, 29, 72, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-overlay,
+  .loader-overlay * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
+  .loader-progress-bar--indeterminate {
+    animation: none;
+    width: 50%;
+    transform: translateX(-25%);
+  }
 }

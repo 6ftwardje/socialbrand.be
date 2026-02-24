@@ -18,7 +18,7 @@ export default function ExpressFormat() {
   return (
     <section
       id="express"
-      className="relative w-full overflow-hidden border-t border-zinc-800/50 bg-zinc-950/80 py-16 md:py-24"
+      className="relative w-full overflow-hidden bg-zinc-950/80 py-16 md:py-24"
       aria-labelledby="express-heading"
     >
       {/* Rook-achtergrond op 25% opacity */}

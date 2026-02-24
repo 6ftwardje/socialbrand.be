@@ -28,7 +28,7 @@ export default function Positionering() {
   return (
     <section
       id="positionering"
-      className="grid grid-cols-1 lg:grid-cols-2 w-full border-t border-zinc-800/50 bg-zinc-950/80 min-h-0"
+      className="grid grid-cols-1 lg:grid-cols-2 w-full bg-zinc-950/80 min-h-0"
       aria-labelledby="positionering-heading"
     >
       {/* Tekst – linkerkant met padding */}

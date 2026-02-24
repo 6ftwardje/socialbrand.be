@@ -16,7 +16,7 @@ const FAQ_ILLUSTRATION_URL =
 export default function FAQSection() {
   return (
     <section
-      className="w-full py-16 md:py-24 bg-zinc-950/80 border-t border-zinc-800/50"
+      className="w-full py-16 md:py-24 bg-zinc-950/80"
       id="faq"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">

@@ -9,7 +9,7 @@ const HERO_IMAGE =
 export default function Hero() {
   return (
     <section
-      className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden border-b border-zinc-800/50 -mt-20 pt-20"
+      className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden -mt-20 pt-20"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0">

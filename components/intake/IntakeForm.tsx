@@ -120,7 +120,7 @@ export default function IntakeForm() {
             href="/"
             className="mt-8 inline-block rounded-lg bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-[var(--accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
           >
-            Terug naar home
+            Home
           </Link>
         </div>
       </div>
@@ -134,13 +134,13 @@ export default function IntakeForm() {
       role="form"
       aria-label="Intake formulier"
     >
-      <div className="shrink-0 px-6 pt-6 md:pt-8">
-        <div className="mx-auto flex max-w-xl items-center">
+      <div className="shrink-0 px-6 pt-6 pb-4 md:pt-8 md:pb-5">
+        <div className="mx-auto flex max-w-xl items-center gap-4">
           <Link
             href="/"
             className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] focus:outline-none focus:underline shrink-0"
           >
-            ← Terug naar home
+            ← Home
           </Link>
           <div className="flex-1 flex justify-center min-w-0">
             <ProgressBar percentage={progressPercent} />
