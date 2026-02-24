@@ -91,3 +91,82 @@ body {
   background-size: 200% 200%;
   animation: traject-gradient 18s ease infinite;
 }
+
+/* On-scroll highlight voor "Jouw gezicht" in Positionering */
+.positionering-highlight {
+  display: inline-block;
+  font-weight: 800; /* Zelfde font, extra bold (extrabold) */
+  background: linear-gradient(
+    to right,
+    var(--accent) 50%,
+    rgb(255 255 255 / 0.35) 50%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.positionering-highlight.in-view {
+  background-position: 0 0;
+}
+
+/* Mobile full-screen menu: overlay and panel — 250ms ease-in-out */
+.mobile-menu-overlay {
+  height: 100vh;
+  height: 100dvh;
+}
+.mobile-menu-overlay[data-state="open"] {
+  animation: mobile-menu-overlay-in 0.25s ease-in-out forwards;
+}
+.mobile-menu-overlay[data-state="closed"] {
+  animation: mobile-menu-overlay-out 0.25s ease-in-out forwards;
+}
+@keyframes mobile-menu-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes mobile-menu-overlay-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.mobile-menu-panel {
+  height: 100vh;
+  height: 100dvh;
+  transform: translateX(100%);
+}
+.mobile-menu-overlay[data-state="open"] .mobile-menu-panel {
+  animation: mobile-menu-panel-in 0.25s ease-in-out forwards;
+}
+.mobile-menu-overlay[data-state="closed"] .mobile-menu-panel {
+  animation: mobile-menu-panel-out 0.25s ease-in-out forwards;
+}
+@keyframes mobile-menu-panel-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes mobile-menu-panel-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+/* Staggered item fade — subtle, 40ms steps, 6 items + CTA */
+.mobile-menu-item {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item {
+  animation: mobile-menu-item-in 0.3s ease-out forwards;
+}
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(1) { animation-delay: 60ms; }
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(2) { animation-delay: 100ms; }
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(3) { animation-delay: 140ms; }
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(4) { animation-delay: 180ms; }
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(5) { animation-delay: 220ms; }
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(6) { animation-delay: 260ms; }
+.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(7) { animation-delay: 300ms; }
+@keyframes mobile-menu-item-in {
+  to { opacity: 1; transform: translateY(0); }
+}

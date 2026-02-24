@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, DM_Serif_Display } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StickyMobileCTA from "@/components/layout/StickyMobileCTA";
@@ -13,6 +13,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -40,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased pb-24 md:pb-0`}
+        className={`${geistSans.variable} ${geistMono.variable} ${dmSerifDisplay.variable} min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased pb-24 md:pb-0`}
       >
         <Navbar />
         <main>{children}</main>

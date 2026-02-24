@@ -1,10 +1,29 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useRef, useEffect, useState } from "react";
 
 const POSITIONERING_IMAGE =
   "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/podcast_02.jpg";
 
 export default function Positionering() {
   const hasImage = Boolean(POSITIONERING_IMAGE);
+  const highlightRef = useRef<HTMLSpanElement>(null);
+  const [highlightInView, setHighlightInView] = useState(false);
+
+  useEffect(() => {
+    const el = highlightRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        setHighlightInView(!!entry?.isIntersecting);
+      },
+      { threshold: 0.5, rootMargin: "0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <section
@@ -16,7 +35,7 @@ export default function Positionering() {
       <div className="flex flex-col justify-center px-4 py-16 md:px-6 md:py-24 lg:px-8 lg:pl-12 xl:pl-16">
         <div className="mx-auto w-full max-w-2xl space-y-6 text-lg font-medium text-zinc-400 md:text-xl">
           <h2 id="positionering-heading" className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-            Jouw gezicht is je sterkste marketingkanaal.
+            <span ref={highlightRef} className={`positionering-highlight ${highlightInView ? "in-view" : ""}`}>Jouw gezicht</span> is je sterkste marketingkanaal.
           </h2>
           <p>
             In een wereld vol advertenties vertrouwen mensen geen merken meer.
@@ -25,6 +44,14 @@ export default function Positionering() {
           <p className="font-semibold text-white">
             Als jij niet zichtbaar bent, wint iemand anders jouw markt.
           </p>
+          <div className="pt-2">
+            <Link
+              href="/cases"
+              className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors"
+            >
+              Bekijk onze cases
+            </Link>
+          </div>
         </div>
       </div>
       {/* Foto – rechterkant, volledige helft,zelfde hoogte/verhouding als voorheen (aspect 4/3) */}

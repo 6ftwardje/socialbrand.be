@@ -90,6 +90,26 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+/** Primary nav for mobile menu (main sections, max 5–7). Contact moved to secondary. */
+export const mobilePrimaryLinks = [
+  { href: "/", label: "Home" },
+  { href: "/aanbod", label: "Aanbod" },
+  { href: "/methode", label: "Methode" },
+  { href: "/cases", label: "Cases" },
+  { href: "/over-ons", label: "Over ons" },
+] as const;
+
+/** Secondary links for mobile menu (utility: privacy, contact, socials). */
+export const mobileSecondaryLinks = [
+  { href: "/privacy", label: "Privacy" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+export const socialLinks = [
+  { href: "https://www.linkedin.com/company/socialbrand", label: "LinkedIn" },
+  { href: "https://www.instagram.com/socialbrand.be", label: "Instagram" },
+] as const;
+
 export const revenueRangeOptions = [
   { value: "", label: "Selecteer omzetrange" },
   { value: "10k-25k", label: "€10k – €25k/maand" },
