@@ -5,7 +5,7 @@ import CTASection from "@/components/ui/CTASection";
 export const metadata = {
   title: "Cases | SocialBrand",
   description:
-    "Cases van SocialBrand: Chris Henry, The Health Junkie, VastgoedAcademie, Cryptoriez. Thought leadership en persoonlijk merk.",
+    "Cases van SocialBrand: Chris Henry, Rousso Van Hoorn, SimCenter, Cryptoriez. Thought leadership en persoonlijk merk.",
 };
 
 export default function CasesPage() {

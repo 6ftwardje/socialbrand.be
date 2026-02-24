@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { CaseStudy } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -6,7 +7,7 @@ const chipClass =
   "rounded-full border border-zinc-700 bg-transparent px-3 py-1 text-xs text-zinc-400 transition-colors hover:border-zinc-600";
 
 export default function CaseListItem({ caseStudy }: { caseStudy: CaseStudy }) {
-  const { slug, name, subtitle, tags } = caseStudy;
+  const { slug, name, subtitle, tags, imageUrl } = caseStudy;
   return (
     <Link
       href={`/cases/${slug}`}
@@ -16,12 +17,23 @@ export default function CaseListItem({ caseStudy }: { caseStudy: CaseStudy }) {
       )}
     >
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
-        {/* Illustratie placeholder */}
         <div
-          className="w-full aspect-[4/3] sm:w-48 sm:shrink-0 sm:aspect-square rounded-lg border border-zinc-800 bg-zinc-800/60 flex items-center justify-center text-zinc-500 text-xs uppercase tracking-wider"
+          className="relative w-full aspect-[4/3] sm:w-48 sm:shrink-0 sm:aspect-square rounded-lg border border-zinc-800 bg-zinc-800/60 overflow-hidden"
           aria-hidden
         >
-          Illustratie
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 192px"
+            />
+          ) : (
+            <span className="flex h-full w-full items-center justify-center text-zinc-500 text-xs uppercase tracking-wider">
+              Illustratie
+            </span>
+          )}
         </div>
         <div className="min-w-0 flex-1 flex flex-col gap-3">
           <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between md:gap-6">

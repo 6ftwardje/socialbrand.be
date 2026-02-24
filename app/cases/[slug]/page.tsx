@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { cases } from "@/lib/content";
 import type { CaseStudy } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -48,6 +49,7 @@ export default async function CasePage({
     challenge,
     approach,
     result,
+    imageUrl,
   } = caseStudy;
 
   return (
@@ -62,11 +64,24 @@ export default async function CasePage({
         </Link>
       </div>
 
-      {/* Hero placeholder */}
-      <div className="mt-8 aspect-[21/9] w-full bg-zinc-900 border-y border-zinc-800 flex items-center justify-center">
-        <span className="text-xs uppercase tracking-wider text-zinc-600">
-          Hero image / video placeholder
-        </span>
+      {/* Hero image */}
+      <div className="relative mt-8 aspect-[21/9] w-full border-y border-zinc-800 overflow-hidden bg-zinc-900">
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center">
+            <span className="text-xs uppercase tracking-wider text-zinc-600">
+              Hero image
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Article header */}
