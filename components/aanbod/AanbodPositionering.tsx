@@ -2,7 +2,7 @@ export default function AanbodPositionering() {
   return (
     <section
       id="positionering"
-      className="w-full py-12 md:py-16 border-t border-zinc-800/50 bg-zinc-950/80"
+      className="w-full py-12 md:py-16 bg-zinc-950/80"
       aria-labelledby="positionering-heading"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">

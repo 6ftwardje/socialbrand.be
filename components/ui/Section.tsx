@@ -36,7 +36,6 @@ export default function Section({ children, className, title, subtitle, id, full
       className={cn(
         "w-full py-16 md:py-24",
         fullWidth && (alt ? "bg-zinc-950/80" : "bg-[var(--background)]"),
-        fullWidth && "border-t border-zinc-800/50",
         !fullWidth && "mx-auto max-w-7xl px-4 md:px-6",
         className
       )}

@@ -9,7 +9,7 @@ export default function AanbodSocialProof() {
   return (
     <section
       id="social-proof"
-      className="w-full py-16 md:py-24 border-t border-zinc-800/50"
+      className="w-full py-16 md:py-24"
       aria-labelledby="social-proof-heading"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">

@@ -2,24 +2,41 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
-const HERO_IMAGE =
-  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/podcaststudio-15.webp";
+import { useRef, useLayoutEffect } from "react";
+import { useCriticalAsset } from "@/components/CriticalAssetsProvider";
+import { HERO_IMAGE_URL } from "@/lib/critical-assets";
 
 export default function Hero() {
+  const registerCriticalAsset = useCriticalAsset()?.registerCriticalAsset;
+  const resolveRef = useRef<(() => void) | null>(null);
+
+  useLayoutEffect(() => {
+    if (!registerCriticalAsset) return;
+    const promise = new Promise<void>((resolve) => {
+      resolveRef.current = resolve;
+    });
+    registerCriticalAsset("hero-image", promise);
+  }, [registerCriticalAsset]);
+
+  const handleLoadingComplete = () => {
+    resolveRef.current?.();
+    resolveRef.current = null;
+  };
+
   return (
     <section
       className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden -mt-20 pt-20"
       aria-labelledby="hero-heading"
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 min-h-[90vh]" aria-hidden>
         <Image
-          src={HERO_IMAGE}
+          src={HERO_IMAGE_URL}
           alt=""
           fill
           className="object-cover"
           priority
-          sizes="100vw"
+          sizes="(max-width: 1920px) 100vw, 1920px"
+          onLoadingComplete={handleLoadingComplete}
         />
       </div>
       <div className="absolute inset-0 bg-black/60" aria-hidden />

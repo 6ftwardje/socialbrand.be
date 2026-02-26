@@ -8,6 +8,8 @@ const NAVBAR_LOGO_SRC =
   "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/navbar.png";
 
 const FADE_DURATION_MS = 250;
+/** Fade-out duration for initial load (above-the-fold assets); 300–500ms. */
+const FADE_DURATION_MS_INITIAL = 400;
 const MIN_VISIBLE_MS = 250;
 
 export interface BrandLoaderProps {
@@ -17,6 +19,8 @@ export interface BrandLoaderProps {
   isExiting?: boolean;
   /** Optional class for the overlay root */
   className?: string;
+  /** Override fade duration (ms); default 250, use FADE_DURATION_MS_INITIAL for initial load */
+  fadeDurationMs?: number;
 }
 
 /**
@@ -27,6 +31,7 @@ export default function BrandLoader({
   progress,
   isExiting = false,
   className,
+  fadeDurationMs = FADE_DURATION_MS,
 }: BrandLoaderProps) {
   const isIndeterminate = progress === null;
 
@@ -42,7 +47,7 @@ export default function BrandLoader({
       )}
       style={
         {
-          "--loader-fade-duration": `${FADE_DURATION_MS}ms`,
+          "--loader-fade-duration": `${fadeDurationMs}ms`,
         } as React.CSSProperties
       }
     >
@@ -83,4 +88,4 @@ export default function BrandLoader({
   );
 }
 
-export { FADE_DURATION_MS, MIN_VISIBLE_MS };
+export { FADE_DURATION_MS, FADE_DURATION_MS_INITIAL, MIN_VISIBLE_MS };

@@ -15,7 +15,7 @@ export default function Resultaat90() {
   return (
     <section
       id="resultaat-90"
-      className="w-full py-16 md:py-24 border-t border-zinc-800/50 bg-zinc-950/80"
+      className="w-full py-16 md:py-24 bg-zinc-950/80"
       aria-labelledby="resultaat-heading"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">

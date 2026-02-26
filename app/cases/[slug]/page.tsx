@@ -146,7 +146,7 @@ export default async function CasePage({
       </div>
 
       {/* Media section – placeholders */}
-      <section className="border-t border-zinc-800 bg-zinc-950/50 py-16">
+      <section className="bg-zinc-950/50 py-16">
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500">
             Beeldmateriaal
