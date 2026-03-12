@@ -4,7 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRef, useLayoutEffect } from "react";
 import { useCriticalAsset } from "@/components/CriticalAssetsProvider";
-import { HERO_IMAGE_URL } from "@/lib/critical-assets";
+import {
+  HERO_IMAGE_URL,
+  HERO_VIDEO_MP4_URL,
+  HERO_VIDEO_URL,
+} from "@/lib/critical-assets";
 
 export default function Hero() {
   const registerCriticalAsset = useCriticalAsset()?.registerCriticalAsset;
@@ -25,19 +29,32 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden -mt-20 pt-20"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-20 pt-20"
       aria-labelledby="hero-heading"
     >
-      <div className="absolute inset-0 min-h-[90vh]" aria-hidden>
+      <div className="absolute inset-0 min-h-screen w-full" aria-hidden>
+        {/* Hidden image loads poster so critical asset resolves on poster load, not video */}
         <Image
           src={HERO_IMAGE_URL}
           alt=""
           fill
-          className="object-cover"
+          className="object-cover opacity-0 pointer-events-none"
           priority
           sizes="(max-width: 1920px) 100vw, 1920px"
           onLoadingComplete={handleLoadingComplete}
         />
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          poster={HERO_IMAGE_URL}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src={HERO_VIDEO_MP4_URL} type="video/mp4" />
+          <source src={HERO_VIDEO_URL} type="video/quicktime" />
+        </video>
       </div>
       <div className="absolute inset-0 bg-black/60" aria-hidden />
 
