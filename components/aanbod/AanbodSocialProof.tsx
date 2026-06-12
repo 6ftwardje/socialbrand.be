@@ -24,20 +24,27 @@ export default function AanbodSocialProof() {
         </p>
         <div className="grid gap-6 md:grid-cols-3">
           {CASE_TEASERS.map((c) => (
-            <Link
+            <article
               key={c.id}
-              href={`/cases/${c.slug}`}
-              className="block rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 transition-colors hover:border-zinc-600 hover:bg-zinc-900/60 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
+              className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6"
             >
               <span className="text-sm font-medium uppercase tracking-wider text-[var(--accent)]">
                 {c.niche}
               </span>
               <h3 className="mt-2 text-xl font-bold text-white">{c.name}</h3>
-              <p className="mt-2 text-sm text-zinc-400">{c.result}</p>
-              <span className="mt-4 inline-flex items-center text-sm font-semibold text-[var(--accent)]">
-                Lees case →
-              </span>
-            </Link>
+              <p className="mt-2 text-sm text-zinc-400">{c.subtitle}</p>
+              {c.externalUrl && (
+                <a
+                  href={c.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+                >
+                  Bekijk werk
+                  <span aria-hidden>↗</span>
+                </a>
+              )}
+            </article>
           ))}
         </div>
         <p className="mt-10 text-center">

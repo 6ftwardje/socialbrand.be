@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { CaseStudy } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -100,11 +99,7 @@ export default function CaseCard({ caseStudy, variant = "teaser" }: CaseCardProp
   );
 
   if (variant === "teaser") {
-    return (
-      <Link href={`/cases/${caseStudy.slug}`} className="block outline-none">
-        {article}
-      </Link>
-    );
+    return article;
   }
 
   return article;

@@ -23,12 +23,7 @@ export default function CasesTeaser() {
                 {featuredCase.niche}
               </span>
               <h3 className="mt-2 text-2xl font-semibold text-white md:text-3xl">
-                <Link
-                  href={`/cases/${featuredCase.slug}`}
-                  className="hover:text-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
-                >
-                  {featuredCase.name}
-                </Link>
+                {featuredCase.name}
               </h3>
               <p className="mt-2 text-lg font-medium text-zinc-300">
                 {featuredCase.subtitle}
@@ -36,12 +31,17 @@ export default function CasesTeaser() {
               <p className="mt-2 text-zinc-500">
                 {featuredCase.result}
               </p>
-              <Link
-                href={`/cases/${featuredCase.slug}`}
-                className="mt-4 inline-block text-base font-bold text-[var(--accent)] hover:underline"
-              >
-                Lees de case →
-              </Link>
+              {featuredCase.externalUrl && (
+                <a
+                  href={featuredCase.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-base font-bold text-[var(--accent)] transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
+                >
+                  Bekijk werk
+                  <span aria-hidden>↗</span>
+                </a>
+              )}
             </div>
 
             <div className="mt-10">

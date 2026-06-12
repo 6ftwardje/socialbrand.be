@@ -1,61 +1,35 @@
-import Link from "next/link";
-import Image from "next/image";
 import type { CaseStudy } from "@/lib/content";
-import { cn } from "@/lib/utils";
-
-const chipClass =
-  "rounded-full border border-zinc-700 bg-transparent px-3 py-1 text-xs text-zinc-400 transition-colors hover:border-zinc-600";
 
 export default function CaseListItem({ caseStudy }: { caseStudy: CaseStudy }) {
-  const { slug, name, subtitle, tags, imageUrl } = caseStudy;
+  const { name, subtitle, niche, externalUrl } = caseStudy;
   return (
-    <Link
-      href={`/cases/${slug}`}
-      className={cn(
-        "group block border-b border-zinc-800/80 py-8 transition-colors md:py-10",
-        "hover:border-zinc-700/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
-      )}
-    >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
-        <div
-          className="relative w-full aspect-[4/3] sm:w-48 sm:shrink-0 sm:aspect-square rounded-lg border border-zinc-800 bg-zinc-800/60 overflow-hidden"
-          aria-hidden
-        >
-          {imageUrl ? (
-            <Image
-              src={imageUrl}
-              alt=""
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, 192px"
-            />
-          ) : (
-            <span className="flex h-full w-full items-center justify-center text-zinc-500 text-xs uppercase tracking-wider">
-              Illustratie
-            </span>
+    <article className="border-b border-zinc-800/80 py-7 md:py-9">
+      <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-8">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
+            {niche}
+          </span>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            {name}
+          </h2>
+        </div>
+        <div>
+          <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
+            {subtitle}
+          </p>
+          {externalUrl && (
+            <a
+              href={externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+            >
+              Bekijk werk
+              <span aria-hidden>↗</span>
+            </a>
           )}
         </div>
-        <div className="min-w-0 flex-1 flex flex-col gap-3">
-          <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between md:gap-6">
-            <div className="min-w-0 flex-1">
-              <h2 className="text-xl font-semibold tracking-tight text-white transition-colors group-hover:text-[var(--accent)] md:text-2xl">
-                {name}
-              </h2>
-              <p className="mt-1 text-sm text-zinc-400 md:text-base">{subtitle}</p>
-            </div>
-            <div className="flex flex-wrap gap-2 md:shrink-0">
-              {tags.map((tag) => (
-                <span key={tag} className={chipClass}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-          <span className="mt-1 inline-block text-xs font-medium uppercase tracking-wider text-[var(--accent)] opacity-0 transition-opacity group-hover:opacity-100">
-            Lees case →
-          </span>
-        </div>
       </div>
-    </Link>
+    </article>
   );
 }
