@@ -133,17 +133,18 @@ export const cases: CaseStudy[] = [
 ];
 
 export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
   { href: "/cases", label: "Cases" },
+  { href: "/services", label: "Diensten" },
+  { href: "/#over-office6", label: "Over Office6" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 /** Primary nav for mobile menu (main sections, max 5–7). Contact moved to secondary. */
 export const mobilePrimaryLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
   { href: "/cases", label: "Cases" },
+  { href: "/services", label: "Diensten" },
+  { href: "/#over-office6", label: "Over Office6" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 /** Secondary links for mobile menu (utility: privacy, contact, socials). */
