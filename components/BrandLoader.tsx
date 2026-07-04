@@ -5,7 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const NAVBAR_LOGO_SRC =
-  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/navbar.png";
+  "/logos/office6-white.png";
 
 const FADE_DURATION_MS = 250;
 /** Fade-out duration for initial load (above-the-fold assets); 300–500ms. */
@@ -57,9 +57,9 @@ export default function BrandLoader({
       <div className="mb-10 flex flex-col items-center gap-2">
         <Image
           src={NAVBAR_LOGO_SRC}
-          alt="Socialbrand"
-          width={160}
-          height={44}
+          alt="Office6"
+          width={590}
+          height={104}
           className="h-8 w-auto object-contain md:h-10"
           aria-hidden
           priority

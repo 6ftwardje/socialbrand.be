@@ -61,13 +61,16 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 text-center">
         <h1
           id="hero-heading"
-          className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
+          className="text-5xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl xl:text-8xl"
           style={{ fontFamily: "var(--font-neue-montreal)" }}
         >
-          In 2025 zijn gezichten even belangrijk als logo&apos;s.
+          Office6
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-zinc-300 font-medium max-w-2xl mx-auto">
-          Je publiek wil verbinden met mensen. Niet met een merk.
+        <p className="mt-6 text-xl font-semibold text-white md:text-2xl">
+          Content creation. Performance marketing. Custom platforms.
+        </p>
+        <p className="mt-5 text-lg md:text-xl text-zinc-300 font-medium max-w-2xl mx-auto">
+          We bouwen content, campagnes en digitale systemen voor merken die menselijker willen communiceren en meetbaar willen groeien.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           <Link
@@ -77,7 +80,7 @@ export default function Hero() {
             Plan een strategiegesprek
           </Link>
           <a
-            href="https://wa.me/32485714104?text=Hey%20SocialBrand%2C%20ik%20wil%20weten%20of%20personal%20branding%20voor%20mijn%20bedrijf%20interessant%20is."
+            href="https://wa.me/32485714104?text=Hey%20Office6%2C%20ik%20wil%20weten%20wat%20jullie%20kunnen%20betekenen%20voor%20onze%20content%2C%20campagnes%20of%20platformen."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 text-white border border-neutral-700 px-6 py-4 text-base font-bold hover:bg-[#2ad366] transition-colors"

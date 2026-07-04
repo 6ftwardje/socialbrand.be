@@ -7,7 +7,7 @@ export default function PackagesTeaser() {
     <section className="w-full py-16 md:py-24 bg-[var(--background)]" id="aanbod-teaser">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl mb-12">
-          Pakketten
+          Wat we bouwen
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           {packages.map((pkg) => (
@@ -16,10 +16,10 @@ export default function PackagesTeaser() {
         </div>
         <p className="mt-10 text-center">
           <Link
-            href="/aanbod"
+            href="/services"
             className="text-base font-bold text-[var(--accent)] hover:underline"
           >
-            Bekijk volledig aanbod →
+            Bekijk alle services →
           </Link>
         </p>
       </div>

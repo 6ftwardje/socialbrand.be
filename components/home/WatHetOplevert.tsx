@@ -10,13 +10,13 @@ const ITEMS = [
 export default function WatHetOplevert() {
   return (
     <Section
-      title="Personal branding die het verschil maakt."
+      title="Marketing die het verschil maakt."
       id="resultaat"
       fullWidth
       alt
     >
       <p className="max-w-2xl text-lg text-zinc-400 font-medium mb-12">
-        Een sterke personal brand is meer dan zichtbaarheid.
+        Sterke groei vraagt meer dan zichtbaarheid.
       </p>
       <p className="text-sm font-bold uppercase tracking-wider text-[var(--accent)] mb-6">Het zorgt voor:</p>
       <div className="grid gap-6 md:grid-cols-2 max-w-4xl">

@@ -33,6 +33,10 @@
   --font-neue-montreal: "Neue Montreal", var(--font-geist-sans), system-ui, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -70,6 +74,48 @@ body {
   font-family: var(--font-neue-montreal);
 }
 
+.logo-marquee-mask {
+  --logo-gap: 4.5rem;
+  --logo-duration: 34s;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4rem,
+    black calc(100% - 4rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4rem,
+    black calc(100% - 4rem),
+    transparent
+  );
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: logo-marquee var(--logo-duration) linear infinite;
+}
+
+.logo-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: var(--logo-gap);
+  padding-right: var(--logo-gap);
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 /* Subtiele bewegende gradient voor Traject90-section */
 @keyframes traject-gradient {
   0%,
@@ -93,7 +139,7 @@ body {
   animation: traject-gradient 18s ease infinite;
 }
 
-/* On-scroll highlight voor "Jouw gezicht" in Positionering */
+/* On-scroll highlight voor de menselijke positionering */
 .positionering-highlight {
   display: inline-block;
   font-weight: 800; /* Zelfde font, extra bold (extrabold) */
@@ -217,6 +263,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .loader-overlay,
   .loader-overlay * {
     animation-duration: 0.01ms !important;
@@ -227,5 +277,16 @@ body {
     animation: none;
     width: 50%;
     transform: translateX(-25%);
+  }
+  .logo-marquee-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow-x: auto;
+  }
+  .logo-marquee-track {
+    animation: none;
+  }
+  .logo-marquee-track .logo-marquee-group[aria-hidden="true"] {
+    display: none;
   }
 }

@@ -15,7 +15,7 @@ export default function ProcesSectie() {
           Hoe het werkt
         </h2>
         <p className="text-lg text-zinc-400 font-medium max-w-2xl mb-12">
-          Van intake tot publicatie: voorspelbaar en helder.
+          Van strategie tot lancering en optimalisatie: voorspelbaar, helder en meetbaar.
         </p>
         <div className="grid gap-8 md:grid-cols-3">
           {methodSteps.map((step, i) => (

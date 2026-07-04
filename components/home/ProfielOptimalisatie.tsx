@@ -10,12 +10,12 @@ const BULLETS = [
 export default function ProfielOptimalisatie() {
   return (
     <Section
-      title="Jouw profiel is je etalage."
+      title="Je platformen zijn je etalage."
       id="profiel"
       fullWidth
     >
       <p className="max-w-2xl text-lg text-zinc-400 font-medium mb-10">
-        Personal branding stopt niet bij content. We zorgen dat je LinkedIn en andere platformen je expertise uitstralen.
+        Goede content stopt niet bij publicatie. We zorgen dat je kanalen, landingspagina&apos;s en flows hetzelfde verhaal vertellen.
       </p>
       <ul className="max-w-2xl space-y-3 text-lg text-zinc-300 font-medium">
         {BULLETS.map((text, i) => (

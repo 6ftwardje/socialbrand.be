@@ -1,14 +1,14 @@
 const EXPECTATIONS = [
-  "Een herkenbare stem in je niche",
-  "Een stabiele stroom content die voor je werkt",
-  "Minder ad-hoc, meer strategie en ritme",
-  "Duidelijke voortgang en feedbackmomenten",
+  "Een duidelijk verhaal en herkenbare contentlijn",
+  "Creatives en campagnes die elkaar versterken",
+  "Minder ad-hoc werk, meer strategie en ritme",
+  "Digitale flows die leads, intake of conversie ondersteunen",
 ];
 
 const PHASES = [
-  { month: "Maand 1", label: "Fundament" },
-  { month: "Maand 2", label: "Zichtbaarheid" },
-  { month: "Maand 3", label: "Autoriteit" },
+  { month: "Stap 1", label: "Strategie" },
+  { month: "Stap 2", label: "Build" },
+  { month: "Stap 3", label: "Optimalisatie" },
 ];
 
 export default function Resultaat90() {
@@ -23,10 +23,10 @@ export default function Resultaat90() {
           id="resultaat-heading"
           className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl"
         >
-          Wat je na 90 dagen mag verwachten
+          Wat je mag verwachten
         </h2>
         <p className="mt-4 max-w-2xl text-lg text-zinc-400 font-medium">
-          Bij Authority en Leadership bouwen we in drie maanden aan een personal brand die voor je werkt.
+          We bouwen geen losse marketingassets, maar een systeem waarin content, media en platformen samen vooruitgaan.
         </p>
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
           <ul className="space-y-3 text-lg font-medium text-zinc-300">
@@ -39,7 +39,7 @@ export default function Resultaat90() {
           </ul>
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">
-              90 dagen in 3 fases
+              Werkwijze
             </p>
             <div className="flex gap-2 rounded-lg border border-zinc-800 bg-zinc-900/40 p-4">
               {PHASES.map((phase, i) => (

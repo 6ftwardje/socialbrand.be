@@ -58,7 +58,7 @@ export interface RadioOption {
 }
 
 export const brandTypeOptions: ChipOption[] = [
-  { value: "personal-brand", label: "Personal brand" },
+  { value: "personal-brand", label: "Founder/expert brand" },
   { value: "bedrijfsbrand", label: "Bedrijfsbrand" },
   { value: "beide", label: "Beide" },
   { value: "nog-in-opbouw", label: "Nog in opbouw" },
@@ -77,7 +77,7 @@ export const marketingPartnersOptions: ChipOption[] = [
 ];
 
 export const teamSizeOptions: RadioOption[] = [
-  { value: "solo", label: "Solo founder" },
+  { value: "solo", label: "Solo ondernemer" },
   { value: "2-5", label: "2–5" },
   { value: "6-15", label: "6–15" },
   { value: "16-50", label: "16–50" },

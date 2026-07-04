@@ -129,11 +129,11 @@ export default function Navbar() {
             style={{ fontFamily: "var(--font-neue-montreal)" }}
           >
             <Image
-              src="https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/navbar.png"
-              alt="Socialbrand"
-              width={160}
-              height={44}
-              className="h-4 w-auto md:h-6 object-contain"
+              src="/logos/office6-white.png"
+              alt="Office6"
+              width={590}
+              height={104}
+              className="h-5 w-auto object-contain md:h-7"
               priority
             />
           </Link>

@@ -35,14 +35,14 @@ export default function Positionering() {
       <div className="flex flex-col justify-center px-4 py-16 md:px-6 md:py-24 lg:px-8 lg:pl-12 xl:pl-16">
         <div className="mx-auto w-full max-w-2xl space-y-6 text-lg font-medium text-zinc-400 md:text-xl">
           <h2 id="positionering-heading" className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-            <span ref={highlightRef} className={`positionering-highlight ${highlightInView ? "in-view" : ""}`}>Jouw gezicht</span> is je sterkste marketingkanaal.
+            <span ref={highlightRef} className={`positionering-highlight ${highlightInView ? "in-view" : ""}`}>Menselijke content</span> maakt merken sterker.
           </h2>
           <p>
-            In een wereld vol advertenties vertrouwen mensen geen merken meer.
-            Ze volgen mensen. Ze kopen van mensen. Ze verbinden met mensen.
+            In een wereld vol advertenties en generieke AI-output winnen merken die echt aanvoelen.
+            Mensen vertrouwen mensen, verhalen en bewijs.
           </p>
           <p className="font-semibold text-white">
-            Als jij niet zichtbaar bent, wint iemand anders jouw markt.
+            Office6 vertaalt dat menselijke DNA naar content, campagnes en platformen die blijven werken.
           </p>
           <div className="pt-2">
             <Link
@@ -62,7 +62,7 @@ export default function Positionering() {
         {hasImage ? (
           <Image
             src={POSITIONERING_IMAGE}
-            alt="Jouw gezicht als sterkste marketingkanaal"
+            alt="Menselijke contentproductie voor merken"
             fill
             className="object-cover object-center"
             sizes="(max-width: 1023px) 100vw, 50vw"

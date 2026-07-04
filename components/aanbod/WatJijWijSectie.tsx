@@ -16,16 +16,16 @@ export default function WatJijWijSectie() {
           <div>
             <h3 className="text-xl font-bold text-white">Wat jij aanlevert</h3>
             <p className="mt-3 text-zinc-400">
-              Jij levert input: bestaande b-roll, foto&apos;s, content, je verhaal. Wij halen de rest boven en nemen productie en planning uit handen. Geen eindeloze briefing — we werken vanuit één strategische intake en story extraction.
+              Jij levert input: bestaande content, merkcontext, doelen, aanbod en inzichten uit je markt. Wij brengen structuur aan en bepalen wat nodig is voor content, campagnes of platform.
             </p>
           </div>
           <div>
             <h3 className="text-xl font-bold text-white">Wat wij doen</h3>
             <ul className="mt-3 space-y-2 text-zinc-400">
-              <li>Intake en positionering</li>
-              <li>Story extraction en opnames</li>
-              <li>Editing, review en publicatie</li>
-              <li>Contentplanning en engagement</li>
+              <li>Strategie en positionering</li>
+              <li>Contentconcepten, scripts en productie</li>
+              <li>Campagne-opzet, testing en optimalisatie</li>
+              <li>Websites, flows en platformonderdelen</li>
             </ul>
           </div>
         </div>

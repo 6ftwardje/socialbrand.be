@@ -5,7 +5,7 @@ import WordLoader from "@/components/WordLoader";
 import LeadCapture from "@/components/LeadCapture";
 
 const LOGO_URL =
-  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/HTP/socialbrand%20png.png";
+  "/logos/office6-white.png";
 
 export default function HomePage() {
   return (
@@ -20,9 +20,9 @@ export default function HomePage() {
         <header className="text-center">
           <Image
             src={LOGO_URL}
-            alt="SocialBrand"
-            width={200}
-            height={80}
+            alt="Office6"
+            width={590}
+            height={104}
             className="mx-auto mb-8 sm:mb-10 h-auto w-40 sm:w-48"
             priority
           />

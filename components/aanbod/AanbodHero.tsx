@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-const HERO_HEADLINE = "Van ondernemer naar erkende stem in jouw niche. In 90 dagen.";
+const HERO_HEADLINE = "Content, campagnes en platformen voor merken die willen groeien.";
 const HERO_SUBHEAD =
-  "Long-form content, podcasts en short-form distributie. Voor founders en bedrijven die hun gezicht centraal zetten.";
+  "Office6 combineert content creation, performance marketing en custom platforms in trajecten op maat.";
 const CTA_SUBTEXT = "Kennismakingscall (±30 min). Geen verkooppraatje — we kijken of we bij elkaar passen.";
-const FOR_WHO = "Voor ondernemers en bedrijven met min. €10k/maand omzet.";
+const FOR_WHO = "Voor merken die menselijker willen communiceren en groei meetbaar willen maken.";
 
 export default function AanbodHero() {
   return (

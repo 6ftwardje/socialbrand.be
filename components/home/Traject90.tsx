@@ -4,17 +4,17 @@ import Link from "next/link";
 import { useState } from "react";
 
 const BULLETS = [
-  "Long-form content die je positioneert als expert",
-  "Podcasts + krachtige short-form clips",
-  "Meerdere posts per week met duidelijke messaging",
-  "Een consistente visuele en inhoudelijke identiteit",
-  "Content die vertrouwen én conversie opbouwt",
+  "Een scherp verhaal en duidelijke contentpijlers",
+  "Creatives die organisch en paid kunnen werken",
+  "Campagnes die leren uit data en gedrag",
+  "Platformen die leads, intake of conversie ondersteunen",
+  "Een ritme waarin content, performance en systemen elkaar versterken",
 ];
 
 const PHASES = [
-  { month: "Maand 1", label: "Fundament" },
-  { month: "Maand 2", label: "Zichtbaarheid" },
-  { month: "Maand 3", label: "Autoriteit" },
+  { month: "Stap 1", label: "Strategie" },
+  { month: "Stap 2", label: "Creatie" },
+  { month: "Stap 3", label: "Groei" },
 ];
 
 export default function Traject90() {
@@ -33,10 +33,10 @@ export default function Traject90() {
             id="traject-90-title"
             className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl"
           >
-            Van ondernemer naar thought leader in 90 dagen.
+            Van losse marketing naar een groeisysteem.
           </h2>
           <p className="mt-3 md:mt-4 max-w-3xl text-lg font-medium text-white/90 md:text-xl">
-            Geen losse posts. Geen willekeurige content. Een strategisch opgebouwde zichtbaarheid.
+            Geen losse assets zonder richting. Wel een systeem waarin verhaal, distributie en conversie samenwerken.
           </p>
         </header>
 
@@ -57,7 +57,7 @@ export default function Traject90() {
             onMouseLeave={() => setHoveredPhase(null)}
           >
             <p className="mb-2.5 text-xs font-medium uppercase tracking-wider text-white/70">
-              90 dagen in 3 fases
+              Onze werkwijze
             </p>
             <div className="flex h-2 gap-0.5 overflow-hidden rounded-full bg-white/20">
               {PHASES.map((_, i) => (
@@ -90,15 +90,14 @@ export default function Traject90() {
         </div>
 
         <p className="mt-8 text-xl font-semibold text-white md:mt-10">
-          In 3 maanden bouw je een personal brand die voor je werkt. Niet alleen bereik. Maar
-          autoriteit.
+          Het resultaat: content die menselijk voelt, campagnes die leren en platformen die meewerken aan groei.
         </p>
         <div className="mt-6 md:mt-8">
           <Link
             href="/intake"
             className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-bold text-[var(--accent)] transition-colors hover:bg-zinc-100"
           >
-            Start jouw traject
+            Start met Office6
           </Link>
         </div>
       </div>

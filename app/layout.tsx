@@ -23,16 +23,16 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "SocialBrand | Personal Branding Agency",
+  title: "Office6 | Content Agency",
   description:
-    "Thought leadership en persoonlijk merk in 90 dagen. Value-based content voor coaches, gezonde merken en vastgoed. Geen aftermovies—wel autoriteit.",
+    "Content creation, performance marketing en custom platforms voor merken die menselijker willen communiceren en meetbaar willen groeien.",
   icons: {
-    icon: "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/favicon.png",
+    icon: "/logos/office6-black.png",
   },
   openGraph: {
-    title: "SocialBrand | Personal Branding Agency",
+    title: "Office6 | Content Agency",
     description:
-      "Thought leadership en persoonlijk merk in 90 dagen. Value-based content voor coaches, gezonde merken en vastgoed.",
+      "Content creation, performance marketing en custom platforms voor merken die menselijker willen communiceren en meetbaar willen groeien.",
     locale: "nl_BE",
   },
 };

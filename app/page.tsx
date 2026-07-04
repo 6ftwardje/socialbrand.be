@@ -1,27 +1,23 @@
 import Hero from "@/components/home/Hero";
+import LogoCarousel from "@/components/home/LogoCarousel";
 import Positionering from "@/components/home/Positionering";
 import IntroVideoSection from "@/components/home/IntroVideoSection";
-import Traject90 from "@/components/home/Traject90";
-import ExpressFormat from "@/components/home/ExpressFormat";
 import CasesTeaser from "@/components/home/CasesTeaser";
-import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/ui/CTASection";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <LogoCarousel />
       <Positionering />
       <IntroVideoSection />
-      <Traject90 />
-      <ExpressFormat />
       <CasesTeaser />
-      <FAQSection />
       <CTASection
-        title="Jouw persoonlijke merk begint hier."
-        subtitle="Je personal brand is je superkracht."
-        paragraph="Wij zorgen dat jouw zichtbaarheid net zo krachtig wordt als jouw ideeën. Klaar om dominant te worden in jouw niche?"
-        primaryCtaText="Plan een strategiegesprek"
+        title="Klaar om Office6 in te schakelen?"
+        subtitle="Content, campagnes en platformen die elkaar versterken."
+        paragraph="Vertel ons waar je merk vandaag staat. We denken mee over de juiste volgende stap."
+        primaryCtaText="Plan een kennismakingscall"
         primaryCtaHref="/intake"
         showSecondaryLink={false}
       />

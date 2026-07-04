@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Contact | Boek een call | SocialBrand",
+  title: "Contact | Boek een call | Office6",
   description:
-    "Boek een vrijblijvende call met SocialBrand. Vul ons korte intake formulier in—we reageren binnen 24 uur.",
+    "Boek een vrijblijvende call met Office6. Vul ons korte intake formulier in - we reageren binnen 24 uur.",
 };
 
 export default function ContactPage() {
@@ -14,7 +14,7 @@ export default function ContactPage() {
           Boek een call
         </h1>
         <p className="mt-4 max-w-2xl text-zinc-400 md:text-lg">
-          Klaar om je persoonlijk merk te versterken? Vul ons korte intake formulier in. We nemen binnen 24 uur contact op.
+          Klaar om je content, campagnes of platform naar het volgende niveau te brengen? Vul ons korte intake formulier in. We nemen binnen 24 uur contact op.
         </p>
 
         <div className="mt-10 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 md:p-8">

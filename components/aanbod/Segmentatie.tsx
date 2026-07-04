@@ -7,23 +7,23 @@ const SEGMENTS: {
   badge?: string;
 }[] = [
   {
-    id: "launch",
-    title: "Launch",
+    id: "content-creation",
+    title: "Content Creation",
     description:
-      "Je wilt professioneel van start. Eenmalige investering, duidelijke basis: positionering, één sterke long-form, clips en een 30-dagen roadmap.",
+      "Je wilt een herkenbare contentbasis: strategie, formats, productie, editing en planning.",
   },
   {
-    id: "authority",
-    title: "Authority",
+    id: "performance-marketing",
+    title: "Performance Marketing",
     badge: "Meest gekozen",
     description:
-      "Je wilt structureel groeien. Maandelijkse content-engine, herkenning en autoriteit. Min. 3 maanden — de sweet spot voor wie serieus wil investeren.",
+      "Je wilt content koppelen aan campagnes, testing, funnels en duidelijke commerciële learnings.",
   },
   {
-    id: "leadership",
-    title: "Leadership",
+    id: "custom-platforms",
+    title: "Custom Platforms",
     description:
-      "Je wilt marktleider worden. Meer long-form, meer clips, strategische sessies en positioneringscoaching. Voor wie het maximale wil.",
+      "Je wilt een website, landing page, intakeflow, dashboard of platform dat je groei ondersteunt.",
   },
 ];
 
@@ -43,10 +43,10 @@ export default function Segmentatie() {
           id="segmentatie-heading"
           className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl mb-4"
         >
-          Welk pakket past bij jou?
+          Welke pijler past bij jou?
         </h2>
         <p className="text-lg text-zinc-400 font-medium max-w-2xl mb-12">
-          Kies op basis van je doel: eenmalig lanceren, structureel groeien of marktleider worden.
+          Kies op basis van je doel: content bouwen, campagnes opschalen of een digitaal systeem ontwikkelen.
         </p>
         <div className="grid gap-6 md:grid-cols-3">
           {SEGMENTS.map((seg) => (
@@ -64,7 +64,7 @@ export default function Segmentatie() {
               <h3 className="text-xl font-bold text-white">{seg.title}</h3>
               <p className="mt-2 text-sm text-zinc-400">{seg.description}</p>
               <span className="mt-4 inline-flex items-center text-sm font-semibold text-[var(--accent)]">
-                Bekijk pakket →
+                Bekijk dienst →
               </span>
             </button>
           ))}

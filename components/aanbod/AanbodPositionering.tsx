@@ -13,7 +13,7 @@ export default function AanbodPositionering() {
           Ons aanbod
         </h2>
         <p className="mt-4 max-w-2xl text-lg text-zinc-400 font-medium">
-          Drie manieren om met ons samen te werken: eenmalig lanceren (Launch), structureel groeien (Authority) of marktleider worden (Leadership). Hieronder zie je welk pakket bij welk doel past.
+          Drie manieren om met ons samen te werken: content maken, campagnes laten groeien of een custom platform bouwen. Vaak combineren we die pijlers in een praktisch groeisysteem.
         </p>
       </div>
     </section>

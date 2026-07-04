@@ -23,7 +23,7 @@ export default function IntroVideoSection() {
         {videoPlaying ? (
           <iframe
             src={`https://player.vimeo.com/video/${VIMEO_VIDEO_ID}?autoplay=1`}
-            title="SocialBrand: hoe het werkt, wie we zijn en wat de bedoeling is"
+            title="Office6: hoe het werkt, wie we zijn en wat de bedoeling is"
             className="absolute inset-0 w-full h-full"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
@@ -60,7 +60,7 @@ export default function IntroVideoSection() {
             In deze video leggen we kort uit wie we zijn, hoe we te werk gaan en wat de bedoeling is.
           </p>
           <p className="font-semibold text-white">
-            Jouw verhaal, jouw gezicht — wij maken er content van die opvalt.
+            Jouw verhaal, onze strategie - samen maken we content, campagnes en platformen die kloppen.
           </p>
           <div className="pt-2">
             <Link

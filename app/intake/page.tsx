@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import IntakeForm from "@/components/intake/IntakeForm";
 
 export const metadata: Metadata = {
-  title: "Intake | SocialBrand",
+  title: "Intake | Office6",
   description:
     "Beantwoord 8 korte vragen (±2 min). We plannen daarna je kennismakingscall en nemen binnen 24 uur contact op.",
 };

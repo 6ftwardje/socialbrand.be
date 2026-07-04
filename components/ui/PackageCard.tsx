@@ -4,7 +4,7 @@ import type { Package } from "@/lib/content";
 interface PackageCardProps {
   pkg: Package;
   variant?: "teaser" | "full";
-  /** Mark as recommended (e.g. Authority) — badge + stronger border */
+  /** Mark as recommended — badge + stronger border */
   recommended?: boolean;
   /** Show price indication line (full variant on aanbod page) */
   showPriceIndication?: boolean;
@@ -21,7 +21,7 @@ export default function PackageCard({ pkg, variant = "teaser", recommended, show
     >
       {recommended && (
         <div className="bg-[var(--accent)]/15 px-6 py-2 text-center">
-          <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Meest gekozen</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Vaak gecombineerd</span>
         </div>
       )}
       {variant === "teaser" && !recommended && (
@@ -51,10 +51,10 @@ export default function PackageCard({ pkg, variant = "teaser", recommended, show
         </>
       )}
       <Link
-        href={variant === "teaser" ? "/aanbod" : "/intake"}
+        href={variant === "teaser" ? "/services" : "/intake"}
         className="mt-6 inline-flex items-center text-base font-bold text-[var(--accent)] hover:underline"
       >
-        {variant === "teaser" ? "Bekijk aanbod" : "Boek een kennismakingscall"}
+        {variant === "teaser" ? "Bekijk services" : "Boek een kennismakingscall"}
         <span className="ml-1" aria-hidden>→</span>
       </Link>
       </div>

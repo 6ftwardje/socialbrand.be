@@ -51,12 +51,6 @@ export function CriticalAssetsProvider({
     if (startedRef.current) return;
     startedRef.current = true;
 
-    // Only wait for critical assets on home page (hero above the fold).
-    if (pathname !== "/") {
-      setPhase("ready");
-      return;
-    }
-
     const t = setTimeout(() => {
       const promises = promisesRef.current;
       const allLoaded =

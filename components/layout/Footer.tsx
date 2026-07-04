@@ -3,9 +3,9 @@ import Image from "next/image";
 import { navLinks, socialLinks } from "@/lib/content";
 
 const LOGO_URL =
-  "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/HTP/socialbrand%20png.png";
+  "/logos/office6-white.png";
 
-const CONTACT_EMAIL = "contact@socialbrand.be";
+const CONTACT_EMAIL = "hello@office6.be";
 
 function SocialIcon({ label }: { label: string }) {
   const className = "h-5 w-5 text-zinc-400 hover:text-white transition-colors";
@@ -40,10 +40,10 @@ export default function Footer() {
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <Link href="/" className="inline-block focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded">
-              <Image src={LOGO_URL} alt="SocialBrand" width={120} height={48} className="h-8 w-auto opacity-90" />
+              <Image src={LOGO_URL} alt="Office6" width={590} height={104} className="h-8 w-auto opacity-90" />
             </Link>
             <p className="mt-3 max-w-xs text-sm text-zinc-400">
-              Personal branding agency. Value-based content en thought leadership in 90 dagen.
+              Content agency voor creation, performance marketing en custom platforms.
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
@@ -83,7 +83,7 @@ export default function Footer() {
           </nav>
         </div>
         <p className="mt-8 border-t border-zinc-800/80 pt-8 text-sm text-zinc-500">
-          © {new Date().getFullYear()} SocialBrand. Alle rechten voorbehouden.
+          © {new Date().getFullYear()} Office6. Alle rechten voorbehouden.
         </p>
       </div>
     </footer>

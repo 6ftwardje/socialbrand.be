@@ -45,74 +45,72 @@ export interface CaseStudy {
 
 export const packages: Package[] = [
   {
-    id: "launch",
-    name: "Launch",
-    tagline: "Eenmalig",
-    description: "Voor founders die hun zichtbaarheid professioneel willen lanceren.",
+    id: "content-creation",
+    name: "Content Creation",
+    tagline: "Strategie + productie",
+    description: "Voor merken die consistente content willen maken vanuit een scherp verhaal en een herkenbare menselijke stem.",
     deliverables: [
       "Strategische intake",
-      "Positioneringssessie",
-      "1 high-end podcast / long-form opname",
-      "6 short-form clips",
-      "Distributie-advies",
-      "30-dagen content roadmap",
+      "Contentstrategie en formats",
+      "Video, foto, podcast of short-form productie",
+      "Editing en copy",
+      "Publicatieplanning",
+      "Content roadmap",
     ],
-    commitment: "Eenmalig",
-    slug: "launch",
+    commitment: "Project of retainer",
+    slug: "content-creation",
   },
   {
-    id: "authority",
-    name: "Authority",
-    tagline: "Min. 3 maanden",
-    description: "Voor bedrijven die structureel willen groeien via personal branding.",
-    deliverablesLabel: "Per maand",
+    id: "performance-marketing",
+    name: "Performance Marketing",
+    tagline: "Creatives + campagnes",
+    description: "Voor bedrijven die content willen koppelen aan groei, campagnes en duidelijke commerciële signalen.",
+    deliverablesLabel: "Typische scope",
     deliverables: [
-      "1 long-form podcast/video",
-      "6 dedicated short-form video's",
-      "6 extra clips uit long-form",
-      "Volledig publicatiebeheer",
-      "Engagement engine",
-      "1 strategische meeting",
-      "1 content meeting",
+      "Paid social strategie",
+      "Creative testing",
+      "Campagne-opzet en optimalisatie",
+      "Retargeting en funnels",
+      "Rapportage op learnings en rendement",
+      "Nieuwe contentbriefings op basis van data",
     ],
-    commitment: "Min. 3 maanden",
-    slug: "authority",
-    note: "Maximaal 8 klanten tegelijk.",
+    commitment: "Vanaf 3 maanden",
+    slug: "performance-marketing",
+    note: "Meest relevant wanneer er al aanbod, content of traffic is.",
   },
   {
-    id: "leadership",
-    name: "Leadership",
-    tagline: "Min. 3 maanden",
-    description: "Voor founders die marktleider willen worden.",
-    deliverablesLabel: "Per maand",
+    id: "custom-platforms",
+    name: "Custom Platforms",
+    tagline: "Websites + systemen",
+    description: "Voor merken die een website, landing page, intakeflow of digitaal platform nodig hebben dat hun groei ondersteunt.",
+    deliverablesLabel: "Mogelijke deliverables",
     deliverables: [
-      "2 long-form opnames",
-      "8–10 dedicated short-form video's",
-      "10 extra clips",
-      "Publicatie + engagement",
-      "Positioneringscoaching",
-      "Concurrentieanalyse",
-      "Strategische groeisessie",
+      "Websites en landing pages",
+      "Custom intakeflows",
+      "Content hubs of lead magnets",
+      "Automatisaties en dashboards",
+      "Integraties met bestaande tools",
+      "Conversiegericht design en copy",
     ],
-    commitment: "Min. 3 maanden",
-    slug: "leadership",
+    commitment: "Project op maat",
+    slug: "custom-platforms",
   },
 ];
 
 export const methodSteps: MethodStep[] = [
-  { title: "Intake & strategie", description: "Doel, doelgroep en key messages." },
-  { title: "Story extraction & shoot", description: "Verhalen bovenhalen en opnames." },
-  { title: "Edit, review & publicatie", description: "Content live; ritme vasthouden." },
+  { title: "Strategie", description: "Doel, doelgroep, boodschap en kanaalkeuze scherp krijgen." },
+  { title: "Creatie", description: "Content, campagnes of platformen bouwen vanuit dat fundament." },
+  { title: "Optimalisatie", description: "Publiceren, meten, leren en verbeteren wat werkt." },
 ];
 
 export const faqs: FAQ[] = [
-  { question: "Wat kost een pakket?", answer: "Maatwerk. Prijsindicatie op de kennismakingscall." },
-  { question: "Waarom 3 maanden min?", answer: "Autoriteit en herkenning vragen tijd; na 3 maanden zie je resultaat." },
-  { question: "Wat leveren jullie op?", answer: "Podcast(s), clips, video's en planning. Value-based, geen virale hacks." },
+  { question: "Wat kost een traject?", answer: "Maatwerk. Op de kennismakingscall bepalen we de juiste scope en geven we een duidelijke prijsindicatie." },
+  { question: "Kunnen jullie content en performance combineren?", answer: "Ja. Dat is vaak net de kracht: creatie die niet losstaat van campagnes, data en conversie." },
+  { question: "Bouwen jullie ook websites of platformen?", answer: "Ja. We bouwen websites, landing pages, intakeflows, dashboards en custom platformen wanneer die nodig zijn voor groei." },
   { question: "Hoeveel revisies?", answer: "Max. twee revisierondes per item." },
-  { question: "Niet relaxed voor camera?", answer: "Kan. Rustige setting, voorbereiding; story extraction helpt." },
+  { question: "Moet ik zelf voor de camera?", answer: "Niet altijd. We kijken welk menselijk gezicht of verhaal het merk nodig heeft: founder, team, klant, expert of productervaring." },
   { question: "Eigenaar van de content?", answer: "Jij. We leveren bestanden; portfolio alleen met toestemming." },
-  { question: "Alleen organisch of ook ads?", answer: "Focus organisch. Ads kunnen we meenemen als je wilt." },
+  { question: "Werken jullie alleen organisch?", answer: "Nee. We doen content creation, performance marketing en custom platforms los of gecombineerd." },
 ];
 
 /** Aanbodpagina: bestaande faqs + aanbod-specifieke vragen (call, prijzen, start, zichtbaarheid). */
@@ -120,7 +118,7 @@ export const faqsAanbod: FAQ[] = [
   { question: "Wat gebeurt er op de kennismakingscall?", answer: "We bespreken jouw doel, onze aanpak en of we bij elkaar passen. Daarna krijg je een reële prijsindicatie op maat. Geen verkooppraatje, geen verplichtingen." },
   { question: "Waarom staan er geen prijzen op de site?", answer: "Omdat elk traject maatwerk is. Op de kennismakingscall bepalen we samen wat je nodig hebt en geven we een duidelijke prijsindicatie." },
   { question: "Hoe snel kunnen we starten?", answer: "Na de kennismakingscall en intake plannen we de eerste sessie. Meestal binnen enkele weken, afhankelijk van agenda en pakket." },
-  { question: "Wat als ik nog niet zichtbaar ben?", answer: "Geen probleem. We starten bij de basis: positionering, verhaal en eerste content. Veel klanten beginnen vanaf nul." },
+  { question: "Wat als onze contentbasis nog niet sterk is?", answer: "Geen probleem. Dan starten we bij positionering, boodschap en formats voordat we campagnes of platformen opschalen." },
   ...faqs,
 ];
 
@@ -136,7 +134,7 @@ export const cases: CaseStudy[] = [
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/aanbod", label: "Aanbod" },
+  { href: "/services", label: "Services" },
   { href: "/cases", label: "Cases" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -144,7 +142,7 @@ export const navLinks = [
 /** Primary nav for mobile menu (main sections, max 5–7). Contact moved to secondary. */
 export const mobilePrimaryLinks = [
   { href: "/", label: "Home" },
-  { href: "/aanbod", label: "Aanbod" },
+  { href: "/services", label: "Services" },
   { href: "/cases", label: "Cases" },
 ] as const;
 
@@ -155,9 +153,6 @@ export const mobileSecondaryLinks = [
 ] as const;
 
 export const socialLinks = [
-  { href: "https://www.instagram.com/socialbrand.be", label: "Instagram" },
-  { href: "https://www.linkedin.com/company/socialbrand", label: "LinkedIn" },
-  { href: "https://www.youtube.com/@socialbrand", label: "YouTube" },
 ] as const;
 
 export const revenueRangeOptions = [

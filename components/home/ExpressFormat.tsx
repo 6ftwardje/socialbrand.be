@@ -10,7 +10,7 @@ const SMOKE_IMAGE =
 const BULLETS = [
   "Video's voor LinkedIn, Instagram en TikTok",
   "Geoptimaliseerde copy die je boodschap versterkt",
-  "Authentieke messaging gebaseerd op jouw positionering",
+  "Authentieke messaging gebaseerd op je merk en doelgroep",
   "Content die direct klaar is om te publiceren",
 ];
 
@@ -40,7 +40,7 @@ export default function ExpressFormat() {
                 id="express-heading"
                 className="min-w-0 flex-1 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl"
               >
-                <span className="text-[var(--accent)]">Socialbrand Express.</span>
+                <span className="text-[var(--accent)]">Office6 Studio.</span>
                 <br />
                 Snelle content.
                 <br />
@@ -58,7 +58,7 @@ export default function ExpressFormat() {
               </div>
             </header>
             <p className="max-w-2xl text-lg font-medium text-zinc-400 mb-10">
-              Geen tijdverspilling. Geen ingewikkelde draaidagen. In één sessie creëren we weken aan strategische content.
+              Geen tijdverspilling. Geen ingewikkelde draaidagen. In één sessie creëren we content die je organisch, in ads en op je platformen kunt inzetten.
             </p>
             <p className="mb-4 text-sm font-bold uppercase tracking-wider text-[var(--accent)]">Wat je krijgt:</p>
             <ul className="max-w-2xl space-y-3 text-lg font-medium text-zinc-300">
@@ -70,7 +70,7 @@ export default function ExpressFormat() {
               ))}
             </ul>
             <p className="mt-10 text-xl font-semibold text-white">
-              Je vertrekt met content die presteert.
+              Je vertrekt met content die klaar is voor distributie.
             </p>
             <div className="mt-10">
               <Link
@@ -85,7 +85,7 @@ export default function ExpressFormat() {
           <div className="relative hidden min-h-[280px] w-full lg:block lg:min-h-0 lg:aspect-[4/3]">
             <Image
               src={EXPRESS_IMAGE}
-              alt="Socialbrand Express – snelle content, maximale impact"
+              alt="Office6 Studio - snelle content, maximale impact"
               fill
               className="object-contain object-center lg:object-right"
               sizes="(max-width: 1024px) 0px, 50vw"

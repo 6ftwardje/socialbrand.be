@@ -27,7 +27,7 @@ export default function StickyAanbodCTA() {
     >
       <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
         <p className="text-sm text-zinc-400 hidden sm:block">
-          ±30 min · Geen verkooppraatje — we kijken of we passen.
+          ±30 min · We kijken welke pijler of combinatie past.
         </p>
         <Link
           href="/intake"
