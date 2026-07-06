@@ -1,7 +1,7 @@
 import Hero from "@/components/home/Hero";
 import LogoCarousel from "@/components/home/LogoCarousel";
 import Positionering from "@/components/home/Positionering";
-import IntroVideoSection from "@/components/home/IntroVideoSection";
+import FeaturedCelsiusCase from "@/components/home/FeaturedCelsiusCase";
 import CasesTeaser from "@/components/home/CasesTeaser";
 import CTASection from "@/components/ui/CTASection";
 
@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <LogoCarousel />
       <Positionering />
-      <IntroVideoSection />
+      <FeaturedCelsiusCase />
       <CasesTeaser />
       <CTASection
         title="Klaar om Office6 in te schakelen?"
