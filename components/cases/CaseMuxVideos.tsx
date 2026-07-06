@@ -5,6 +5,14 @@ function getMuxPlayerUrl(video: OfficeMuxVideo) {
     "metadata-video-title": video.title,
   });
 
+  if (typeof video.assetStartTime === "number") {
+    params.set("asset-start-time", String(video.assetStartTime));
+  }
+
+  if (typeof video.assetEndTime === "number") {
+    params.set("asset-end-time", String(video.assetEndTime));
+  }
+
   return `https://player.mux.com/${video.playbackId}?${params.toString()}`;
 }
 

@@ -1,8 +1,10 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
+import Office6Text from "@/components/ui/Office6Text";
 
 const POSITIONERING_IMAGE =
   "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/podcast_02.jpg";
@@ -38,18 +40,28 @@ export default function Positionering() {
             <span ref={highlightRef} className={`positionering-highlight ${highlightInView ? "in-view" : ""}`}>Menselijke content</span> maakt merken sterker.
           </h2>
           <p>
-            In een wereld vol advertenties en generieke AI-output winnen merken die echt aanvoelen.
-            Mensen vertrouwen mensen, verhalen en bewijs.
+            Een podcast geeft ondernemers en personal brands een plek om expertise,
+            visie en vertrouwen op te bouwen zonder telkens opnieuw te moeten uitleggen
+            waarom ze relevant zijn.
           </p>
           <p className="font-semibold text-white">
-            Office6 vertaalt dat menselijke DNA naar content, campagnes en platformen die blijven werken.
+            <Office6Text>Office6</Office6Text> helpt met format, studio-opname en de korte clips die je verhaal
+            verder brengen op social.
           </p>
-          <div className="pt-2">
+          <div className="flex flex-col gap-3 pt-2 sm:flex-row">
             <Link
-              href="/cases"
-              className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors"
+              href="/cases/peak-performance-podcast"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
             >
-              Bekijk onze cases
+              Bekijk podcastcase
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+            <Link
+              href="/intake"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-base font-bold text-white transition-colors hover:border-white/45 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            >
+              Ontdek je podcastaanpak
+              <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
         </div>

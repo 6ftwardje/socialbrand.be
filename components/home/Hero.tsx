@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRef, useLayoutEffect } from "react";
 import { useCriticalAsset } from "@/components/CriticalAssetsProvider";
+import Office6Text from "@/components/ui/Office6Text";
 import {
   HERO_IMAGE_URL,
   HERO_VIDEO_MP4_URL,
@@ -65,7 +66,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-24 md:px-6 md:pb-16 lg:px-8">
         <div className="homepage-hero-content max-w-3xl text-left">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--accent)]">
-            Office6
+            <Office6Text>Office6</Office6Text>
           </p>
           <h1
             id="hero-heading"

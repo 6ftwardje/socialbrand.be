@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Office6Text from "@/components/ui/Office6Text";
 
 const EXPRESS_IMAGE =
   "https://trogwrgxxhsvixzglzpn.supabase.co/storage/v1/object/public/socialbrand.com/express.png?v=2";
@@ -40,7 +41,7 @@ export default function ExpressFormat() {
                 id="express-heading"
                 className="min-w-0 flex-1 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl"
               >
-                <span className="text-[var(--accent)]">Office6 Studio.</span>
+                <span className="text-[var(--accent)]"><Office6Text>Office6 Studio.</Office6Text></span>
                 <br />
                 Snelle content.
                 <br />

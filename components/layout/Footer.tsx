@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { navLinks, socialLinks } from "@/lib/content";
+import Office6Text from "@/components/ui/Office6Text";
 
 const LOGO_URL =
   "/logos/office6-white.png";
@@ -75,7 +76,7 @@ export default function Footer() {
                     href={href}
                     className="text-sm text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
                   >
-                    {label}
+                    <Office6Text>{label}</Office6Text>
                   </Link>
                 </li>
               ))}
@@ -83,7 +84,7 @@ export default function Footer() {
           </nav>
         </div>
         <p className="mt-8 border-t border-zinc-800/80 pt-8 text-sm text-zinc-500">
-          © {new Date().getFullYear()} Office6. Alle rechten voorbehouden.
+          © {new Date().getFullYear()} <Office6Text>Office6</Office6Text>. Alle rechten voorbehouden.
         </p>
       </div>
     </footer>

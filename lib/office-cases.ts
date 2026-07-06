@@ -6,6 +6,8 @@ export interface OfficeMuxVideo {
   playbackId: string;
   aspectRatio: "16:9" | "4:3" | "9:16";
   format: MuxVideoFormat;
+  assetStartTime?: number;
+  assetEndTime?: number;
 }
 
 export interface OfficeCase {
@@ -31,6 +33,7 @@ export interface OfficeCase {
     label: string;
     shape: CaseFormat;
     note: string;
+    image?: string;
   }[];
   muxVideos?: OfficeMuxVideo[];
 }
@@ -98,7 +101,7 @@ const muxVideos = {
     { title: "Celsius video 2", playbackId: "GPl02ZhlId2qTKVZHy7H7w7VKUZ9m7ZKroYydmZJKfBc", aspectRatio: "16:9", format: "wide" },
     { title: "Celsius video 3", playbackId: "vT26OhQBVBmuba01zBo6weABfkfMDppGlnKjiAjhrx02w", aspectRatio: "4:3", format: "standard" },
     { title: "Celsius video 4", playbackId: "RK2CoF6KbFlBUYxkQc3IL8YikMF00USCFwUS7m73gR94", aspectRatio: "16:9", format: "wide" },
-    { title: "Celsius video 5", playbackId: "l2HgjIOcm5dTVoK6j9Q8Ayy01BUN01T9K49E4601c00lYJU", aspectRatio: "16:9", format: "wide" },
+    { title: "Celsius video 5", playbackId: "l2HgjIOcm5dTVoK6j9Q8Ayy01BUN01T9K49E4601c00lYJU", aspectRatio: "16:9", format: "wide", assetStartTime: 0, assetEndTime: 23 },
   ],
   chrisHenry: [
     { title: "Chris reel 1", playbackId: "pkf2ACPLfLrX6DxhQcUl2rXylo6enXYpwvd01ZgfJdzQ", aspectRatio: "9:16", format: "vertical" },
@@ -342,7 +345,20 @@ export const officeCases: OfficeCase[] = [
     outcome:
       "Het platform groeide naar meer dan 140 actieve gebruikers en gaf Rousso een schaalbare manier om studenten beter en sneller te begeleiden.",
     metrics: ["140+ actieve gebruikers", "Videocourse in modules", "Lead magnet + betalende leeromgeving"],
-    mediaPlan: [commonMedia.platform, commonMedia.wide, commonMedia.vertical, commonMedia.standard],
+    mediaPlan: [
+      {
+        label: "Leerplatform dashboard",
+        shape: "platform",
+        note: "Modules, lessen en meldingen in een centrale leeromgeving voor studenten.",
+        image: "/cases/het-trade-platform/platform-modules-mockup.webp",
+      },
+      {
+        label: "Persoonlijke loginomgeving",
+        shape: "platform",
+        note: "Een afgeschermde leeromgeving die de videocourse professioneel en schaalbaar maakt.",
+        image: "/cases/het-trade-platform/platform-login-mockup.webp",
+      },
+    ],
   },
   {
     slug: "kabaal",

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "Content creation, performance marketing en custom platforms voor merken die menselijker willen communiceren en meetbaar willen groeien.",
   icons: {
-    icon: "/logos/office6-black.png",
+    icon: "/logos/office6-favicon.png",
   },
   openGraph: {
     title: "Office6 | Content Agency",

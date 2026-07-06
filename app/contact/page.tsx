@@ -1,3 +1,5 @@
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -6,43 +8,82 @@ export const metadata = {
     "Boek een vrijblijvende call met Office6. Vul ons korte intake formulier in - we reageren binnen 24 uur.",
 };
 
+const SOCIAL_PROOF_LOGOS = [
+  {
+    name: "Celsius",
+    src: "/cases/celsius/logo.webp",
+    width: 1000,
+    height: 334,
+  },
+  {
+    name: "Coachedby",
+    src: "/cases/coachedby/logo.webp",
+    width: 1000,
+    height: 345,
+  },
+  {
+    name: "Het Trade Platform",
+    src: "/cases/het-trade-platform/logo.webp",
+    width: 1200,
+    height: 204,
+  },
+  {
+    name: "Auto Viger",
+    src: "/cases/auto-viger/logo.webp",
+    width: 900,
+    height: 900,
+  },
+  {
+    name: "Bora Coworking",
+    src: "/cases/bora-coworking/logo.webp",
+    width: 900,
+    height: 900,
+  },
+] as const;
+
 export default function ContactPage() {
   return (
-    <>
-      <section className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
-        <h1 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+    <section className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+      <div className="max-w-3xl">
+        <p className="text-sm font-semibold text-[var(--accent)]">
+          Contact
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl">
           Boek een call
         </h1>
-        <p className="mt-4 max-w-2xl text-zinc-400 md:text-lg">
-          Klaar om je content, campagnes of platform naar het volgende niveau te brengen? Vul ons korte intake formulier in. We nemen binnen 24 uur contact op.
+        <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-zinc-400 md:text-xl">
+          Vertel ons kort waar je aan werkt. Beantwoord 7 vragen in ongeveer 2
+          minuten en we nemen binnen 24 uur contact op.
         </p>
 
-        <div className="mt-10 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 md:p-8">
-          <h2 className="text-xl font-semibold text-white">Plan een gesprek</h2>
-          <p className="mt-2 text-zinc-400">
-            Beantwoord 7 korte vragen (±2 min). Daarna nemen we binnen 24 uur contact met je op.
-          </p>
-          <Link
-            href="/intake"
-            className="mt-6 inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-8 py-4 text-base font-bold text-white hover:bg-[var(--accent-hover)] transition-colors"
-          >
-            Start intake
-          </Link>
-        </div>
+        <Link
+          href="/intake"
+          className="mt-9 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-7 py-3.5 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+        >
+          Start intake
+          <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
+      </div>
 
-        <div className="mt-12">
-          <h2 className="text-xl font-semibold text-white">Of plan direct in</h2>
-          <p className="mt-2 text-zinc-400">
-            Ga naar het intake formulier om je gegevens door te geven.
-          </p>
-          <Link
-            href="/intake"
-            className="mt-4 inline-flex items-center rounded-lg border border-zinc-600 px-6 py-3 text-base font-medium text-zinc-300 hover:border-zinc-500 hover:text-white transition-colors"
-          >
-            Naar intake formulier →
-          </Link>
+      <div className="mt-16 border-t border-zinc-900 pt-8 md:mt-20">
+        <p className="text-sm font-medium text-zinc-500">
+          Deze bedrijven gingen je voor
+        </p>
+        <div className="mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
+          {SOCIAL_PROOF_LOGOS.map((logo) => (
+            <div key={logo.src} className="flex h-14 items-center">
+              <Image
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+                className="max-h-10 w-auto max-w-[9rem] object-contain opacity-50 grayscale transition-[opacity,filter] duration-300 hover:opacity-90 hover:grayscale-0"
+                sizes="144px"
+              />
+            </div>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

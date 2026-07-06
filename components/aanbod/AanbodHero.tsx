@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Office6Text from "@/components/ui/Office6Text";
 
 const HERO_HEADLINE = "Content, campagnes en platformen voor merken die willen groeien.";
 const HERO_SUBHEAD =
@@ -19,7 +20,7 @@ export default function AanbodHero() {
         {HERO_HEADLINE}
       </h1>
       <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-zinc-400 font-medium">
-        {HERO_SUBHEAD}
+        <Office6Text>{HERO_SUBHEAD}</Office6Text>
       </p>
       <p className="mt-4 text-sm text-zinc-500">{FOR_WHO}</p>
       <div className="mt-10">

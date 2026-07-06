@@ -123,7 +123,12 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
           <div className="space-y-4">
             {item.mediaPlan.map((media, index) => (
               <div key={`${media.label}-${index}`} className={media.shape === "portrait" ? "max-w-sm" : undefined}>
-                <CaseVisual alt={media.note} shape={media.shape} />
+                <CaseVisual
+                  image={media.image}
+                  alt={media.note}
+                  shape={media.shape}
+                  sizes="(max-width: 1279px) 100vw, 1280px"
+                />
                 <div className="mt-3">
                   <p className="text-sm font-semibold text-white">{media.label}</p>
                   <p className="mt-1 max-w-md text-xs text-zinc-500">{media.note}</p>

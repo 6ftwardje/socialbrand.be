@@ -1,3 +1,5 @@
+import Office6Text from "@/components/ui/Office6Text";
+
 export default function SocialProofMicro() {
   const bullets = [
     "Content met strategie, geen losse formats",
@@ -9,7 +11,7 @@ export default function SocialProofMicro() {
     <section className="w-full py-16 md:py-24 bg-zinc-950/80" aria-labelledby="proof-heading">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <h2 id="proof-heading" className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl mb-10">
-          Waarom Office6
+          Waarom <Office6Text>Office6</Office6Text>
         </h2>
         <ul className="max-w-2xl space-y-4 text-lg md:text-xl text-zinc-300 font-medium">
           {bullets.map((text, i) => (

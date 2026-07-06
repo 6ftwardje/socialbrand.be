@@ -40,22 +40,20 @@ export default function CaseVisual({
 }) {
   const criticalAsset = useCriticalAsset();
   const resolveRef = useRef<(() => void) | null>(null);
-  const promiseRef = useRef<Promise<void> | null>(null);
   const registeredRef = useRef(false);
   const loadedRef = useRef(false);
 
-  if (priority && image && !promiseRef.current) {
-    promiseRef.current = new Promise<void>((resolve) => {
-      resolveRef.current = resolve;
-    });
-  }
-
   useEffect(() => {
-    if (!priority || !image || !promiseRef.current || registeredRef.current) return;
+    if (!priority || !image || registeredRef.current) return;
     registeredRef.current = true;
-    criticalAsset?.registerCriticalAsset(`case-visual:${image}`, promiseRef.current);
+    let resolveLoad!: () => void;
+    const loadPromise = new Promise<void>((resolve) => {
+      resolveLoad = resolve;
+    });
+    resolveRef.current = resolveLoad;
+    criticalAsset?.registerCriticalAsset(`case-visual:${image}`, loadPromise);
     if (loadedRef.current) {
-      resolveRef.current?.();
+      resolveLoad();
       resolveRef.current = null;
     }
   }, [criticalAsset, image, priority]);
@@ -68,7 +66,7 @@ export default function CaseVisual({
 
   return (
     <div className={`group relative overflow-hidden bg-zinc-950 ${shapeClass(shape)}`}>
-      {shape === "platform" ? (
+      {shape === "platform" && !image ? (
         <div
           className="absolute inset-0 bg-[radial-gradient(circle_at_78%_24%,rgba(225,29,72,0.16),transparent_34%),linear-gradient(145deg,#141414,#050505)] p-5 transition-opacity duration-300"
           role="img"

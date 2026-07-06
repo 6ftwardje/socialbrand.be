@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Office6Text from "@/components/ui/Office6Text";
 import { useState } from "react";
 
 const BULLETS = [
@@ -97,7 +98,7 @@ export default function Traject90() {
             href="/intake"
             className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-bold text-[var(--accent)] transition-colors hover:bg-zinc-100"
           >
-            Start met Office6
+            Start met <Office6Text>Office6</Office6Text>
           </Link>
         </div>
       </div>

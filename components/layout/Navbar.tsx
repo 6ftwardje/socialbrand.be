@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { navLinks, mobilePrimaryLinks } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import Office6Text from "@/components/ui/Office6Text";
 
 const MENU_ANIMATION_MS = 250;
 
@@ -145,7 +146,7 @@ export default function Navbar() {
                   href={href}
                   className="relative text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200 focus-visible:outline-none py-1 after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-white/80 after:transition-[width] after:duration-200 hover:after:w-full"
                 >
-                  {label}
+                  <Office6Text>{label}</Office6Text>
                 </Link>
               </li>
             ))}
@@ -253,7 +254,7 @@ export default function Navbar() {
                       onClick={closeMenu}
                       className="flex items-center justify-center min-h-[44px] py-3 w-full text-lg font-bold text-zinc-300 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-md relative after:absolute after:left-1/2 after:bottom-2 after:h-px after:w-0 after:bg-white/50 after:transition-[width] after:duration-200 hover:after:w-8 after:-translate-x-1/2 active:opacity-90"
                     >
-                      {label}
+                      <Office6Text>{label}</Office6Text>
                     </Link>
                   </li>
                 ))}
