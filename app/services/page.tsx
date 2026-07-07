@@ -57,8 +57,8 @@ function RelevantCase({ item }: { item: OfficeCase }) {
       <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
         {item.category}
       </p>
-      <p className="mt-2 text-sm font-semibold text-white">{item.title}</p>
-      <p className="mt-1 max-w-md text-xs leading-relaxed text-zinc-500">
+      <p className="mt-2 text-sm font-semibold text-[var(--foreground)]">{item.title}</p>
+      <p className="mt-1 max-w-md text-xs leading-relaxed text-[var(--foreground-muted)]">
         {item.outcome}
       </p>
     </Link>
@@ -67,21 +67,21 @@ function RelevantCase({ item }: { item: OfficeCase }) {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-[var(--background)] pb-16 text-white">
+    <div className="bg-[var(--background)] pb-16 text-[var(--foreground)]">
       <section className="mx-auto max-w-7xl px-4 pb-10 pt-24 md:px-6 md:pb-16 md:pt-28 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground-muted)]">
           Services
         </p>
         <h1 className="mt-8 max-w-2xl text-4xl font-semibold leading-[0.95] tracking-tight md:text-6xl">
           Ontdek
-          <span className="block text-zinc-500">onze services</span>
+          <span className="block text-[var(--foreground-muted)]">onze services</span>
         </h1>
 
-        <div className="mt-10 flex items-center justify-between border-t border-zinc-900 pt-3">
-          <span className="text-xs font-medium text-zinc-500">Services</span>
-          <nav aria-label="Services" className="hidden gap-5 text-xs font-medium text-zinc-600 md:flex">
+        <div className="mt-10 flex items-center justify-between border-t border-[var(--border-subtle)] pt-3">
+          <span className="text-xs font-medium text-[var(--foreground-muted)]">Services</span>
+          <nav aria-label="Services" className="hidden gap-5 text-xs font-medium text-[var(--foreground-muted)] md:flex">
             {packages.map((service) => (
-              <a key={service.id} href={`#${service.id}`} className="transition-colors hover:text-white">
+              <a key={service.id} href={`#${service.id}`} className="transition-colors hover:text-[var(--accent)]">
                 {service.name}
               </a>
             ))}
@@ -102,9 +102,9 @@ export default function ServicesPage() {
                 className="grid gap-8 scroll-mt-24 md:grid-cols-[minmax(0,0.95fr)_minmax(280px,0.7fr)] md:gap-20 lg:gap-28"
               >
                 <div>
-                  <p className="text-2xl font-semibold leading-none tracking-tight text-white md:text-3xl">
+                  <p className="text-2xl font-semibold leading-none tracking-tight text-[var(--foreground)] md:text-3xl">
                     {copy.eyebrow}
-                    <span className="block text-zinc-500">{service.name.toLowerCase()}</span>
+                    <span className="block text-[var(--foreground-muted)]">{service.name.toLowerCase()}</span>
                   </p>
                   <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden bg-zinc-950">
                     {serviceCase.thumbnail.image && (
@@ -121,10 +121,10 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="flex flex-col justify-center md:pt-20">
-                  <p className="max-w-sm text-sm font-semibold leading-relaxed text-zinc-200">
+                  <p className="max-w-sm text-sm font-semibold leading-relaxed text-[var(--foreground)]">
                     {copy.body}
                   </p>
-                  <ul className="mt-5 space-y-1.5 text-sm leading-relaxed text-zinc-500">
+                  <ul className="mt-5 space-y-1.5 text-sm leading-relaxed text-[var(--foreground-muted)]">
                     {service.deliverables.slice(1, 6).map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -136,10 +136,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-28 max-w-7xl border-t border-zinc-900 px-4 pt-8 md:mt-36 md:px-6 lg:px-8">
-        <h2 className="max-w-xs text-2xl font-semibold leading-none tracking-tight text-white">
+      <section className="mx-auto mt-28 max-w-7xl border-t border-[var(--border-subtle)] px-4 pt-8 md:mt-36 md:px-6 lg:px-8">
+        <h2 className="max-w-xs text-2xl font-semibold leading-none tracking-tight text-[var(--foreground)]">
           Relevante
-          <span className="block text-zinc-500">cases</span>
+          <span className="block text-[var(--foreground-muted)]">cases</span>
         </h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {featuredCases.map((item) => (
@@ -150,7 +150,7 @@ export default function ServicesPage() {
 
       <section className="mx-auto flex min-h-[42vh] max-w-7xl items-center justify-center px-4 text-center md:px-6 lg:px-8">
         <div>
-          <h2 className="mx-auto max-w-xl text-3xl font-semibold leading-tight tracking-tight text-zinc-500 md:text-4xl">
+          <h2 className="mx-auto max-w-xl text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground-muted)] md:text-4xl">
             Creatie die merken laat opvallen en resultaten ondersteunt
           </h2>
         </div>

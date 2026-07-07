@@ -77,18 +77,18 @@ export default function CasesTeaser() {
       className="w-full overflow-hidden bg-[var(--background)] py-16 md:py-24"
       aria-labelledby="cases-teaser-title"
     >
-      <div className="mx-auto mb-8 flex max-w-7xl items-end justify-between gap-8 px-4 md:mb-14 md:px-6 lg:px-8">
+      <div className="mx-auto mb-8 flex max-w-7xl items-end justify-between gap-8 px-5 md:mb-14 md:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-wider text-[var(--accent)]">
             Cases
           </p>
           <h2
             id="cases-teaser-title"
-            className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl"
+            className="mt-3 text-[clamp(2rem,8vw,2.35rem)] font-bold leading-[1.08] tracking-tight text-[var(--foreground)] md:text-4xl lg:text-5xl"
           >
             Uitgelichte cases
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-400 md:text-lg">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--foreground-muted)] md:text-lg">
             Bekijk hoe content, campagnes en platformen samenkomen in werk dat zichtbaar blijft bewegen.
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function CasesTeaser() {
             type="button"
             onClick={() => scrollToSlide(Math.max(currentSlide - 1, 0))}
             disabled={!canScrollPrev}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-800 text-white transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:pointer-events-none disabled:opacity-30"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--foreground)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:pointer-events-none disabled:opacity-30"
             aria-label="Vorige case"
           >
             <ArrowLeft className="h-5 w-5" aria-hidden />
@@ -109,7 +109,7 @@ export default function CasesTeaser() {
               scrollToSlide(Math.min(currentSlide + 1, featuredCases.length - 1))
             }
             disabled={!canScrollNext}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-800 text-white transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:pointer-events-none disabled:opacity-30"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--foreground)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:pointer-events-none disabled:opacity-30"
             aria-label="Volgende case"
           >
             <ArrowRight className="h-5 w-5" aria-hidden />
@@ -119,7 +119,7 @@ export default function CasesTeaser() {
 
       <div
         ref={carouselRef}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-4 pb-2 [scrollbar-width:none] md:px-6 lg:px-8 2xl:pl-[max(2rem,calc(50vw-640px))] 2xl:pr-[max(2rem,calc(50vw-640px))] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-5 pb-2 [scrollbar-width:none] md:px-6 lg:px-8 2xl:pl-[max(2rem,calc(50vw-640px))] 2xl:pr-[max(2rem,calc(50vw-640px))] [&::-webkit-scrollbar]:hidden"
         aria-label="Uitgelichte cases"
       >
         {featuredCases.map((item, index) => {
@@ -132,7 +132,7 @@ export default function CasesTeaser() {
               ref={(node) => {
                 itemRefs.current[index] = node;
               }}
-              className="group relative min-h-[27rem] w-[min(82vw,21rem)] shrink-0 snap-start overflow-hidden rounded-lg bg-zinc-950 outline-none ring-offset-2 ring-offset-[var(--background)] transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-[var(--accent)] md:w-[23rem] lg:w-[25rem]"
+              className="group relative min-h-[25rem] w-[min(84vw,21rem)] shrink-0 snap-start overflow-hidden rounded-lg bg-zinc-950 outline-none ring-offset-2 ring-offset-[var(--background)] transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-[var(--accent)] md:min-h-[27rem] md:w-[23rem] lg:w-[25rem]"
             >
               {item.thumbnail.image ? (
                 <Image
@@ -152,7 +152,7 @@ export default function CasesTeaser() {
                 className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/5"
                 aria-hidden
               />
-              <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 md:p-8">
+              <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-5 md:p-8">
                 <p className="mb-3 text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
                   {item.category}
                 </p>
@@ -175,24 +175,24 @@ export default function CasesTeaser() {
         })}
       </div>
 
-      <div className="mt-8 flex justify-center gap-2 px-4">
+      <div className="mt-8 flex justify-center gap-2 px-5">
         {featuredCases.map((item, index) => (
           <button
             key={item?.slug ?? index}
             type="button"
             onClick={() => scrollToSlide(index)}
             className={`h-2 w-2 rounded-full transition-colors ${
-              currentSlide === index ? "bg-[var(--accent)]" : "bg-zinc-700"
+              currentSlide === index ? "bg-[var(--accent)]" : "bg-[var(--border-subtle)]"
             }`}
             aria-label={`Ga naar case ${index + 1}`}
           />
         ))}
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl px-4 md:px-6 lg:px-8">
+      <div className="mx-auto mt-10 max-w-7xl px-5 md:px-6 lg:px-8">
         <Link
           href="/cases"
-          className="inline-flex items-center gap-2 text-base font-bold text-[var(--accent)] transition-colors hover:text-white"
+          className="inline-flex items-center gap-2 text-base font-bold text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)]"
         >
           Bekijk alle cases
           <ArrowRight className="h-4 w-4" aria-hidden />

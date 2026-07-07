@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
+import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
-import { navLinks, mobilePrimaryLinks } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { mobilePrimaryLinks, navLinks } from "@/lib/content";
 import Office6Text from "@/components/ui/Office6Text";
 
-const MENU_ANIMATION_MS = 250;
+const MOBILE_MENU_ANIMATION_MS = 250;
+const DESKTOP_MENU_LINKS = navLinks.filter((link) => link.href !== "/contact");
 
 function getFocusables(container: HTMLElement | null): HTMLElement[] {
   if (!container) return [];
@@ -17,252 +18,313 @@ function getFocusables(container: HTMLElement | null): HTMLElement[] {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const menuOverlayRef = useRef<HTMLDivElement>(null);
-  const menuPanelRef = useRef<HTMLDivElement>(null);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
+  const [mobileClosing, setMobileClosing] = useState(false);
+  const [desktopOpen, setDesktopOpen] = useState(false);
+  const mobilePanelRef = useRef<HTMLDivElement>(null);
+  const mobileTriggerRef = useRef<HTMLButtonElement>(null);
+  const mobileCloseRef = useRef<HTMLButtonElement>(null);
+  const desktopMenuRef = useRef<HTMLDivElement>(null);
+  const desktopTriggerRef = useRef<HTMLButtonElement>(null);
 
-  const closeMenu = useCallback(() => {
-    if (!mobileOpen) return;
-    setIsClosing(true);
-    const t = setTimeout(() => {
+  const closeMobileMenu = useCallback(() => {
+    if (!mobileOpen || mobileClosing) return;
+    setMobileClosing(true);
+    window.setTimeout(() => {
       setMobileOpen(false);
-      setIsClosing(false);
-      hamburgerButtonRef.current?.focus({ preventScroll: true });
-    }, MENU_ANIMATION_MS);
-    return () => clearTimeout(t);
-  }, [mobileOpen]);
+      setMobileClosing(false);
+      mobileTriggerRef.current?.focus({ preventScroll: true });
+    }, MOBILE_MENU_ANIMATION_MS);
+  }, [mobileClosing, mobileOpen]);
 
-  // Body scroll lock
-  useEffect(() => {
-    if (mobileOpen || isClosing) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = prev;
-      };
-    }
-  }, [mobileOpen, isClosing]);
-
-  // ESC to close
-  useEffect(() => {
-    if (!mobileOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeMenu();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [mobileOpen, closeMenu]);
-
-  // Focus trap and initial focus
-  useEffect(() => {
-    if (!mobileOpen || !menuPanelRef.current) return;
-    closeButtonRef.current?.focus({ preventScroll: true });
-    const panel = menuPanelRef.current;
-    const focusables = getFocusables(panel);
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key !== "Tab") return;
-      if (focusables.length === 0) return;
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
-          e.preventDefault();
-          last?.focus();
-        }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first?.focus();
-        }
-      }
-    };
-    panel.addEventListener("keydown", onKeyDown);
-    return () => panel.removeEventListener("keydown", onKeyDown);
-  }, [mobileOpen]);
-
-  const openMenu = () => setMobileOpen(true);
-
-  const handleOverlayClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) closeMenu();
+  const openMobileMenu = () => {
+    setMobileOpen(true);
+    setMobileClosing(false);
+    setDesktopOpen(false);
   };
 
-  const menuVisible = mobileOpen || isClosing;
-  const menuState = isClosing ? "closed" : "open";
-
-  // Header background on scroll (desktop)
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+  const closeDesktopMenu = useCallback(() => {
+    setDesktopOpen(false);
+    desktopTriggerRef.current?.focus({ preventScroll: true });
   }, []);
 
-  // Header: volledig transparant bovenaan, donkere bar pas na scrollen
-  const headerStyle: React.CSSProperties = scrolled
-    ? {
-        backgroundColor: "rgba(10, 10, 10, 0.9)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
+  useEffect(() => {
+    if (!(mobileOpen || mobileClosing)) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileClosing, mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen || !mobilePanelRef.current || mobileClosing) return;
+    mobileCloseRef.current?.focus({ preventScroll: true });
+    const panel = mobilePanelRef.current;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeMobileMenu();
+        return;
       }
-    : {
-        backgroundColor: "transparent",
-        backdropFilter: "none",
-        WebkitBackdropFilter: "none",
-      };
+
+      if (event.key !== "Tab") return;
+      const focusables = getFocusables(panel);
+      if (!focusables.length) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    panel.addEventListener("keydown", onKeyDown);
+    return () => panel.removeEventListener("keydown", onKeyDown);
+  }, [closeMobileMenu, mobileClosing, mobileOpen]);
+
+  useEffect(() => {
+    if (!desktopOpen) return;
+    const menu = desktopMenuRef.current;
+    getFocusables(menu)[0]?.focus({ preventScroll: true });
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDesktopMenu();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const focusables = getFocusables(desktopMenuRef.current);
+      if (!focusables.length) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        desktopTriggerRef.current?.focus({ preventScroll: true });
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        desktopTriggerRef.current?.focus({ preventScroll: true });
+      }
+    };
+
+    const onPointerDown = (event: PointerEvent) => {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (
+        desktopMenuRef.current?.contains(target) ||
+        desktopTriggerRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setDesktopOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [closeDesktopMenu, desktopOpen]);
+
+  const mobileMenuVisible = mobileOpen || mobileClosing;
+  const mobileMenuState = mobileClosing ? "closed" : "open";
 
   return (
     <>
-      <header
-        style={headerStyle}
-        className="sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-300"
-      >
-        <nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6"
-          aria-label="Hoofdnavigatie"
-        >
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-5 py-4 md:px-6">
+        <div className="mx-auto flex max-w-7xl items-start justify-between gap-4">
           <Link
             href="/"
-            className="flex shrink-0 font-bold text-white focus-visible:outline-none rounded transition-opacity hover:opacity-90"
-            style={{ fontFamily: "var(--font-neue-montreal)" }}
+            className="pointer-events-auto inline-flex h-11 items-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface)]/90 px-4 shadow-[0_12px_40px_rgba(21,21,21,0.10)] backdrop-blur-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 md:h-12 md:px-5"
+            aria-label="Office6 home"
           >
             <Image
-              src="/logos/office6-white.png"
+              src="/logos/office6-black-6.png"
               alt="Office6"
               width={590}
               height={104}
-              className="h-5 w-auto object-contain md:h-7"
+              className="h-5 w-auto object-contain md:h-6"
               priority
             />
           </Link>
 
-          <ul className="hidden md:flex md:items-center md:gap-10">
-            {navLinks.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className="relative text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200 focus-visible:outline-none py-1 after:absolute after:left-0 after:bottom-0 after:h-px after:w-0 after:bg-white/80 after:transition-[width] after:duration-200 hover:after:w-full"
-                >
-                  <Office6Text>{label}</Office6Text>
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                href="/intake"
-                className="inline-flex items-center justify-center rounded-md bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-95 transition-opacity duration-200 focus-visible:outline-none"
-              >
-                Plan gesprek
-              </Link>
-            </li>
-          </ul>
+          <button
+            ref={mobileTriggerRef}
+            type="button"
+            onClick={mobileOpen ? closeMobileMenu : openMobileMenu}
+            className="pointer-events-auto inline-flex h-11 items-center gap-3 rounded-full border border-[var(--border-subtle)] bg-[var(--surface)]/90 px-4 text-sm font-semibold text-[var(--foreground)] shadow-[0_12px_40px_rgba(21,21,21,0.10)] backdrop-blur-xl transition-colors duration-200 hover:border-[var(--foreground)]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 md:hidden"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            aria-haspopup="dialog"
+            aria-label={mobileOpen ? "Menu sluiten" : "Menu openen"}
+          >
+            <span>{mobileOpen ? "Sluit" : "Menu"}</span>
+            <span className="relative h-4 w-5" aria-hidden>
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
+                  mobileOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition-all duration-300 ${
+                  mobileOpen ? "scale-x-0 opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
+                  mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
 
-          <div className="flex items-center gap-2 md:hidden">
-            <Link
-              href="/intake"
-              className="inline-flex items-center justify-center rounded-md bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white hover:opacity-95 transition-opacity min-h-[44px]"
-            >
-              Plan gesprek
-            </Link>
+          <div className="pointer-events-auto relative hidden flex-col items-end md:flex">
             <button
-              ref={hamburgerButtonRef}
+              ref={desktopTriggerRef}
               type="button"
-              onClick={mobileOpen ? closeMenu : openMenu}
-              className="inline-flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-md text-zinc-400 hover:text-white hover:opacity-90 active:opacity-80 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
-              aria-haspopup="true"
-              aria-label={mobileOpen ? "Menu sluiten" : "Menu openen"}
+              onClick={() => setDesktopOpen((value) => !value)}
+              className="inline-flex h-12 items-center gap-3 rounded-full border border-[var(--border-subtle)] bg-[var(--surface)]/90 px-5 text-sm font-semibold text-[var(--foreground)] shadow-[0_12px_40px_rgba(21,21,21,0.10)] backdrop-blur-xl transition-colors duration-200 hover:border-[var(--foreground)]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40"
+              aria-expanded={desktopOpen}
+              aria-controls="desktop-menu"
+              aria-haspopup="dialog"
             >
-              <span className="sr-only">{mobileOpen ? "Menu sluiten" : "Menu openen"}</span>
-              {/* Hamburger / X morph: three lines that animate to X */}
-              <span className="relative w-5 h-4 flex flex-col justify-between" aria-hidden>
-                <span
-                  className={cn(
-                    "h-0.5 w-5 bg-current rounded-full origin-center transition-transform duration-300 ease-in-out",
-                    mobileOpen && "rotate-45 translate-y-[7px]"
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 w-5 bg-current rounded-full transition-all duration-300 ease-in-out",
-                    mobileOpen && "opacity-0 scale-x-0"
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 w-5 bg-current rounded-full origin-center transition-transform duration-300 ease-in-out",
-                    mobileOpen && "-rotate-45 -translate-y-[7px]"
-                  )}
-                />
-              </span>
+              <span>{desktopOpen ? "Sluit" : "Menu"}</span>
+              {desktopOpen ? <X className="h-4 w-4" aria-hidden /> : <Menu className="h-4 w-4" aria-hidden />}
             </button>
+
+            {desktopOpen && (
+              <div
+                ref={desktopMenuRef}
+                id="desktop-menu"
+                role="dialog"
+                aria-label="Navigatiemenu"
+                className="desktop-menu mt-3 w-[min(calc(100vw-3rem),25rem)] overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)]/95 p-3 text-[var(--foreground)] shadow-[0_28px_90px_rgba(21,21,21,0.18)] backdrop-blur-2xl"
+              >
+                <nav aria-label="Hoofdnavigatie">
+                  <ul className="divide-y divide-[var(--border-subtle)]">
+                    {DESKTOP_MENU_LINKS.map(({ href, label }) => (
+                      <li key={href} className="desktop-menu-item">
+                        <Link
+                          href={href}
+                          onClick={() => setDesktopOpen(false)}
+                          className="group flex items-center justify-between gap-6 rounded-xl px-3 py-4 text-2xl font-semibold leading-none tracking-tight transition-colors hover:bg-[var(--background-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 md:text-3xl"
+                        >
+                          <span>
+                            <Office6Text>{label}</Office6Text>
+                          </span>
+                          <ArrowRight
+                            className="h-5 w-5 text-[var(--accent)] opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100"
+                            aria-hidden
+                          />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                <div className="desktop-menu-item mt-3 rounded-xl bg-[var(--foreground)] p-4 text-[var(--surface)]">
+                  <p className="max-w-xs text-sm font-medium leading-relaxed text-[var(--surface)]/70">
+                    Klaar om content, campagnes of platformen scherper te krijgen?
+                  </p>
+                  <div className="mt-4 flex gap-2">
+                    <Link
+                      href="/intake"
+                      onClick={() => setDesktopOpen(false)}
+                      className="inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--accent)] px-5 text-sm font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35"
+                    >
+                      Plan gesprek
+                    </Link>
+                    <Link
+                      href="/contact"
+                      onClick={() => setDesktopOpen(false)}
+                      className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/18 px-5 text-sm font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35"
+                    >
+                      Contact
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        </nav>
+        </div>
       </header>
 
-      {/* Full-screen mobile menu: only on small viewports */}
-      {menuVisible && (
+      {mobileMenuVisible && (
         <div
-          ref={menuOverlayRef}
-          data-state={menuState}
+          data-state={mobileMenuState}
           className="mobile-menu-overlay fixed inset-0 z-[100] md:hidden"
           aria-hidden={!mobileOpen}
         >
-          {/* Backdrop: blocks interaction, click to close */}
           <div
-            className="absolute inset-0 bg-[var(--background)]/95 supports-[backdrop-filter]:backdrop-blur-md"
-            onClick={handleOverlayClick}
+            className="absolute inset-0 bg-[var(--background)]/96 backdrop-blur-md"
+            onClick={closeMobileMenu}
             aria-hidden
           />
-          {/* Panel: slides in from right */}
           <div
-            ref={menuPanelRef}
-            className="mobile-menu-panel absolute right-0 top-0 w-full bg-[var(--background)] flex flex-col shadow-none"
-            onClick={(e) => e.stopPropagation()}
+            ref={mobilePanelRef}
+            id="mobile-menu"
             role="dialog"
             aria-modal="true"
             aria-label="Navigatiemenu"
-            id="mobile-menu"
+            className="mobile-menu-panel absolute right-0 top-0 flex w-full flex-col bg-[var(--background)] text-[var(--foreground)]"
+            onClick={(event) => event.stopPropagation()}
           >
-            {/* Close only — top right */}
-            <div className="absolute top-0 right-0 z-10 flex items-center justify-end p-4">
+            <div className="flex items-center justify-between px-5 py-4">
+              <Link
+                href="/"
+                onClick={closeMobileMenu}
+                className="inline-flex h-11 items-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface)]/90 px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40"
+                aria-label="Office6 home"
+              >
+                <Image
+                  src="/logos/office6-black-6.png"
+                  alt="Office6"
+                  width={590}
+                  height={104}
+                  className="h-5 w-auto object-contain"
+                  priority
+                />
+              </Link>
               <button
-                ref={closeButtonRef}
+                ref={mobileCloseRef}
                 type="button"
-                onClick={closeMenu}
-                className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-md text-zinc-400 hover:text-white transition-colors duration-200 active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+                onClick={closeMobileMenu}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface)] text-[var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40"
                 aria-label="Menu sluiten"
               >
-                <span className="sr-only">Sluiten</span>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X className="h-5 w-5" aria-hidden />
               </button>
             </div>
 
-            {/* Primary nav + CTA — centered, full height */}
-            <nav className="flex-1 flex flex-col items-center justify-center overflow-y-auto px-4 py-8" aria-label="Hoofdnavigatie">
-              <ul className="flex flex-col items-center gap-1 w-full max-w-xs">
+            <nav
+              className="flex flex-1 flex-col items-center justify-center overflow-y-auto px-6 py-10"
+              aria-label="Hoofdnavigatie"
+            >
+              <ul className="flex w-full max-w-sm flex-col items-center gap-2">
                 {mobilePrimaryLinks.map(({ href, label }) => (
-                  <li key={href} className="mobile-menu-item w-full flex justify-center">
+                  <li key={href} className="mobile-menu-item w-full">
                     <Link
                       href={href}
-                      onClick={closeMenu}
-                      className="flex items-center justify-center min-h-[44px] py-3 w-full text-lg font-bold text-zinc-300 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-md relative after:absolute after:left-1/2 after:bottom-2 after:h-px after:w-0 after:bg-white/50 after:transition-[width] after:duration-200 hover:after:w-8 after:-translate-x-1/2 active:opacity-90"
+                      onClick={closeMobileMenu}
+                      className="flex min-h-12 w-full items-center justify-center rounded-lg px-4 py-3 text-xl font-bold text-[var(--foreground)] transition-colors duration-200 hover:bg-[var(--surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35"
                     >
                       <Office6Text>{label}</Office6Text>
                     </Link>
                   </li>
                 ))}
-                <li className="mobile-menu-item pt-2 w-full flex justify-center">
+                <li className="mobile-menu-item flex w-full justify-center pt-3">
                   <Link
                     href="/intake"
-                    onClick={closeMenu}
-                    className="inline-flex items-center justify-center min-h-[44px] px-5 py-3 text-base font-bold text-white bg-[var(--accent)] rounded-md w-full max-w-[200px] transition-opacity duration-200 hover:opacity-95 active:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+                    onClick={closeMobileMenu}
+                    className="inline-flex min-h-12 w-full max-w-[14rem] items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3 text-base font-bold text-white transition-colors duration-200 hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35"
                   >
                     Plan gesprek
                   </Link>

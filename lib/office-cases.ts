@@ -66,7 +66,7 @@ const logos = {
   coachedby: "/cases/coachedby/logo.webp",
   gilles: "/cases/gilles-vandermeulen/logo.webp",
   glemm: "/cases/glemm/logo.webp",
-  hetTradePlatform: "/cases/het-trade-platform/logo.webp",
+  hetTradePlatform: "/cases/het-trade-platform/logo-dark.png",
   oasix: "/cases/oasix/logo.webp",
   saturate: "/cases/saturate/logo.webp",
   tecjobz: "/cases/tecjobz/logo.webp",

@@ -17,10 +17,10 @@ export default function FeaturedCelsiusCase() {
   return (
     <section
       id="featured-celsius-case"
-      className="grid grid-cols-1 bg-zinc-950/80 lg:grid-cols-2"
+      className="grid grid-cols-1 bg-[var(--surface)] lg:grid-cols-2"
       aria-labelledby="featured-celsius-case-heading"
     >
-      <div className="relative aspect-[4/3] min-h-[200px] w-full overflow-hidden bg-black lg:min-h-0">
+      <div className="relative aspect-[4/3] min-h-[240px] w-full overflow-hidden bg-black lg:min-h-0">
         <iframe
           src={getMuxPlayerUrl()}
           title="Celsius super cut"
@@ -29,14 +29,14 @@ export default function FeaturedCelsiusCase() {
         />
       </div>
 
-      <div className="flex flex-col justify-center px-4 py-14 md:px-6 md:py-20 lg:aspect-[4/3] lg:min-h-0 lg:px-10 lg:py-8 xl:px-16">
-        <div className="mx-auto flex w-full max-w-2xl flex-col justify-center gap-4 text-base font-medium leading-relaxed text-zinc-400 md:text-lg lg:h-full lg:max-w-[38rem] lg:gap-4 xl:gap-5">
+      <div className="flex flex-col justify-center px-5 py-16 md:px-6 md:py-20 lg:aspect-[4/3] lg:min-h-0 lg:px-10 lg:py-8 xl:px-16">
+        <div className="mx-auto flex w-full max-w-2xl flex-col justify-center gap-4 text-base font-medium leading-relaxed text-[var(--foreground-muted)] md:text-lg lg:h-full lg:max-w-[38rem] lg:gap-4 xl:gap-5">
           <Image
             src="/cases/celsius/logo.webp"
             alt="Celsius"
             width={1000}
             height={315}
-            className="h-auto w-44 object-contain md:w-56 xl:w-60"
+            className="h-auto w-44 object-contain brightness-0 md:w-56 xl:w-60"
             sizes="(max-width: 767px) 176px, (max-width: 1279px) 224px, 240px"
           />
 
@@ -46,7 +46,7 @@ export default function FeaturedCelsiusCase() {
             </p>
             <h2
               id="featured-celsius-case-heading"
-              className="text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-[clamp(2rem,3.1vw,3rem)]"
+              className="text-[clamp(1.9rem,7.5vw,2.25rem)] font-bold leading-[1.08] tracking-tight text-[var(--foreground)] md:text-4xl lg:text-[clamp(2rem,3.1vw,3rem)]"
             >
               Een herkenbare eventstijl die verder ging dan losse aftermovies.
             </h2>
@@ -58,7 +58,7 @@ export default function FeaturedCelsiusCase() {
             hielp mee om meerdere edities uit te verkopen.
           </p>
 
-          <p className="text-base font-semibold leading-relaxed text-white">
+          <p className="text-base font-semibold leading-relaxed text-[var(--foreground)]">
             Bijna 200k organische views, meerdere uitverkochte events en een
             contentstijl die meteen van Celsius voelde.
           </p>
@@ -66,7 +66,7 @@ export default function FeaturedCelsiusCase() {
           <div className="pt-1">
             <Link
               href="/cases/celsius"
-              className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-5 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-5 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               Bekijk de volledige case
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />

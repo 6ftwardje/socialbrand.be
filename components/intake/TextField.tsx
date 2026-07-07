@@ -17,8 +17,8 @@ interface TextFieldProps {
 }
 
 const inputClass = cn(
-  "mt-1 w-full rounded-md border border-zinc-700 bg-zinc-900/50 px-3 py-2.5 text-white placeholder:text-zinc-500",
-  "focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 disabled:opacity-60"
+  "mt-1 w-full rounded-md border border-[var(--border-subtle)] bg-[var(--surface)] px-3 py-2.5 text-[var(--foreground)] placeholder:text-[var(--foreground-muted)]",
+  "focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] disabled:opacity-60"
 );
 
 export default function TextField({
@@ -36,9 +36,9 @@ export default function TextField({
 }: TextFieldProps) {
   return (
     <div className="w-full">
-      <label htmlFor={id} className="block text-sm text-zinc-400">
+      <label htmlFor={id} className="block text-sm text-[var(--foreground-muted)]">
         {label}
-        {required && <span className="text-zinc-500" aria-hidden> *</span>}
+        {required && <span className="text-[var(--foreground-muted)]" aria-hidden> *</span>}
       </label>
       <input
         id={id}
@@ -55,7 +55,7 @@ export default function TextField({
         aria-describedby={error ? `${id}-error` : undefined}
       />
       {error && (
-        <p id={`${id}-error`} className="mt-1 text-sm text-zinc-500" role="alert">
+        <p id={`${id}-error`} className="mt-1 text-sm text-[var(--accent)]" role="alert">
           {error}
         </p>
       )}

@@ -4,12 +4,12 @@ import { navLinks, socialLinks } from "@/lib/content";
 import Office6Text from "@/components/ui/Office6Text";
 
 const LOGO_URL =
-  "/logos/office6-white.png";
+  "/logos/office6-black-6.png";
 
 const CONTACT_EMAIL = "hello@office6.be";
 
 function SocialIcon({ label }: { label: string }) {
-  const className = "h-5 w-5 text-zinc-400 hover:text-white transition-colors";
+  const className = "h-5 w-5 text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors";
   switch (label) {
     case "Instagram":
       return (
@@ -36,19 +36,19 @@ function SocialIcon({ label }: { label: string }) {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-800/80 bg-[var(--background)]">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
+    <footer className="border-t border-[var(--border-subtle)] bg-[var(--background)]">
+      <div className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-16">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <Link href="/" className="inline-block focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded">
               <Image src={LOGO_URL} alt="Office6" width={590} height={104} className="h-8 w-auto opacity-90" />
             </Link>
-            <p className="mt-3 max-w-xs text-sm text-zinc-400">
+            <p className="mt-3 max-w-xs text-sm text-[var(--foreground-muted)]">
               Content agency voor creation, performance marketing en custom platforms.
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-4 inline-block text-sm text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+              className="mt-4 inline-block text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
             >
               {CONTACT_EMAIL}
             </a>
@@ -59,7 +59,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+                    className="text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
                     aria-label={label}
                   >
                     <SocialIcon label={label} />
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+                    className="text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
                   >
                     <Office6Text>{label}</Office6Text>
                   </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
             </ul>
           </nav>
         </div>
-        <p className="mt-8 border-t border-zinc-800/80 pt-8 text-sm text-zinc-500">
+        <p className="mt-8 border-t border-[var(--border-subtle)] pt-8 text-sm text-[var(--foreground-muted)]">
           © {new Date().getFullYear()} <Office6Text>Office6</Office6Text>. Alle rechten voorbehouden.
         </p>
       </div>

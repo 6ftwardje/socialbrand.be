@@ -18,15 +18,15 @@ interface ChipMultiSelectProps {
 }
 
 const chipBase =
-  "rounded-full border px-3 py-1.5 text-sm transition-colors focus:outline-none focus:ring-1 focus:ring-zinc-500 focus:ring-offset-1 focus:ring-offset-[var(--background)] disabled:opacity-50 disabled:cursor-not-allowed";
+  "rounded-full border px-3 py-1.5 text-sm transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--accent)] focus:ring-offset-1 focus:ring-offset-[var(--background)] disabled:opacity-50 disabled:cursor-not-allowed";
 const chipUnselected =
-  "border-zinc-700 bg-transparent text-zinc-400 hover:border-zinc-600 hover:bg-zinc-800/40";
+  "border-[var(--border-subtle)] bg-[var(--surface)] text-[var(--foreground-muted)] hover:border-[var(--foreground-muted)] hover:text-[var(--foreground)]";
 const chipSelected =
-  "border-zinc-500 bg-zinc-800/80 text-[var(--foreground)]";
+  "border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--foreground)]";
 
 const inputClass = cn(
-  "mt-2 w-full rounded-md border border-zinc-700 bg-zinc-900/50 px-3 py-2 text-sm text-white placeholder:text-zinc-500",
-  "focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+  "mt-2 w-full rounded-md border border-[var(--border-subtle)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)]",
+  "focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
 );
 
 export default function ChipMultiSelect({
@@ -67,16 +67,17 @@ export default function ChipMultiSelect({
 
   return (
     <div className="w-full" role="group" aria-labelledby={`${id}-label`}>
-      <span id={`${id}-label`} className="block text-sm text-zinc-400">
+      <span id={`${id}-label`} className="block text-sm text-[var(--foreground-muted)]">
         {label}
       </span>
       <div className="mt-3 flex flex-wrap gap-2">
-        {options.map((opt) => (
+        {options.map((opt, index) => (
           <button
             key={opt.value}
             type="button"
             onClick={() => toggle(opt.value)}
             disabled={isDisabled(opt.value)}
+            autoFocus={autoFocus && index === 0}
             className={cn(
               chipBase,
               value.includes(opt.value) ? chipSelected : chipUnselected

@@ -30,13 +30,13 @@ export default function Positionering() {
   return (
     <section
       id="positionering"
-      className="grid grid-cols-1 lg:grid-cols-2 w-full bg-zinc-950/80 min-h-0"
+      className="grid w-full grid-cols-1 border-y border-[var(--border-subtle)] bg-[var(--surface)] lg:grid-cols-2"
       aria-labelledby="positionering-heading"
     >
       {/* Tekst – linkerkant met padding */}
-      <div className="flex flex-col justify-center px-4 py-16 md:px-6 md:py-24 lg:px-8 lg:pl-12 xl:pl-16">
-        <div className="mx-auto w-full max-w-2xl space-y-6 text-lg font-medium text-zinc-400 md:text-xl">
-          <h2 id="positionering-heading" className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+      <div className="flex flex-col justify-center px-5 py-16 md:px-6 md:py-24 lg:px-8 lg:pl-12 xl:pl-16">
+        <div className="mx-auto w-full max-w-2xl space-y-6 text-lg font-medium text-[var(--foreground-muted)] md:text-xl">
+          <h2 id="positionering-heading" className="text-[clamp(2rem,8vw,2.35rem)] font-bold leading-[1.08] tracking-tight text-[var(--foreground)] md:text-4xl lg:text-5xl">
             <span ref={highlightRef} className={`positionering-highlight ${highlightInView ? "in-view" : ""}`}>Menselijke content</span> maakt merken sterker.
           </h2>
           <p>
@@ -44,21 +44,21 @@ export default function Positionering() {
             visie en vertrouwen op te bouwen zonder telkens opnieuw te moeten uitleggen
             waarom ze relevant zijn.
           </p>
-          <p className="font-semibold text-white">
+          <p className="font-semibold text-[var(--foreground)]">
             <Office6Text>Office6</Office6Text> helpt met format, studio-opname en de korte clips die je verhaal
             verder brengen op social.
           </p>
           <div className="flex flex-col gap-3 pt-2 sm:flex-row">
             <Link
               href="/cases/peak-performance-podcast"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               Bekijk podcastcase
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
             <Link
               href="/intake"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-base font-bold text-white transition-colors hover:border-white/45 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[var(--border-subtle)] px-6 py-3 text-base font-bold text-[var(--foreground)] transition-colors hover:border-[var(--foreground)]/35 hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               Ontdek je podcastaanpak
               <ArrowRight className="h-4 w-4" aria-hidden />
@@ -68,7 +68,7 @@ export default function Positionering() {
       </div>
       {/* Foto – rechterkant, volledige helft,zelfde hoogte/verhouding als voorheen (aspect 4/3) */}
       <div
-        className="relative min-h-[200px] w-full aspect-[4/3] lg:aspect-[4/3] lg:min-h-0"
+        className="relative aspect-[4/3] min-h-[240px] w-full lg:min-h-0"
         aria-hidden
       >
         {hasImage ? (

@@ -46,8 +46,8 @@ function HorizontalVideo({ video }: { video: OfficeMuxVideo }) {
   return (
     <article>
       <VideoFrame video={video} />
-      <p className="mt-3 text-sm font-semibold text-white">{video.title}</p>
-      <p className="mt-1 text-xs text-zinc-500">{video.aspectRatio} video</p>
+      <p className="mt-3 text-sm font-semibold text-[var(--foreground)]">{video.title}</p>
+      <p className="mt-1 text-xs text-[var(--foreground-muted)]">{video.aspectRatio} video</p>
     </article>
   );
 }
@@ -56,8 +56,8 @@ function VerticalVideo({ video }: { video: OfficeMuxVideo }) {
   return (
     <article className="w-full max-w-[19rem]">
       <VideoFrame video={video} />
-      <p className="mt-3 text-sm font-semibold text-white">{video.title}</p>
-      <p className="mt-1 text-xs text-zinc-500">Vertical reel</p>
+      <p className="mt-3 text-sm font-semibold text-[var(--foreground)]">{video.title}</p>
+      <p className="mt-1 text-xs text-[var(--foreground-muted)]">Vertical reel</p>
     </article>
   );
 }
@@ -71,13 +71,13 @@ export default function CaseMuxVideos({ videos }: { videos: OfficeMuxVideo[] }) 
       className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8"
       aria-labelledby="case-videos-title"
     >
-      <div className="mb-8 border-t border-zinc-900 pt-8 md:mb-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+      <div className="mb-8 border-t border-[var(--border-subtle)] pt-8 md:mb-10">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground-muted)]">
           Media
         </p>
         <h2
           id="case-videos-title"
-          className="mt-3 text-2xl font-semibold leading-none tracking-tight text-white md:text-3xl"
+          className="mt-3 text-2xl font-semibold leading-none tracking-tight text-[var(--foreground)] md:text-3xl"
         >
           Video assets
         </h2>
@@ -101,7 +101,7 @@ export default function CaseMuxVideos({ videos }: { videos: OfficeMuxVideo[] }) 
         {verticalVideos.length > 0 && (
           <div>
             {horizontalVideos.length > 0 && (
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground-muted)]">
                 Vertical edits
               </p>
             )}

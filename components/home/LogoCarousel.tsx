@@ -15,9 +15,9 @@ const LOGOS = [
   },
   {
     name: "Het Trade Platform",
-    src: "/cases/het-trade-platform/logo.webp",
-    width: 1200,
-    height: 204,
+    src: "/cases/het-trade-platform/logo-dark.png",
+    width: 1917,
+    height: 325,
   },
   {
     name: "Auto Viger",
@@ -79,10 +79,10 @@ function LogoGroup({ decorative = false }: { decorative?: boolean }) {
         >
           <Image
             src={logo.src}
-            alt={decorative ? "" : logo.name}
+            alt={decorative ? "" : logo.name === "Het Trade Platform" ? "Het Trade Platform logo" : logo.name}
             width={logo.width}
             height={logo.height}
-            className="max-h-10 w-auto max-w-[8rem] object-contain opacity-55 grayscale transition-[opacity,filter] duration-300 hover:opacity-95 hover:grayscale-0 md:max-h-12 md:max-w-[10rem]"
+            className="max-h-10 w-auto max-w-[8rem] object-contain opacity-65 brightness-0 transition-opacity duration-300 hover:opacity-100 md:max-h-12 md:max-w-[10rem]"
             sizes="160px"
           />
         </div>
@@ -94,14 +94,14 @@ function LogoGroup({ decorative = false }: { decorative?: boolean }) {
 export default function LogoCarousel() {
   return (
     <section
-      className="w-full overflow-hidden border-y border-zinc-900 bg-[var(--background)] py-8 md:py-10"
+      className="w-full overflow-hidden border-y border-[var(--border-subtle)] bg-[var(--background)] py-9 md:py-10"
       aria-labelledby="logo-carousel-title"
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 md:flex-row md:items-center md:gap-8 md:px-6 lg:px-8">
-        <div className="shrink-0 text-center md:w-48 md:border-r md:border-zinc-800 md:pr-8 md:text-right">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 md:flex-row md:items-center md:gap-8 md:px-6 lg:px-8">
+        <div className="shrink-0 text-center md:w-48 md:border-r md:border-[var(--border-subtle)] md:pr-8 md:text-right">
           <p
             id="logo-carousel-title"
-            className="text-sm font-medium leading-relaxed text-zinc-500"
+            className="text-sm font-medium leading-relaxed text-[var(--foreground-muted)]"
           >
             Vertrouwd door merken die blijven bewegen
           </p>

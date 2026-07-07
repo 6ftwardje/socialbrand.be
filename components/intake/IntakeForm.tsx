@@ -35,25 +35,7 @@ export default function IntakeForm() {
   const validationMessage =
     attemptedNext && !canGoNext ? getStepValidationMessage(step, data) : null;
 
-  const goNext = useCallback(() => {
-    if (!isStepValid(step, data)) {
-      setAttemptedNext(true);
-      return;
-    }
-    setAttemptedNext(false);
-    if (isLastStep) {
-      handleSubmit();
-      return;
-    }
-    setStep((s) => s + 1);
-  }, [step, data, isLastStep]);
-
-  const goBack = useCallback(() => {
-    setAttemptedNext(false);
-    if (step > 1) setStep((s) => s - 1);
-  }, [step]);
-
-  async function handleSubmit() {
+  const handleSubmit = useCallback(async () => {
     setSubmitStatus("submitting");
     try {
       const payload = {
@@ -79,7 +61,25 @@ export default function IntakeForm() {
     } catch {
       setSubmitStatus("error");
     }
-  }
+  }, [data]);
+
+  const goNext = useCallback(() => {
+    if (!isStepValid(step, data)) {
+      setAttemptedNext(true);
+      return;
+    }
+    setAttemptedNext(false);
+    if (isLastStep) {
+      handleSubmit();
+      return;
+    }
+    setStep((s) => s + 1);
+  }, [data, handleSubmit, isLastStep, step]);
+
+  const goBack = useCallback(() => {
+    setAttemptedNext(false);
+    if (step > 1) setStep((s) => s - 1);
+  }, [step]);
 
   useEffect(() => {
     const container = stepRef.current;
@@ -350,10 +350,10 @@ export default function IntakeForm() {
         </div>
       </div>
 
-      <div className="shrink-0 border-t border-zinc-800/60 px-6 py-5 bg-[var(--background)]">
+      <div className="shrink-0 border-t border-[var(--border-subtle)] bg-[var(--background)] px-6 py-5">
         <div className="mx-auto max-w-xl flex flex-col items-end gap-1">
           {validationMessage && (
-            <p className="w-full text-sm text-amber-400/90" role="alert">
+            <p className="w-full text-sm text-[var(--accent)]" role="alert">
               {validationMessage}
             </p>
           )}
@@ -378,7 +378,7 @@ export default function IntakeForm() {
           </p>
         </div>
         {submitStatus === "error" && (
-          <p className="mt-3 text-sm text-zinc-400" role="alert">
+          <p className="mt-3 text-sm text-[var(--accent)]" role="alert">
             Er ging iets mis. Probeer opnieuw.
           </p>
         )}

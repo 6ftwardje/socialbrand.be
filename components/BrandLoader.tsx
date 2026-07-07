@@ -5,7 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const NAVBAR_LOGO_SRC =
-  "/logos/office6-white.png";
+  "/logos/office6-black-6.png";
 
 const FADE_DURATION_MS = 250;
 /** Fade-out duration for initial load (above-the-fold assets); 300–500ms. */
@@ -68,7 +68,7 @@ export default function BrandLoader({
 
       {/* Progress bar */}
       <div
-        className="h-1 w-48 min-w-[12rem] max-w-[16rem] overflow-hidden rounded-full bg-zinc-800 md:w-56"
+        className="h-1 w-48 min-w-[12rem] max-w-[16rem] overflow-hidden rounded-full bg-[var(--surface-muted)] md:w-56"
         aria-hidden
       >
         <div

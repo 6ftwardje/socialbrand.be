@@ -31,9 +31,13 @@ export default function RouteLoader() {
     prevPathRef.current = pathname;
 
     clearTimers();
-    setVisible(true);
-    setIsExiting(false);
-    setProgress(0);
+
+    const t0 = setTimeout(() => {
+      setVisible(true);
+      setIsExiting(false);
+      setProgress(0);
+    }, 0);
+    timersRef.current.push(t0);
 
     // Fake progress: 0 → 70% quickly, then 70 → 90% slowly, then 100% at end
     const t1 = setTimeout(() => setProgress(70), PROGRESS_FAST_MS);

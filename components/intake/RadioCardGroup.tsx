@@ -18,13 +18,13 @@ interface RadioCardGroupProps {
 }
 
 const cardBase =
-  "relative flex cursor-pointer items-center rounded-md border px-3 py-2.5 text-left transition-colors focus-within:ring-1 focus-within:ring-zinc-500 focus-within:ring-offset-1 focus-within:ring-offset-[var(--background)]";
-const cardUnselected = "border-zinc-700 bg-transparent hover:border-zinc-600 hover:bg-zinc-800/30";
-const cardSelected = "border-zinc-500 bg-zinc-800/60";
+  "relative flex cursor-pointer items-center rounded-md border px-3 py-2.5 text-left transition-colors focus-within:ring-1 focus-within:ring-[var(--accent)] focus-within:ring-offset-1 focus-within:ring-offset-[var(--background)]";
+const cardUnselected = "border-[var(--border-subtle)] bg-[var(--surface)] hover:border-[var(--foreground-muted)]";
+const cardSelected = "border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--foreground)]";
 
 const inputClass = cn(
-  "mt-3 w-full rounded-md border border-zinc-700 bg-zinc-900/50 px-3 py-2 text-sm text-white placeholder:text-zinc-500",
-  "focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+  "mt-3 w-full rounded-md border border-[var(--border-subtle)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)]",
+  "focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
 );
 
 export default function RadioCardGroup({
@@ -45,11 +45,11 @@ export default function RadioCardGroup({
 
   return (
     <fieldset className="w-full" aria-labelledby={`${id}-legend`}>
-      <legend id={`${id}-legend`} className="block text-sm text-zinc-400">
+      <legend id={`${id}-legend`} className="block text-sm text-[var(--foreground-muted)]">
         {label}
       </legend>
       <div className="mt-3 space-y-2">
-        {options.map((opt) => (
+        {options.map((opt, index) => (
           <label
             key={opt.value}
             className={cn(
@@ -65,6 +65,7 @@ export default function RadioCardGroup({
               checked={value === opt.value}
               onChange={() => onChange(opt.value)}
               disabled={disabled}
+              autoFocus={autoFocus && index === 0}
               className="sr-only"
               aria-describedby={opt.isOther && showOtherInput ? `${id}-other-desc` : undefined}
             />
