@@ -54,12 +54,12 @@ export default function FeaturedTradePlatformCase() {
         </div>
       </div>
 
-      <div className="group relative order-first mx-5 mt-5 aspect-[4/5] min-h-[22rem] w-auto overflow-hidden rounded-lg bg-zinc-950 md:mx-6 md:min-h-[28rem] lg:order-none lg:m-0 lg:aspect-[4/3] lg:min-h-0 lg:w-full lg:rounded-none">
+      <div className="relative order-first mx-5 mt-5 aspect-[4/5] min-h-[22rem] w-auto overflow-hidden rounded-lg bg-zinc-950 md:mx-6 md:min-h-[28rem] lg:order-none lg:m-0 lg:min-h-0 lg:w-full lg:rounded-none">
         <Image
-          src="/cases/het-trade-platform/platform-modules-mockup.webp"
-          alt="Het Trade Platform leerplatform op een laptop"
+          src="/cases/het-trade-platform/platform-mobile-mockup.webp"
+          alt="Het Trade Platform leerplatform op een laptopmockup"
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+          className="object-cover"
           sizes="(max-width: 1023px) 100vw, 50vw"
         />
       </div>

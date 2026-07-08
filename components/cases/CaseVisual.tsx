@@ -15,6 +15,8 @@ export function shapeClass(shape: CaseFormat) {
       return "aspect-square";
     case "platform":
       return "aspect-[4/3] bg-zinc-950";
+    case "platformPortrait":
+      return "aspect-[4/5] bg-zinc-950";
     case "wide":
     default:
       return "aspect-[16/9]";
@@ -121,7 +123,11 @@ export default function CaseVisual({
           fill
           priority={priority}
           onLoad={handleLoad}
-          className="object-cover transition-[opacity,transform] duration-700 group-hover:scale-[1.025]"
+          className={
+            shape === "platformPortrait"
+              ? "object-cover transition-opacity duration-700"
+              : "object-cover transition-[opacity,transform] duration-700 group-hover:scale-[1.025]"
+          }
           sizes={sizes}
         />
       )}

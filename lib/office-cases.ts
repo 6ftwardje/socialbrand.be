@@ -1,4 +1,4 @@
-export type CaseFormat = "wide" | "standard" | "portrait" | "square" | "platform";
+export type CaseFormat = "wide" | "standard" | "portrait" | "square" | "platform" | "platformPortrait";
 export type MuxVideoFormat = "wide" | "standard" | "vertical";
 
 export interface OfficeMuxVideo {
@@ -348,9 +348,9 @@ export const officeCases: OfficeCase[] = [
     mediaPlan: [
       {
         label: "Leerplatform dashboard",
-        shape: "platform",
+        shape: "platformPortrait",
         note: "Modules, lessen en meldingen in een centrale leeromgeving voor studenten.",
-        image: "/cases/het-trade-platform/platform-modules-mockup.webp",
+        image: "/cases/het-trade-platform/platform-mobile-mockup.webp",
       },
       {
         label: "Persoonlijke loginomgeving",
