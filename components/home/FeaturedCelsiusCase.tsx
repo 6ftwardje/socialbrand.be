@@ -1,17 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import FeaturedMuxVideo from "@/components/home/FeaturedMuxVideo";
 
 const CELSIUS_SUPERCUT_PLAYBACK_ID = "PdHJXJUKzwVDAM613xkEoZ7WypQsVXXRM01NZiJKJa4M";
-
-function getMuxPlayerUrl() {
-  const params = new URLSearchParams({
-    "metadata-video-title": "Celsius super cut",
-    "accent-color": "e11d48",
-  });
-
-  return `https://player.mux.com/${CELSIUS_SUPERCUT_PLAYBACK_ID}?${params.toString()}`;
-}
 
 export default function FeaturedCelsiusCase() {
   return (
@@ -20,17 +12,14 @@ export default function FeaturedCelsiusCase() {
       className="grid grid-cols-1 bg-[var(--surface)] lg:grid-cols-2"
       aria-labelledby="featured-celsius-case-heading"
     >
-      <div className="relative aspect-[4/3] min-h-[240px] w-full overflow-hidden bg-black lg:min-h-0">
-        <iframe
-          src={getMuxPlayerUrl()}
-          title="Celsius super cut"
-          className="absolute inset-0 h-full w-full"
-          allow="accelerometer; autoplay; encrypted-media; fullscreen; picture-in-picture"
-        />
-      </div>
+      <FeaturedMuxVideo
+        playbackId={CELSIUS_SUPERCUT_PLAYBACK_ID}
+        title="Celsius super cut"
+        showAudioToggle
+      />
 
-      <div className="flex flex-col justify-center px-5 py-16 md:px-6 md:py-20 lg:aspect-[4/3] lg:min-h-0 lg:px-10 lg:py-8 xl:px-16">
-        <div className="mx-auto flex w-full max-w-2xl flex-col justify-center gap-4 text-base font-medium leading-relaxed text-[var(--foreground-muted)] md:text-lg lg:h-full lg:max-w-[38rem] lg:gap-4 xl:gap-5">
+      <div className="flex flex-col justify-center px-5 py-8 md:px-6 md:py-12 lg:aspect-[4/3] lg:min-h-0 lg:px-10 lg:py-8 xl:px-16">
+        <div className="mx-auto flex w-full max-w-2xl flex-col justify-center gap-3 text-base font-medium leading-relaxed text-[var(--foreground-muted)] md:text-lg lg:h-full lg:max-w-[38rem] lg:gap-4 xl:gap-5">
           <Image
             src="/cases/celsius/logo.webp"
             alt="Celsius"
@@ -66,7 +55,7 @@ export default function FeaturedCelsiusCase() {
           <div className="pt-1">
             <Link
               href="/cases/celsius"
-              className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-5 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+              className="group inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-5 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] sm:w-fit"
             >
               Bekijk de volledige case
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />

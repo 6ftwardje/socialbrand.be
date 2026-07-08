@@ -14,10 +14,14 @@ const FEATURED_CASE_SLUGS = [
   "bloom",
 ];
 
-const featuredCases: OfficeCase[] = FEATURED_CASE_SLUGS.flatMap((slug) => {
-  const item = officeCases.find((entry) => entry.slug === slug);
-  return item ? [item] : [];
-});
+function getCasesBySlug(slugs: string[]): OfficeCase[] {
+  return slugs.flatMap((slug) => {
+    const item = officeCases.find((entry) => entry.slug === slug);
+    return item ? [item] : [];
+  });
+}
+
+const featuredCases = getCasesBySlug(FEATURED_CASE_SLUGS);
 
 export default function CasesTeaser() {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -74,7 +78,7 @@ export default function CasesTeaser() {
   return (
     <section
       id="cases-teaser"
-      className="w-full overflow-hidden bg-[var(--background)] py-16 md:py-24"
+      className="w-full overflow-hidden bg-[var(--background-muted)] py-16 md:py-24"
       aria-labelledby="cases-teaser-title"
     >
       <div className="mx-auto mb-8 flex max-w-7xl items-end justify-between gap-8 px-5 md:mb-14 md:px-6 lg:px-8">

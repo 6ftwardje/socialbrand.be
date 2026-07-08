@@ -30,12 +30,12 @@ export default function Positionering() {
   return (
     <section
       id="positionering"
-      className="grid w-full grid-cols-1 border-y border-[var(--border-subtle)] bg-[var(--surface)] lg:grid-cols-2"
+      className="grid w-full grid-cols-1 border-t border-[var(--border-subtle)] bg-[var(--surface)] lg:grid-cols-2"
       aria-labelledby="positionering-heading"
     >
       {/* Tekst – linkerkant met padding */}
-      <div className="flex flex-col justify-center px-5 py-16 md:px-6 md:py-24 lg:px-8 lg:pl-12 xl:pl-16">
-        <div className="mx-auto w-full max-w-2xl space-y-6 text-lg font-medium text-[var(--foreground-muted)] md:text-xl">
+      <div className="flex flex-col justify-center px-5 py-8 md:px-6 md:py-12 lg:px-8 lg:py-24 lg:pl-12 xl:pl-16">
+        <div className="mx-auto w-full max-w-2xl space-y-4 text-base font-medium leading-relaxed text-[var(--foreground-muted)] md:text-lg lg:space-y-6 lg:text-xl">
           <h2 id="positionering-heading" className="text-[clamp(2rem,8vw,2.35rem)] font-bold leading-[1.08] tracking-tight text-[var(--foreground)] md:text-4xl lg:text-5xl">
             <span ref={highlightRef} className={`positionering-highlight ${highlightInView ? "in-view" : ""}`}>Menselijke content</span> maakt merken sterker.
           </h2>
@@ -51,14 +51,14 @@ export default function Positionering() {
           <div className="flex flex-col gap-3 pt-2 sm:flex-row">
             <Link
               href="/cases/peak-performance-podcast"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[var(--accent)] px-6 py-3 text-base font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] sm:w-fit"
             >
               Bekijk podcastcase
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
             <Link
               href="/intake"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[var(--border-subtle)] px-6 py-3 text-base font-bold text-[var(--foreground)] transition-colors hover:border-[var(--foreground)]/35 hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[var(--border-subtle)] px-6 py-3 text-base font-bold text-[var(--foreground)] transition-colors hover:border-[var(--foreground)]/35 hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] sm:w-fit"
             >
               Ontdek je podcastaanpak
               <ArrowRight className="h-4 w-4" aria-hidden />
@@ -68,7 +68,7 @@ export default function Positionering() {
       </div>
       {/* Foto – rechterkant, volledige helft,zelfde hoogte/verhouding als voorheen (aspect 4/3) */}
       <div
-        className="relative aspect-[4/3] min-h-[240px] w-full lg:min-h-0"
+        className="relative order-first mx-5 mt-5 aspect-[4/5] min-h-[22rem] w-auto overflow-hidden rounded-lg md:mx-6 md:min-h-[28rem] lg:order-none lg:m-0 lg:aspect-[4/3] lg:min-h-0 lg:w-full lg:rounded-none"
         aria-hidden
       >
         {hasImage ? (

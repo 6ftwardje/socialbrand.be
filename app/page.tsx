@@ -3,6 +3,7 @@ import LogoCarousel from "@/components/home/LogoCarousel";
 import Positionering from "@/components/home/Positionering";
 import FeaturedCelsiusCase from "@/components/home/FeaturedCelsiusCase";
 import FeaturedTradePlatformCase from "@/components/home/FeaturedTradePlatformCase";
+import FeaturedTheNightCase from "@/components/home/FeaturedTheNightCase";
 import CasesTeaser from "@/components/home/CasesTeaser";
 import CTASection from "@/components/ui/CTASection";
 
@@ -12,8 +13,9 @@ export default function Home() {
       <Hero />
       <LogoCarousel />
       <Positionering />
-      <FeaturedCelsiusCase />
+      <FeaturedTheNightCase />
       <FeaturedTradePlatformCase />
+      <FeaturedCelsiusCase />
       <CasesTeaser />
       <CTASection
         title="Klaar om je merk sneller te laten groeien?"

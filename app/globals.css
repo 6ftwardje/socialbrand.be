@@ -241,18 +241,18 @@ body {
   }
 }
 
-/* Mobile full-screen menu: keep the established overlay, panel and stagger rhythm. */
+/* Mobile full-screen menu: sits below the fixed header and fades in cleanly. */
 .mobile-menu-overlay {
   height: 100vh;
   height: 100dvh;
 }
 
 .mobile-menu-overlay[data-state="open"] {
-  animation: mobile-menu-overlay-in 0.25s ease-in-out forwards;
+  animation: mobile-menu-overlay-in 0.18s ease-out forwards;
 }
 
 .mobile-menu-overlay[data-state="closed"] {
-  animation: mobile-menu-overlay-out 0.25s ease-in-out forwards;
+  animation: mobile-menu-overlay-out 0.14s ease-in forwards;
 }
 
 @keyframes mobile-menu-overlay-in {
@@ -276,69 +276,10 @@ body {
 .mobile-menu-panel {
   height: 100vh;
   height: 100dvh;
-  transform: translateX(100%);
-}
-
-.mobile-menu-overlay[data-state="open"] .mobile-menu-panel {
-  animation: mobile-menu-panel-in 0.25s ease-in-out forwards;
-}
-
-.mobile-menu-overlay[data-state="closed"] .mobile-menu-panel {
-  animation: mobile-menu-panel-out 0.25s ease-in-out forwards;
-}
-
-@keyframes mobile-menu-panel-in {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes mobile-menu-panel-out {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
 }
 
 .mobile-menu-item {
-  opacity: 0;
-  transform: translateY(6px);
-}
-
-.mobile-menu-overlay[data-state="open"] .mobile-menu-item {
-  animation: mobile-menu-item-in 0.3s ease-out forwards;
-}
-
-.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(1) {
-  animation-delay: 60ms;
-}
-
-.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(2) {
-  animation-delay: 100ms;
-}
-
-.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(3) {
-  animation-delay: 140ms;
-}
-
-.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(4) {
-  animation-delay: 180ms;
-}
-
-.mobile-menu-overlay[data-state="open"] .mobile-menu-item:nth-child(5) {
-  animation-delay: 220ms;
-}
-
-@keyframes mobile-menu-item-in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 1;
 }
 
 /* Intake: subtle step transition */

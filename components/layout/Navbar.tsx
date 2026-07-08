@@ -7,7 +7,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { mobilePrimaryLinks, navLinks } from "@/lib/content";
 import Office6Text from "@/components/ui/Office6Text";
 
-const MOBILE_MENU_ANIMATION_MS = 250;
+const MOBILE_MENU_ANIMATION_MS = 180;
 const DESKTOP_MENU_LINKS = navLinks.filter((link) => link.href !== "/contact");
 
 function getFocusables(container: HTMLElement | null): HTMLElement[] {
@@ -20,9 +20,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileClosing, setMobileClosing] = useState(false);
   const [desktopOpen, setDesktopOpen] = useState(false);
-  const mobilePanelRef = useRef<HTMLDivElement>(null);
   const mobileTriggerRef = useRef<HTMLButtonElement>(null);
-  const mobileCloseRef = useRef<HTMLButtonElement>(null);
   const desktopMenuRef = useRef<HTMLDivElement>(null);
   const desktopTriggerRef = useRef<HTMLButtonElement>(null);
 
@@ -57,34 +55,17 @@ export default function Navbar() {
   }, [mobileClosing, mobileOpen]);
 
   useEffect(() => {
-    if (!mobileOpen || !mobilePanelRef.current || mobileClosing) return;
-    mobileCloseRef.current?.focus({ preventScroll: true });
-    const panel = mobilePanelRef.current;
+    if (!mobileOpen || mobileClosing) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
         closeMobileMenu();
-        return;
-      }
-
-      if (event.key !== "Tab") return;
-      const focusables = getFocusables(panel);
-      if (!focusables.length) return;
-
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
       }
     };
 
-    panel.addEventListener("keydown", onKeyDown);
-    return () => panel.removeEventListener("keydown", onKeyDown);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [closeMobileMenu, mobileClosing, mobileOpen]);
 
   useEffect(() => {
@@ -160,26 +141,25 @@ export default function Navbar() {
             ref={mobileTriggerRef}
             type="button"
             onClick={mobileOpen ? closeMobileMenu : openMobileMenu}
-            className="pointer-events-auto inline-flex h-11 items-center gap-3 rounded-full border border-[var(--border-subtle)] bg-[var(--surface)]/90 px-4 text-sm font-semibold text-[var(--foreground)] shadow-[0_12px_40px_rgba(21,21,21,0.10)] backdrop-blur-xl transition-colors duration-200 hover:border-[var(--foreground)]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 md:hidden"
+            className="pointer-events-auto inline-flex h-11 w-[6.35rem] items-center justify-between gap-3 rounded-full border border-[var(--border-subtle)] bg-[var(--surface)]/90 px-4 text-sm font-semibold text-[var(--foreground)] shadow-[0_12px_40px_rgba(21,21,21,0.10)] backdrop-blur-xl transition-colors duration-150 hover:border-[var(--foreground)]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40 md:hidden"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            aria-haspopup="dialog"
             aria-label={mobileOpen ? "Menu sluiten" : "Menu openen"}
           >
-            <span>{mobileOpen ? "Sluit" : "Menu"}</span>
+            <span>Menu</span>
             <span className="relative h-4 w-5" aria-hidden>
               <span
-                className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
+                className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-150 ${
                   mobileOpen ? "translate-y-[7px] rotate-45" : ""
                 }`}
               />
               <span
-                className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition-all duration-300 ${
+                className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition-all duration-150 ${
                   mobileOpen ? "scale-x-0 opacity-0" : ""
                 }`}
               />
               <span
-                className={`absolute bottom-0 left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${
+                className={`absolute bottom-0 left-0 h-0.5 w-5 rounded-full bg-current transition-transform duration-150 ${
                   mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
                 }`}
               />
@@ -260,7 +240,7 @@ export default function Navbar() {
       {mobileMenuVisible && (
         <div
           data-state={mobileMenuState}
-          className="mobile-menu-overlay fixed inset-0 z-[100] md:hidden"
+          className="mobile-menu-overlay fixed inset-0 z-40 md:hidden"
           aria-hidden={!mobileOpen}
         >
           <div
@@ -269,41 +249,11 @@ export default function Navbar() {
             aria-hidden
           />
           <div
-            ref={mobilePanelRef}
             id="mobile-menu"
-            role="dialog"
-            aria-modal="true"
             aria-label="Navigatiemenu"
-            className="mobile-menu-panel absolute right-0 top-0 flex w-full flex-col bg-[var(--background)] text-[var(--foreground)]"
+            className="mobile-menu-panel absolute inset-0 flex w-full flex-col bg-[var(--background)]/96 pt-24 text-[var(--foreground)]"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-center justify-between px-5 py-4">
-              <Link
-                href="/"
-                onClick={closeMobileMenu}
-                className="inline-flex h-11 items-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface)]/90 px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40"
-                aria-label="Office6 home"
-              >
-                <Image
-                  src="/logos/office6-black-6.png"
-                  alt="Office6"
-                  width={590}
-                  height={104}
-                  className="h-5 w-auto object-contain"
-                  priority
-                />
-              </Link>
-              <button
-                ref={mobileCloseRef}
-                type="button"
-                onClick={closeMobileMenu}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface)] text-[var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40"
-                aria-label="Menu sluiten"
-              >
-                <X className="h-5 w-5" aria-hidden />
-              </button>
-            </div>
-
             <nav
               className="flex flex-1 flex-col items-center justify-center overflow-y-auto px-6 py-10"
               aria-label="Hoofdnavigatie"
