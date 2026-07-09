@@ -150,7 +150,7 @@ const muxVideos = {
   ],
 } satisfies Record<string, OfficeMuxVideo[]>;
 
-export const officeCases: OfficeCase[] = [
+const allOfficeCases: OfficeCase[] = [
   {
     slug: "auto-viger",
     title: "Auto Viger",
@@ -512,3 +512,7 @@ export const officeCases: OfficeCase[] = [
     muxVideos: muxVideos.theNight,
   },
 ];
+
+const hiddenCaseSlugs = new Set(["tecjobz"]);
+
+export const officeCases = allOfficeCases.filter((item) => !hiddenCaseSlugs.has(item.slug));

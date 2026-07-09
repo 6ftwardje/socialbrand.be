@@ -56,12 +56,6 @@ const LOGOS = [
     height: 834,
   },
   {
-    name: "Tecjobz",
-    src: "/cases/tecjobz/logo.webp",
-    width: 900,
-    height: 900,
-  },
-  {
     name: "The Night",
     src: "/cases/the-night/logo.webp",
     width: 900,

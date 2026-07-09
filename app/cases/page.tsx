@@ -26,7 +26,6 @@ const columns: OfficeCase[][] = [
     getCase("peak-performance-podcast"),
     getCase("glemm"),
     getCase("saturate"),
-    getCase("tecjobz"),
   ],
   [
     getCase("het-trade-platform"),
