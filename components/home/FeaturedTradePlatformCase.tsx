@@ -9,7 +9,7 @@ export default function FeaturedTradePlatformCase() {
       className="grid grid-cols-1 bg-[var(--background)] lg:grid-cols-2"
       aria-labelledby="featured-trade-platform-case-heading"
     >
-      <div className="flex flex-col justify-center px-5 py-8 md:px-6 md:py-12 lg:aspect-[4/3] lg:min-h-0 lg:px-10 lg:py-8 xl:px-16">
+      <div className="flex flex-col justify-center px-5 py-8 md:px-6 md:py-12 lg:aspect-[3/2] lg:min-h-0 lg:px-10 lg:py-8 xl:px-16">
         <div className="mx-auto flex w-full max-w-2xl flex-col justify-center gap-3 text-base font-medium leading-relaxed text-[var(--foreground-muted)] md:text-lg lg:h-full lg:max-w-[38rem] lg:gap-4 xl:gap-5">
           <Image
             src="/cases/het-trade-platform/logo-dark.png"
