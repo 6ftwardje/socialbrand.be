@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "huppapitch-production.up.railway.app",
+        pathname: "/huppa-logo-white.png",
+      },
     ],
   },
 };
