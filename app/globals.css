@@ -135,13 +135,14 @@ body:has(.proposal-page) > header, body:has(.proposal-page) > footer { display:n
 
 /* Huppa: minimal vertical chapter progress and reduced hero. */
 .huppa-progress { position:fixed; z-index:60; right:1.25rem; top:50%; width:4rem; min-height:25rem; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:1rem 0; border:1px solid rgba(255,255,255,.12); background:rgba(17,16,15,.76); color:white; backdrop-filter:blur(14px); transform:translateY(-50%); }
+.proposal-page:has(.huppa-progress) .proposal-container { width:min(100% - 11rem,1280px); }
 .huppa-progress-brand { font-size:.58rem; font-weight:700; letter-spacing:.12em; white-space:nowrap; }
 .huppa-progress-track { position:relative; display:flex; flex:1; flex-direction:column; align-items:center; justify-content:space-around; width:100%; margin:1rem 0; }
 .huppa-progress-track:before { content:""; position:absolute; z-index:-1; top:8%; bottom:8%; left:50%; width:1px; background:rgba(255,255,255,.16); }
 .huppa-progress-track a { position:relative; width:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.42); }
 .huppa-progress-track i { width:1.65rem; height:1.65rem; display:grid; place-items:center; border:1px solid rgba(255,255,255,.18); border-radius:50%; background:#171614; font-size:.52rem; font-style:normal; transition:color .2s,border-color .2s,background .2s; }
 .huppa-progress-track span { position:absolute; right:calc(100% + .8rem); padding:.35rem .55rem; background:#171614; color:white; font-size:.65rem; font-weight:600; opacity:0; pointer-events:none; transform:translateX(.35rem); transition:opacity .2s,transform .2s; white-space:nowrap; }
-.huppa-progress-track a:hover span,.huppa-progress-track a:focus-visible span,.huppa-progress-track a.active span { opacity:1; transform:translateX(0); }
+.huppa-progress-track a:hover span,.huppa-progress-track a:focus-visible span { opacity:1; transform:translateX(0); }
 .huppa-progress-track a.active i { border-color:var(--accent); background:var(--accent); color:white; }
 .huppa-progress-print { width:2rem; height:2rem; display:grid; place-items:center; cursor:pointer; color:rgba(255,255,255,.65); }.huppa-progress-print:hover { color:white; }.huppa-progress-print svg { width:.9rem; }
 .huppa-simple-hero { min-height:100svh; }
@@ -152,11 +153,13 @@ body:has(.proposal-page) > header, body:has(.proposal-page) > footer { display:n
 .huppa-hero-line { position:absolute; right:17%; top:0; bottom:0; width:1px; background:var(--accent); opacity:.8; }
 .huppa-simple-hero .proposal-actions { margin-top:2.2rem; }
 @media (max-width:800px) {
+  .proposal-page:has(.huppa-progress) .proposal-container { width:min(100% - 2.5rem,1280px); }
   .huppa-progress { inset:0 0 auto; width:100%; min-height:0; height:3.25rem; flex-direction:row; padding:0 1rem; border-width:0 0 1px; transform:none; }
   .huppa-progress-brand { display:none; }.huppa-progress-track { height:100%; flex-direction:row; margin:0; }.huppa-progress-track:before { top:50%; bottom:auto; left:7%; right:7%; width:auto; height:1px; }
   .huppa-progress-track a { width:auto; }.huppa-progress-track i { width:1.45rem; height:1.45rem; }.huppa-progress-track span { display:none; }.huppa-progress-print { margin-left:.8rem; }
   .huppa-simple-hero .proposal-hero-inner { padding-top:5.25rem; }.huppa-simple-hero .proposal-hero-copy { padding-top:3rem; }.huppa-simple-hero .proposal-hero-copy h1 { font-size:clamp(3.4rem,12vw,6rem); }.huppa-hero-line { right:12%; }
 }
+@media (max-width:520px) { .proposal-page:has(.huppa-progress) .proposal-container { width:min(100% - 2rem,1280px); } }
 @media (max-width:520px) { .huppa-simple-hero .proposal-hero-copy h1 { font-size:clamp(3.25rem,15vw,4.8rem); }.huppa-simple-hero .proposal-actions { align-items:start; }.huppa-simple-hero .proposal-button { width:auto; } }
 @media print { .huppa-progress { display:none!important; }.huppa-simple-hero { min-height:auto; }.huppa-hero-line { display:none; } }
 
