@@ -1,0 +1,37 @@
+export const jabejaProposal = {
+  client: "Jabeja",
+  caseClient: "Ripal",
+  agency: "Office6",
+  label: "Casevideo-voorstel 2026",
+  generatedOn: "7 augustus 2026",
+  currency: "EUR",
+  total: 4750,
+  stats: [
+    { value: "04", label: "verticale casevideo’s" },
+    { value: "01", label: "gerichte draaidag" },
+    { value: "75", label: "trackers als vertrekpunt" },
+  ],
+  videos: [
+    { number: "01", owner: "Jabeja · Meta Ads", title: "Van operationele uitdaging naar digitaal overzicht", angle: "Het probleem bij Ripal, de schaal van 75 trackers en waarom een oplossing op maat nodig was.", goal: "Herkenning creëren bij bedrijven met een gelijkaardige operationele uitdaging." },
+    { number: "02", owner: "Jabeja · Meta Ads", title: "Hoe Jabeja het heeft aangepakt", angle: "Van analyse en installatie tot custom software: het project verteld door de mensen die het hebben gebouwd.", goal: "Tonen dat Jabeja complexe software concreet en werkbaar maakt." },
+    { number: "03", owner: "Jabeja · Social / Ads", title: "Wat er vandaag anders werkt", angle: "Planning en management leggen uit hoe live locatie-inzicht hun dagelijkse werking ondersteunt.", goal: "Het resultaat tastbaar maken zonder grote marketingclaims." },
+    { number: "04", owner: "Ripal · Eigen kanalen", title: "Technologie achter een vloot die blijft bewegen", angle: "Een klantgerichte case met Ripal, dispatch en een chauffeur centraal. Jabeja komt natuurlijk als technische partner in beeld.", goal: "Ripal een sterke, menselijke video geven die ze zelf met trots kunnen delen." },
+  ],
+  interviewees: ["Projectverantwoordelijke van Jabeja", "Management van Ripal", "Planning of dispatch", "Een chauffeur uit de dagelijkse werking"],
+  shoot: [
+    { title: "Interviews", text: "Korte, gerichte gesprekken in de echte werkomgeving. Geen ingestudeerde verkooppraat, wel antwoorden die klinken zoals de mensen zelf." },
+    { title: "Werking in beeld", text: "Trackers, software, planning, vertrek en aankomst van vrachtwagens en de momenten waarop het systeem echt wordt gebruikt." },
+    { title: "Dronebeelden", text: "Luchtbeelden van de site en bewegende vloot, uitgevoerd waar locatie, weer en regelgeving het toelaten." },
+  ],
+  motion: ["Eenvoudige interface-overlays", "Korte labels bij processtappen", "Grafische accenten in een vaste Jabeja-stijl"],
+  included: ["Creatieve en inhoudelijke voorbereiding", "Interviewvragen en compacte shotlist", "Eén volledige draaidag op locatie", "Tweepersoonscrew", "Camera-, licht- en audiomateriaal", "Drone-opnames op locatie", "Interviews met vier stakeholderprofielen", "Vier unieke verticale montages van circa 30–60 seconden", "Eenvoudige motion graphics en tracking-overlays", "Ondertiteling ingebouwd", "Color grading, sound design en muzieklicenties", "Formaten voor organische social en Meta Ads", "Eén inhoudelijke revisieronde", "Eén kleinere correctieronde", "Organische en commerciële gebruiksrechten voor Jabeja en Ripal"],
+  boundaries: ["Tweede of bijkomende locatie", "Complexe software- of 3D-animatie", "Acteurs, styling of visagie", "Professionele voice-over", "Extra inhoudelijke revisierondes"],
+  investment: [
+    { label: "Concept, voorbereiding en planning", price: 650 },
+    { label: "Productie — één draaidag en drone", price: 1650 },
+    { label: "Vier montages en postproductie", price: 1850 },
+    { label: "Motion graphics en advertentieversies", price: 600 },
+  ],
+  optional: { title: "Tweede draaidag", price: 1350, description: "Wanneer interviews, rijdende vloot of een tweede locatie niet geloofwaardig binnen één productiedag passen." },
+  process: ["Verhaallijnen en interviewpersonen bevestigen", "Planning, locatie en dronecheck vastleggen", "Draaidag bij Ripal uitvoeren", "Vier eerste montages opleveren", "Feedback verwerken en finale versies leveren"],
+} as const;

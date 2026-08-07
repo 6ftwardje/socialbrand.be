@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         hostname: "huppapitch-production.up.railway.app",
         pathname: "/huppa-logo-white.png",
       },
+      {
+        protocol: "https",
+        hostname: "jabeja.be",
+        pathname: "/logo.png",
+      },
     ],
   },
 };
