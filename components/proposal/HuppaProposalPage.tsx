@@ -20,15 +20,6 @@ function SectionHeading({ number, eyebrow, title, text }: { number: string; eyeb
   </header>;
 }
 
-function Counter({ value, suffix }: { value: number; suffix: string }) {
-  const [shown, setShown] = useState(0); const ref = useRef<HTMLSpanElement>(null);
-  useEffect(() => { const node = ref.current; if (!node) return; const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const observer = new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) return; observer.disconnect(); if (reduce) return setShown(value);
-      const start = performance.now(); const tick = (now: number) => { const p = Math.min((now - start) / 800, 1); setShown(Math.round(value * (1 - Math.pow(1 - p, 3)))); if (p < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }, { threshold: .5 });
-    observer.observe(node); return () => observer.disconnect(); }, [value]);
-  return <span ref={ref}>{shown}{suffix}</span>;
-}
-
 export default function HuppaProposalPage() {
   const [active, setActive] = useState("aanpak"); const [selected, setSelected] = useState<string[]>([]); const [modal, setModal] = useState(false); const dialog = useRef<HTMLDivElement>(null);
   useEffect(() => { const observers = sections.map(([id]) => { const node = document.getElementById(id); if (!node) return null; const o = new IntersectionObserver(([e]) => e.isIntersecting && setActive(id), { rootMargin: "-30% 0px -55%" }); o.observe(node); return o; }); return () => observers.forEach(o => o?.disconnect()); }, []);
@@ -38,24 +29,24 @@ export default function HuppaProposalPage() {
   const toggle = (id: string) => setSelected(s => s.includes(id) ? s.filter(x => x !== id) : [...s, id]);
   const submit = (e: FormEvent) => { e.preventDefault(); window.location.href = "mailto:hello@office6.be?subject=Huppa%20%E2%80%94%20voorstel%20bespreken"; };
 
-  return <div className="proposal-page">
-    <nav className="proposal-nav" aria-label="Voorstel hoofdstukken"><div className="proposal-nav-inner">
-      <span className="proposal-nav-title">Huppa × Office6</span><div className="proposal-nav-links">{sections.map(([id, label]) => <a key={id} href={`#${id}`} className={active === id ? "active" : ""}>{label}</a>)}</div>
-      <button onClick={() => window.print()} className="proposal-print"><Download aria-hidden /> <span>Bewaar als PDF</span></button>
-    </div></nav>
+  return <div className="proposal-page huppa-proposal">
+    <nav className="huppa-progress" aria-label="Voorstel hoofdstukken">
+      <span className="huppa-progress-brand">H × O6</span>
+      <div className="huppa-progress-track">{sections.map(([id, label], index) => <a key={id} href={`#${id}`} className={active === id ? "active" : ""} aria-label={`${String(index + 1).padStart(2, "0")} — ${label}`}><i>{String(index + 1).padStart(2, "0")}</i><span>{label}</span></a>)}</div>
+      <button onClick={() => window.print()} className="huppa-progress-print" aria-label="Bewaar als PDF"><Download aria-hidden /></button>
+    </nav>
 
-    <header className="proposal-hero" id="top">
-      <div className="proposal-hero-art" aria-hidden><span>12</span><i /></div>
+    <header className="proposal-hero huppa-simple-hero" id="top">
+      <div className="huppa-hero-line" aria-hidden />
       <div className="proposal-container proposal-hero-inner">
         <div className="proposal-lockup">
           <Image src="https://huppapitch-production.up.railway.app/huppa-logo-white.png" alt="Huppa" width={120} height={32} priority />
           <span>×</span><Image src="/logos/office6-white.png" alt="Office6" width={590} height={104} priority />
         </div>
-        <div className="proposal-hero-copy"><p className="proposal-eyebrow light">{proposal.label}</p><h1>Van één sterk verhaal naar content die maanden blijft werken.</h1>
-          <p>Een gerichte contentproductie die het volledige verhaal van Huppa zichtbaar maakt: van leverancier en warehouse tot winkel en eindconsument.</p>
-          <div className="proposal-actions"><a href="#aanpak" className="proposal-button primary">Bekijk de aanpak <ArrowDown /></a><a href="#investering" className="proposal-button secondary">Ga naar investering</a></div>
+        <div className="proposal-hero-copy"><p className="proposal-eyebrow light">{proposal.label}</p><h1>Eén sterk verhaal.<br/>Content die blijft werken.</h1>
+          <p>Van leverancier tot eindconsument.</p>
+          <div className="proposal-actions"><a href="#aanpak" className="proposal-button primary">Bekijk het voorstel <ArrowDown /></a></div>
         </div>
-        <div className="proposal-stats">{proposal.stats.map(s => <div key={s.label}><strong><Counter value={s.value} suffix={s.suffix} /></strong><span>{s.label}</span></div>)}<p>Formaat- en taalversies worden niet als aparte producties geteld.</p></div>
       </div>
     </header>
 

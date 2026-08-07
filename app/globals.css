@@ -133,6 +133,33 @@ body:has(.proposal-page) > header, body:has(.proposal-page) > footer { display:n
   @page { margin:14mm; size:A4; }.proposal-page { background:white!important; color:#111!important; overflow:visible; }.proposal-nav,.proposal-actions,.proposal-modal,.running-total,.media-placeholder { display:none!important; }.proposal-hero { min-height:auto; padding:18mm 0; background:white!important; color:#111!important; border-bottom:2px solid #dc1326; }.proposal-hero-art { display:none; }.proposal-lockup img:first-child { filter:invert(0); }.proposal-lockup img:last-child { filter:invert(1); }.proposal-hero-copy { margin-top:18mm; padding:0; }.proposal-hero-copy h1 { font-size:38pt; }.proposal-hero-copy>p:last-of-type,.proposal-stats span,.proposal-stats>p { color:#555!important; }.proposal-stats { border-color:#ccc; }.proposal-section { padding:18mm 0; }.proposal-heading h2,.photo-grid h2 { font-size:30pt; }.proposal-dark,.proposal-investment,.proposal-cta { background:white!important; color:#111!important; }.deliverables { border-color:#bbb; }.deliverables article { min-height:auto; break-inside:avoid; border-color:#bbb; }.deliverables li,.investment-grid dl>div { color:#333; border-color:#ccc; }.deliverable-goal,.investment-grid>div>p:last-child,.option-copy small { color:#444; }.proposal-photo,.proposal-system { background:white!important; }.timeline>li,.definitions>div,.scope-grid>div,.investment-grid,.option,.process-list li { break-inside:avoid; }.options { margin-top:18mm; }.option:not(.selected) { display:none; }.checkbox { display:none; }.option { grid-template-columns:1fr auto; border-color:#bbb; }.proposal-cta { border-top:2px solid #dc1326; }.proposal-cta h2 { font-size:34pt; }.proposal-cta>.proposal-container>p:not(.proposal-eyebrow) { color:#444; }.proposal-footer { border-top:1px solid #bbb; }.print-date { display:block!important; }
 }
 
+/* Huppa: minimal vertical chapter progress and reduced hero. */
+.huppa-progress { position:fixed; z-index:60; right:1.25rem; top:50%; width:4rem; min-height:25rem; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:1rem 0; border:1px solid rgba(255,255,255,.12); background:rgba(17,16,15,.76); color:white; backdrop-filter:blur(14px); transform:translateY(-50%); }
+.huppa-progress-brand { font-size:.58rem; font-weight:700; letter-spacing:.12em; white-space:nowrap; }
+.huppa-progress-track { position:relative; display:flex; flex:1; flex-direction:column; align-items:center; justify-content:space-around; width:100%; margin:1rem 0; }
+.huppa-progress-track:before { content:""; position:absolute; z-index:-1; top:8%; bottom:8%; left:50%; width:1px; background:rgba(255,255,255,.16); }
+.huppa-progress-track a { position:relative; width:100%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.42); }
+.huppa-progress-track i { width:1.65rem; height:1.65rem; display:grid; place-items:center; border:1px solid rgba(255,255,255,.18); border-radius:50%; background:#171614; font-size:.52rem; font-style:normal; transition:color .2s,border-color .2s,background .2s; }
+.huppa-progress-track span { position:absolute; right:calc(100% + .8rem); padding:.35rem .55rem; background:#171614; color:white; font-size:.65rem; font-weight:600; opacity:0; pointer-events:none; transform:translateX(.35rem); transition:opacity .2s,transform .2s; white-space:nowrap; }
+.huppa-progress-track a:hover span,.huppa-progress-track a:focus-visible span,.huppa-progress-track a.active span { opacity:1; transform:translateX(0); }
+.huppa-progress-track a.active i { border-color:var(--accent); background:var(--accent); color:white; }
+.huppa-progress-print { width:2rem; height:2rem; display:grid; place-items:center; cursor:pointer; color:rgba(255,255,255,.65); }.huppa-progress-print:hover { color:white; }.huppa-progress-print svg { width:.9rem; }
+.huppa-simple-hero { min-height:100svh; }
+.huppa-simple-hero .proposal-hero-inner { padding-block:clamp(2rem,5vw,4.5rem); }
+.huppa-simple-hero .proposal-hero-copy { max-width:940px; margin:auto 0; padding-top:5rem; }
+.huppa-simple-hero .proposal-hero-copy h1 { max-width:940px; font-size:clamp(4rem,8.7vw,8.8rem); line-height:.86; }
+.huppa-simple-hero .proposal-hero-copy>p:last-of-type { margin-top:1.5rem; font-size:1rem; }
+.huppa-hero-line { position:absolute; right:17%; top:0; bottom:0; width:1px; background:var(--accent); opacity:.8; }
+.huppa-simple-hero .proposal-actions { margin-top:2.2rem; }
+@media (max-width:800px) {
+  .huppa-progress { inset:0 0 auto; width:100%; min-height:0; height:3.25rem; flex-direction:row; padding:0 1rem; border-width:0 0 1px; transform:none; }
+  .huppa-progress-brand { display:none; }.huppa-progress-track { height:100%; flex-direction:row; margin:0; }.huppa-progress-track:before { top:50%; bottom:auto; left:7%; right:7%; width:auto; height:1px; }
+  .huppa-progress-track a { width:auto; }.huppa-progress-track i { width:1.45rem; height:1.45rem; }.huppa-progress-track span { display:none; }.huppa-progress-print { margin-left:.8rem; }
+  .huppa-simple-hero .proposal-hero-inner { padding-top:5.25rem; }.huppa-simple-hero .proposal-hero-copy { padding-top:3rem; }.huppa-simple-hero .proposal-hero-copy h1 { font-size:clamp(3.4rem,12vw,6rem); }.huppa-hero-line { right:12%; }
+}
+@media (max-width:520px) { .huppa-simple-hero .proposal-hero-copy h1 { font-size:clamp(3.25rem,15vw,4.8rem); }.huppa-simple-hero .proposal-actions { align-items:start; }.huppa-simple-hero .proposal-button { width:auto; } }
+@media print { .huppa-progress { display:none!important; }.huppa-simple-hero { min-height:auto; }.huppa-hero-line { display:none; } }
+
 /* Compact Jabeja case proposal */
 .jab-hero { background:#0d0f0e; }
 .jab-route { position:absolute; inset:0 0 0 auto; width:58%; opacity:.92; }

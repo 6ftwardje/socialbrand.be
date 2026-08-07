@@ -3,7 +3,7 @@ export const huppaProposal = {
   agency: "Office6",
   label: "Contentvoorstel 2026",
   generatedOn: "6 augustus 2026",
-  total: 10000,
+  total: 11000,
   currency: "EUR",
   stats: [
     { value: 4, suffix: "", label: "gerichte draaidagen" },
@@ -32,7 +32,7 @@ export const huppaProposal = {
   excluded: ["Acteurs en modellen", "Locatiehuur", "Styling of visagie", "Professionele voice-overartiest", "Complexe 3D-animatie", "Volledige mascotte-animaties", "Geavanceerde platformanimatie", "Raw footage en projectbestanden", "Extra draaidagen", "Bijkomende inhoudelijke revisierondes"],
   investment: [
     { label: "Strategie en preproductie", price: 1100 },
-    { label: "Productie — vier draaidagen", price: 5400 },
+    { label: "Productie — vier draaidagen", price: 6400 },
     { label: "Montage en postproductie", price: 3250 },
     { label: "Transport en verplaatsing", price: 250 },
   ],
