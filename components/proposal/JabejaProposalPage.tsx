@@ -110,7 +110,7 @@ export default function JabejaProposalPage() {
           </div>
           <div className="proposal-hero-copy">
             <p className="proposal-eyebrow light">{proposal.label}</p>
-            <h1>75 trackers.<br />Eén helder zicht<br />op de vloot.</h1>
+            <h1>70 trackers.<br />Eén helder zicht<br />op de vloot.</h1>
             <p>Vier social-first casevideo’s over hoe Jabeja en Ripal dat samen mogelijk maakten.</p>
             <div className="proposal-actions"><a href="#verhaal" className="proposal-button primary">Bekijk het voorstel <ArrowDown /></a></div>
           </div>
@@ -122,7 +122,7 @@ export default function JabejaProposalPage() {
           <AnimateOnScroll><Heading number="01" eyebrow="Het verhaal" title="Van beperkt overzicht naar realtime inzicht." text="Geen softwaredemo, wel een helder verhaal over een operationeel probleem, een aanpak op maat en wat dat vandaag verandert voor Ripal." /></AnimateOnScroll>
           <div className="principles jab-principles">
             <article><span>01</span><h3>De uitdaging</h3><p>Tientallen voertuigen tegelijk onderweg, zonder één helder beeld voor planning en opvolging.</p></article>
-            <article><span>02</span><h3>De aanpak</h3><p>Jabeja verbindt 75 trackers, installatie en custom software tot één praktische oplossing.</p></article>
+            <article><span>02</span><h3>De aanpak</h3><p>Jabeja verbindt 70 trackers, installatie en custom software tot één praktische oplossing.</p></article>
             <article><span>03</span><h3>Het bewijs</h3><p>De mensen van Ripal vertellen wat realtime inzicht concreet betekent in hun werkdag.</p></article>
           </div>
         </section>
@@ -188,7 +188,7 @@ export default function JabejaProposalPage() {
           <ol className="process-list">{proposal.process.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
         </section>
 
-        <section className="proposal-cta"><div className="proposal-container"><p className="proposal-eyebrow light">Jabeja × Office6</p><h2>Klaar om 75 trackers een menselijk verhaal te geven?</h2><p>Een compacte case die Ripal met trots kan delen en Jabeja gericht kan inzetten om nieuwe vlootklanten te bereiken.</p><div className="proposal-actions"><button className="proposal-button primary" onClick={() => setModal(true)}>Voorstel bespreken <ArrowRight /></button><a className="proposal-button secondary" href="mailto:hello@office6.be?subject=Jabeja%20%E2%80%94%20aanpassingen%20casevideo-voorstel">Vraag een aanpassing</a></div></div></section>
+        <section className="proposal-cta"><div className="proposal-container"><p className="proposal-eyebrow light">Jabeja × Office6</p><h2>Klaar om 70 trackers een menselijk verhaal te geven?</h2><p>Een compacte case die Ripal met trots kan delen en Jabeja gericht kan inzetten om nieuwe vlootklanten te bereiken.</p><div className="proposal-actions"><button className="proposal-button primary" onClick={() => setModal(true)}>Voorstel bespreken <ArrowRight /></button><a className="proposal-button secondary" href="mailto:hello@office6.be?subject=Jabeja%20%E2%80%94%20aanpassingen%20casevideo-voorstel">Vraag een aanpassing</a></div></div></section>
       </main>
 
       <footer className="proposal-footer"><div className="proposal-container"><div><strong>Jabeja × Office6</strong><p>Vertrouwelijk voorstel · Enkel bestemd voor interne evaluatie</p><p className="print-date">Gegenereerd op {proposal.generatedOn}</p></div><Image src="/logos/office6-black-6.png" alt="Office6" width={590} height={104} /><div><a href="https://office6.be">office6.be</a><a href="mailto:hello@office6.be">hello@office6.be</a></div></div></footer>
