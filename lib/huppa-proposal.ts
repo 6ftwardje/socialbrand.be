@@ -10,6 +10,16 @@ export const huppaProposal = {
     { value: 12, suffix: "", label: "unieke videoproducties" },
     { value: 30, suffix: "+", label: "afgewerkte foto’s" },
   ],
+  storyChapters: [
+    { title: "Vers beweegt.", text: "Van bestelling tot levering. De snelheid en schaal achter een product dat vers moet blijven." },
+    { title: "Achter elk product zit een keten.", text: "Producent, Huppa, warehouse, transport, winkel en klant — verbonden in één verhaal." },
+    { title: "Groot in schaal. Persoonlijk in samenwerking.", text: "We tonen niet alleen wat Huppa levert, maar waarom retailers, producenten en professionals met Huppa werken." },
+  ],
+  relevantWork: [
+    { name: "Celsius", playbackId: "PdHJXJUKzwVDAM613xkEoZ7WypQsVXXRM01NZiJKJa4M", videoTitle: "Celsius super cut", text: "Brand- en performancecontent opgebouwd vanuit dezelfde productie." },
+    { name: "The Night", playbackId: "02YKHiSHfn00xg3U3hcitHQNhxGlwa1aB00y744kJcPWA4", videoTitle: "The Night 2.0 uitgelicht", text: "Een sterk campagnegevoel vertaald naar content die sfeer en urgentie samenbrengt." },
+    { name: "Tecjobz", playbackId: "n3Fc0000fXYMfirz00ogOoAt3KminJ2u2KgcGx02IZYmJbo", videoTitle: "Tecjobz vertical recruitment content", text: "B2B-content die dienstverlening vertaalt naar een helder verhaal." },
+  ],
   principles: [
     { title: "Eerst het verhaal", text: "We bepalen vooraf wat iedere video moet uitleggen, bewijzen of activeren." },
     { title: "Eén productie, meerdere toepassingen", text: "We verzamelen tijdens iedere draaidag materiaal voor brand, social, campagnes en sales." },
@@ -37,6 +47,7 @@ export const huppaProposal = {
     { label: "Transport en verplaatsing", price: 250 },
   ],
   optionalModules: [
+    { id: "half-day", title: "Aanvullende halve productiedag", price: 800, description: "Wanneer leverancier en eindconsument niet geloofwaardig binnen één productiedag gecombineerd kunnen worden." },
     { id: "voice", title: "Professionele voice-over NL en FR", price: 650, description: "Professionele opname en gebruiksrechten voor de brandfilm." },
     { id: "day", title: "Extra draaidag", price: 1350, description: "Voor bijkomende leveranciers, winkels of locaties buiten de afgesproken productieplanning." },
     { id: "social", title: "Extra socialpakket", price: 1200, description: "Vier bijkomende native verticale video’s op basis van het opgenomen materiaal." },
@@ -44,6 +55,17 @@ export const huppaProposal = {
     { id: "mascot", title: "Mascotteconcept", price: 1750, from: true, description: "Een afzonderlijke creatieve module voor Henri, afhankelijk van animatiestijl, aantal scènes en gewenste kwaliteit." },
   ],
   process: ["Scope en budget bevestigen", "Kick-off en inhoudelijke workshop", "Shotlist, planning en locaties vastleggen", "Productiedagen uitvoeren", "Eerste montages en revisie opleveren"],
+  practical: [
+    { title: "Betaling", text: "50% bij bevestiging, 50% bij finale oplevering." },
+    { title: "Planning", text: "Productiedata worden na de kick-off samen vastgelegd. Een draaidag omvat maximaal 10 uur op locatie." },
+    { title: "Eerste versie", text: "De eerste montages volgen binnen 15 werkdagen na de laatste productiedag, zodra alle nodige input beschikbaar is." },
+    { title: "Feedback", text: "Eén inhoudelijke feedbackronde en één kleinere correctieronde zijn inbegrepen. Extra montage wordt vooraf geraamd aan €650 per dag." },
+    { title: "Verplaatsing", text: "De afgesproken Huppa-locaties in België zijn inbegrepen. Uitzonderlijke afstanden of overnachtingen stemmen we vooraf af." },
+    { title: "Verplaatsen", text: "Een productiedag kan tot vijf werkdagen vooraf worden verplaatst. Reeds gemaakte externe kosten blijven van toepassing." },
+    { title: "Van Huppa", text: "Huppa organiseert toegang tot locaties, beschikbare interviewpersonen en de nodige film- en drone-toestemmingen." },
+    { title: "Materiaal", text: "De finale video’s en afgesproken exports zijn inbegrepen. Raw footage en projectbestanden niet." },
+    { title: "Geldigheid", text: "Dit voorstel is geldig tot en met 6 september 2026." },
+  ],
 } as const;
 
 export type OptionalModule = (typeof huppaProposal.optionalModules)[number];
