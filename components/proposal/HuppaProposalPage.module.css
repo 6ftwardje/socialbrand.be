@@ -1,0 +1,96 @@
+.drone {
+  display: grid;
+  grid-template-columns: minmax(190px, 260px) minmax(0, 1fr);
+  gap: clamp(3rem, 9vw, 9rem);
+  align-items: center;
+  margin-top: 7rem;
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  border-top: 1px solid #bdb6ad;
+  border-bottom: 1px solid #bdb6ad;
+}
+
+.droneReel {
+  position: relative;
+  width: min(100%, 260px);
+  aspect-ratio: 9 / 16;
+  justify-self: start;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 24px 70px rgba(17, 16, 15, .15);
+}
+
+.droneCopy h3 {
+  max-width: 700px;
+  margin-top: 1rem;
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+
+.droneCopy > p:not(:global(.proposal-eyebrow)) {
+  max-width: 620px;
+  margin-top: 1.6rem;
+  color: #615c56;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.droneCopy ul {
+  max-width: 620px;
+  margin-top: 2rem;
+  border-top: 1px solid #c8c2ba;
+}
+
+.droneCopy li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #c8c2ba;
+  color: #4f4a44;
+}
+
+.droneCopy li::before {
+  content: "→";
+  margin-right: .8rem;
+  color: var(--accent);
+}
+
+.droneCopy small {
+  display: block;
+  max-width: 620px;
+  margin-top: 1.25rem;
+  color: #8a847d;
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .drone {
+    grid-template-columns: minmax(170px, 220px) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .droneReel {
+    width: min(100%, 220px);
+  }
+}
+
+@media (max-width: 520px) {
+  .drone {
+    grid-template-columns: 1fr;
+  }
+
+  .droneReel {
+    width: min(62vw, 220px);
+    justify-self: center;
+  }
+}
+
+@media print {
+  .drone {
+    break-inside: avoid;
+  }
+
+  .droneReel {
+    width: 45mm;
+    box-shadow: none;
+  }
+}
