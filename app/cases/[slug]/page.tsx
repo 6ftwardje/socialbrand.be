@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import CaseMuxVideos from "@/components/cases/CaseMuxVideos";
 import CaseVisual from "@/components/cases/CaseVisual";
+import SimBruggeCase from "@/components/cases/SimBruggeCase";
 import { officeCases } from "@/lib/office-cases";
 
 interface CasePageProps {
@@ -38,6 +39,10 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
   const item = findCase(slug);
 
   if (!item) notFound();
+
+  if (item.slug === "sim-brugge") {
+    return <SimBruggeCase item={item} />;
+  }
 
   const related = officeCases.filter((entry) => entry.slug !== item.slug).slice(0, 2);
   const hasMuxVideos = Boolean(item.muxVideos?.length);

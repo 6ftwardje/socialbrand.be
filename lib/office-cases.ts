@@ -6,6 +6,7 @@ export interface OfficeMuxVideo {
   playbackId: string;
   aspectRatio: "16:9" | "4:3" | "9:16";
   format: MuxVideoFormat;
+  campaign?: "original" | "endurance" | "mobile";
   assetStartTime?: number;
   assetEndTime?: number;
 }
@@ -54,7 +55,7 @@ const thumbnails = {
   peakPerformance: "/cases/peak-performance-podcast/thumbnail.webp",
   underPressure: "/cases/under-pressure-podcast/thumbnail.webp",
   saturate: "/cases/saturate/thumbnail.webp",
-  simBrugge: "/cases/sim-brugge/thumbnail.webp",
+  simBrugge: "/cases/sim-brugge/thumbnail-shoot-02.webp",
   tecjobz: "/cases/tecjobz/thumbnail.webp",
   theNight: "/cases/the-night/thumbnail.webp",
 } as const;
@@ -129,15 +130,21 @@ const muxVideos = {
     { title: "Oasix reel 1", playbackId: "qyCz78F5TDO1Qu7Q8TJC00VGRsUcclG42r3oAIgeKWFc", aspectRatio: "9:16", format: "vertical" },
   ],
   simBrugge: [
-    { title: "SIM reel 1", playbackId: "2EHILfGIaDkEF3j5qm2BRK4rNuWvAEsb9mazrtnJxO8", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 2", playbackId: "mLyZ77v9rnz201pJyDcr2bkl6EwNmew02hKGrC8luzOfc", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 3", playbackId: "HvVZg00NLjVS38KUrdUQfdMBu6plLCA7xzfIaJ4obiCc", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 4", playbackId: "rKiDmalR01DeO7fRqlw01mnLV9C3kOLvhz01GPXNO2mGrk", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 5", playbackId: "00sJaiHbqWSHNRX7YeEsVZ1E5m00EUlwwC02hnZzOsOFow", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 6", playbackId: "O02xPP02dZPc47R5Dzd51OuYjIK5D2aShtPkrmpbh2Yy8", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 7", playbackId: "CEFemXDWWC2TO2gpjIbDqoGaUw01UgjAX7yanqHil01YU", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 8", playbackId: "OA7apKK9p3EhA028mWx4LIQuUhkIrTwpk8klDNFEyHu8", aspectRatio: "9:16", format: "vertical" },
-    { title: "SIM reel 9", playbackId: "HoTvfECT2BM3YP9TQRfuads87mR01VqBDBRIFWrjfUIE", aspectRatio: "9:16", format: "vertical" },
+    { title: "SIM reel 1", playbackId: "2EHILfGIaDkEF3j5qm2BRK4rNuWvAEsb9mazrtnJxO8", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 2", playbackId: "mLyZ77v9rnz201pJyDcr2bkl6EwNmew02hKGrC8luzOfc", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 3", playbackId: "HvVZg00NLjVS38KUrdUQfdMBu6plLCA7xzfIaJ4obiCc", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 4", playbackId: "rKiDmalR01DeO7fRqlw01mnLV9C3kOLvhz01GPXNO2mGrk", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 5", playbackId: "00sJaiHbqWSHNRX7YeEsVZ1E5m00EUlwwC02hnZzOsOFow", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 6", playbackId: "O02xPP02dZPc47R5Dzd51OuYjIK5D2aShtPkrmpbh2Yy8", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 7", playbackId: "CEFemXDWWC2TO2gpjIbDqoGaUw01UgjAX7yanqHil01YU", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 8", playbackId: "OA7apKK9p3EhA028mWx4LIQuUhkIrTwpk8klDNFEyHu8", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "SIM reel 9", playbackId: "HoTvfECT2BM3YP9TQRfuads87mR01VqBDBRIFWrjfUIE", aspectRatio: "9:16", format: "vertical", campaign: "original" },
+    { title: "Endurance race 01", playbackId: "WDFxe8OzOP4IFTGhHdobE1EFCJjS02S61dr42exsUuAw", aspectRatio: "9:16", format: "vertical", campaign: "endurance" },
+    { title: "Endurance race 02", playbackId: "HmqtqSlHF3Zc025isE01gAfuLKOhDzQSrMWYudpSSZ4qE", aspectRatio: "9:16", format: "vertical", campaign: "endurance" },
+    { title: "Endurance race 03", playbackId: "HUNo9Hoc4dC6KBIjyXvOf5LedDI3cUz49ODa7FVom7E", aspectRatio: "9:16", format: "vertical", campaign: "endurance" },
+    { title: "Mobiele SIM setup 01", playbackId: "uJ9HcEFCikaZ2vx00e01iSBGuChgmlraSviT63NL02bvuw", aspectRatio: "9:16", format: "vertical", campaign: "mobile" },
+    { title: "Mobiele SIM setup 02", playbackId: "SZQCUM0202lI7gE600s13jQH9iTit3Ov02lZiI1Nczayzi8", aspectRatio: "9:16", format: "vertical", campaign: "mobile" },
+    { title: "Mobiele SIM setup 03", playbackId: "eF9PymngTf8yAFVPooQWVddOY01SNrcCyLVyQKAq01qDc", aspectRatio: "9:16", format: "vertical", campaign: "mobile" },
   ],
   tecjobz: [
     { title: "Tecjobz reel 1", playbackId: "n3Fc0000fXYMfirz00ogOoAt3KminJ2u2KgcGx02IZYmJbo", aspectRatio: "9:16", format: "vertical" },
@@ -456,20 +463,20 @@ const allOfficeCases: OfficeCase[] = [
   {
     slug: "sim-brugge",
     title: "SIM Brugge",
-    subtitle: "Social ads en snelle edits voor een jonge startup met groeiambitie.",
+    subtitle: "Content die een lokale startup hielp doorgroeien naar Antwerpen en een mobiele setup.",
     category: "Performance content",
     tags: ["Vertical content", "Ads", "Content strategy"],
     services: ["Content Creation", "Performance Marketing"],
-    thumbnail: { image: thumbnails.simBrugge, alt: "SIM Brugge vertical ads en social content", shape: "portrait" },
+    thumbnail: { image: thumbnails.simBrugge, alt: "SIM Brugge sim racing setup tijdens de nieuwe campagne", shape: "standard" },
     intro:
-      "Voor SIM Brugge maakten we een reeks ads en social media content die sterk aansloegen.",
+      "Voor SIM Brugge maakten we high-paced video’s waarin de oprichters, bezoekers en hun ervaring centraal staan.",
     challenge:
-      "De jonge startup had nood aan content die snel aandacht trekt, menselijk aanvoelt en duidelijk maakt waarom hun aanbod werkt.",
+      "De uitdaging was om niet alleen de SIM rigs te tonen, maar het verhaal achter SIM Brugge en de ervaring van echte bezoekers voelbaar te maken.",
     approach:
-      "We combineerden menselijke content met snelle cuts en een engaging editstijl, afgestemd op social en ads.",
+      "We vertelden eerst het verhaal van de founders en verzamelden daarna zoveel mogelijk authentieke reacties. Snelle, engaging edits maakten beide formats geschikt voor Meta Ads.",
     outcome:
-      "SIM Brugge plukt daar vandaag de vruchten van: ze zitten voller geboekt dan ooit en denken aan locatie-uitbreiding.",
-    metrics: ["Sterk gevulde agenda", "Social ads en snelle edits", "Groei richting locatie-uitbreiding"],
+      "Na het succes van de eerste ads opent SIM Brugge binnenkort een vestiging in Antwerpen en brengen ze hun mobiele setup naar klanten op locatie.",
+    metrics: ["Nieuwe vestiging in Antwerpen", "Mobiele SIM setup op locatie", "Drie opeenvolgende campagnes"],
     mediaPlan: [commonMedia.vertical, commonMedia.wide, commonMedia.standard],
     muxVideos: muxVideos.simBrugge,
   },
