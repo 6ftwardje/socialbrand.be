@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { revenueRangeOptions } from "@/lib/content";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/maqdjnll";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const router = useRouter();
+  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,23 +34,14 @@ export default function ContactForm() {
         }),
       });
       if (res.ok) {
-        setStatus("success");
         setFormData({ name: "", email: "", websiteOrIg: "", revenueRange: "", message: "" });
+        router.replace("/bedankt");
       } else {
         setStatus("error");
       }
     } catch {
       setStatus("error");
     }
-  }
-
-  if (status === "success") {
-    return (
-      <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-6 text-center">
-        <p className="font-medium text-emerald-400">Bedankt! We nemen snel contact op.</p>
-        <p className="mt-1 text-sm text-zinc-400">We reageren binnen 1–2 werkdagen.</p>
-      </div>
-    );
   }
 
   return (

@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import RouteLoader from "@/components/RouteLoader";
 import { CriticalAssetsProvider } from "@/components/CriticalAssetsProvider";
+import StickyCTAOrNothing from "@/components/layout/StickyCTAOrNothing";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,6 +24,7 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://office6.be"),
   title: "Office6 | Content Agency",
   description:
     "Content creation, performance marketing en custom platforms voor merken die menselijker willen communiceren en meetbaar willen groeien.",
@@ -58,6 +60,7 @@ export default function RootLayout({
           <main>{children}</main>
         </CriticalAssetsProvider>
         <Footer />
+        <StickyCTAOrNothing />
       </body>
     </html>
   );

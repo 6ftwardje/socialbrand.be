@@ -80,6 +80,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-sm text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+                >
+                  Privacy
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

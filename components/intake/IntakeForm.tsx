@@ -2,9 +2,9 @@
 
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   initialIntakeData,
-  FORMSPREE_INTAKE_ENDPOINT,
   TOTAL_FORM_STEPS,
   brandTypeOptions,
   marketingPartnersOptions,
@@ -20,9 +20,10 @@ import TextField from "./TextField";
 import ChipMultiSelect from "./ChipMultiSelect";
 import RadioCardGroup from "./RadioCardGroup";
 
-type SubmitStatus = "idle" | "submitting" | "success" | "error";
+type SubmitStatus = "idle" | "submitting" | "error";
 
 export default function IntakeForm() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [data, setData] = useState<IntakeData>(initialIntakeData);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
@@ -38,30 +39,23 @@ export default function IntakeForm() {
   const handleSubmit = useCallback(async () => {
     setSubmitStatus("submitting");
     try {
-      const payload = {
-        ...data,
-        meta: {
-          submittedAt: new Date().toISOString(),
-          source: "website_intake",
-        },
-      };
-      const res = await fetch(FORMSPREE_INTAKE_ENDPOINT, {
+      const res = await fetch("/api/intake", {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(data),
       });
       if (res.ok) {
-        setSubmitStatus("success");
+        router.replace("/bedankt");
       } else {
         setSubmitStatus("error");
       }
     } catch {
       setSubmitStatus("error");
     }
-  }, [data]);
+  }, [data, router]);
 
   const goNext = useCallback(() => {
     if (!isStepValid(step, data)) {
@@ -104,27 +98,6 @@ export default function IntakeForm() {
       e.preventDefault();
       goBack();
     }
-  }
-
-  if (submitStatus === "success") {
-    return (
-      <div className="flex min-h-[100dvh] flex-col items-center justify-center px-6 py-12">
-        <div className="mx-auto max-w-xl text-center">
-          <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] md:text-3xl">
-            Dankjewel — we nemen binnen 24 uur contact op.
-          </h1>
-          <p className="mt-4 text-[var(--foreground-muted)]">
-            We hebben je antwoorden ontvangen en nemen zo snel mogelijk contact met je op.
-          </p>
-          <Link
-            href="/"
-            className="mt-8 inline-block rounded-lg bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-[var(--accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
-          >
-            Home
-          </Link>
-        </div>
-      </div>
-    );
   }
 
   return (

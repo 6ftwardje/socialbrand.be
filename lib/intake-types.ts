@@ -1,12 +1,3 @@
-/**
- * Intake form types and step options.
- * Formspree endpoint: set NEXT_PUBLIC_FORMSPREE_INTAKE_ENDPOINT or replace YOUR_FORMSPREE_ENDPOINT.
- */
-export const FORMSPREE_INTAKE_ENDPOINT =
-  (typeof process !== "undefined" &&
-    process.env?.NEXT_PUBLIC_FORMSPREE_INTAKE_ENDPOINT) ||
-  "https://formspree.io/f/maqdjnll";
-
 export interface IntakeData {
   fullName: string;
   email: string;

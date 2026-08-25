@@ -22,7 +22,7 @@ export default function FeaturedCelsiusCase() {
         <div className="mx-auto flex w-full max-w-2xl flex-col justify-center gap-3 text-base font-medium leading-relaxed text-[var(--foreground-muted)] md:text-lg lg:h-full lg:max-w-[38rem] lg:gap-4 xl:gap-5">
           <Image
             src="/cases/celsius/logo.webp"
-            alt="Celsius"
+            alt="Celsius logo"
             width={1000}
             height={315}
             className="h-auto w-44 object-contain brightness-0 md:w-56 xl:w-60"

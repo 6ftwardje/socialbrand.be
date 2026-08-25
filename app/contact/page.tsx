@@ -1,9 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 export const metadata = {
-  title: "Contact | Boek een call | Office6",
+  title: "Contact en kennismakingscall | Office6",
   description:
     "Boek een vrijblijvende call met Office6. Vul ons korte intake formulier in - we reageren binnen 24 uur.",
 };
@@ -43,7 +44,8 @@ const SOCIAL_PROOF_LOGOS = [
 
 export default function ContactPage() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 pb-20 pt-24 md:px-6 md:pb-24 md:pt-28 lg:px-8">
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
       <div className="max-w-3xl">
         <p className="text-sm font-semibold text-[var(--accent)]">
           Contact
@@ -74,7 +76,7 @@ export default function ContactPage() {
             <div key={logo.src} className="flex h-14 items-center">
               <Image
                 src={logo.src}
-                alt={logo.name === "Het Trade Platform" ? "Het Trade Platform logo" : logo.name}
+                alt={`${logo.name} logo`}
                 width={logo.width}
                 height={logo.height}
                 className="max-h-10 w-auto max-w-[9rem] object-contain opacity-65 brightness-0 transition-opacity duration-300 hover:opacity-100"
@@ -83,6 +85,9 @@ export default function ContactPage() {
             </div>
           ))}
         </div>
+        <Link href="/cases" className="mt-8 inline-flex text-sm font-bold text-[var(--accent)] hover:text-[var(--accent-hover)]">
+          Bekijk hun cases →
+        </Link>
       </div>
     </section>
   );

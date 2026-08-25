@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import CaseMuxVideos from "@/components/cases/CaseMuxVideos";
 import CaseVisual from "@/components/cases/CaseVisual";
 import SimBruggeCase from "@/components/cases/SimBruggeCase";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { officeCases } from "@/lib/office-cases";
 
 interface CasePageProps {
@@ -13,6 +14,12 @@ interface CasePageProps {
 function findCase(slug: string) {
   return officeCases.find((item) => item.slug === slug);
 }
+
+const serviceAnchors: Record<string, string> = {
+  "Content Creation": "/services#content-creation",
+  "Performance Marketing": "/services#performance-marketing",
+  "Custom Platforms": "/services#custom-platforms",
+};
 
 export function generateStaticParams() {
   return officeCases.map((item) => ({ slug: item.slug }));
@@ -44,15 +51,20 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
     return <SimBruggeCase item={item} />;
   }
 
-  const related = officeCases.filter((entry) => entry.slug !== item.slug).slice(0, 2);
+  const related = officeCases
+    .filter((entry) => entry.slug !== item.slug)
+    .sort((a, b) => {
+      const overlapA = a.services.filter((service) => item.services.includes(service)).length;
+      const overlapB = b.services.filter((service) => item.services.includes(service)).length;
+      return overlapB - overlapA;
+    })
+    .slice(0, 2);
   const hasMuxVideos = Boolean(item.muxVideos?.length);
 
   return (
     <div className="bg-[var(--background)] pb-16 text-[var(--foreground)]">
       <section className="mx-auto max-w-7xl px-4 pb-10 pt-24 md:px-6 md:pt-28 lg:px-8">
-        <Link href="/cases" className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground-muted)] transition-colors hover:text-[var(--accent)]">
-          Cases
-        </Link>
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Cases", href: "/cases" }, { label: item.title }]} />
         <h1 className="mt-8 max-w-4xl text-4xl font-semibold leading-[0.95] tracking-tight md:text-6xl">
           {item.title}
           <span className="block text-[var(--foreground-muted)]">{item.subtitle}</span>
@@ -83,7 +95,11 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
           </p>
           <ul className="mt-5 space-y-2 text-sm text-[var(--foreground-muted)]">
             {item.services.map((service) => (
-              <li key={service}>{service}</li>
+              <li key={service}>
+                <Link href={serviceAnchors[service] ?? "/services"} className="transition-colors hover:text-[var(--accent)]">
+                  {service}
+                </Link>
+              </li>
             ))}
           </ul>
           {item.metrics && (
@@ -163,6 +179,12 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
             </Link>
           ))}
         </div>
+        <Link
+          href="/intake"
+          className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--accent)] px-5 text-sm font-bold text-white transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35"
+        >
+          Bespreek een gelijkaardig project
+        </Link>
       </section>
     </div>
   );

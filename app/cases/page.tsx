@@ -1,9 +1,10 @@
 import Link from "next/link";
 import CaseVisual from "@/components/cases/CaseVisual";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { officeCases, type OfficeCase } from "@/lib/office-cases";
 
 export const metadata = {
-  title: "Cases | Office6",
+  title: "Cases en resultaten | Office6",
   description:
     "Cases van Office6: contentproductie, vertical content, performance creatives en custom platforms.",
 };
@@ -66,6 +67,7 @@ export default function CasesPage() {
   return (
     <div className="bg-[var(--background)] pb-16 text-[var(--foreground)]">
       <section className="mx-auto max-w-7xl px-4 pb-6 pt-24 md:px-6 md:pt-28 lg:px-8">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Cases" }]} />
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground-muted)]">
           Cases
         </p>

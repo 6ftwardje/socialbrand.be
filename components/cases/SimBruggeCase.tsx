@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import type { OfficeCase, OfficeMuxVideo } from "@/lib/office-cases";
 
 const gallery = Array.from({ length: 11 }, (_, index) =>
@@ -87,9 +87,7 @@ export default function SimBruggeCase({ item }: { item: OfficeCase }) {
   return (
     <div className="overflow-hidden bg-[var(--background)] pb-16 text-[var(--foreground)]">
       <section className="mx-auto max-w-7xl px-4 pb-10 pt-24 md:px-6 md:pb-14 md:pt-28 lg:px-8">
-        <Link href="/cases" className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground-muted)] transition-colors hover:text-[var(--accent)]">
-          Cases
-        </Link>
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Cases", href: "/cases" }, { label: item.title }]} />
         <div className="mt-8 grid items-end gap-8 md:grid-cols-[0.58fr_0.42fr]">
           <h1 className="text-5xl font-semibold leading-[0.88] tracking-[-0.055em] sm:text-6xl md:text-8xl">
             SIM<br />Brugge
@@ -110,7 +108,7 @@ export default function SimBruggeCase({ item }: { item: OfficeCase }) {
             sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover object-[center_42%] transition-transform duration-[1400ms] ease-out hover:scale-[1.015]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5" aria-hidden />
           <p className="absolute bottom-5 left-5 max-w-[15rem] text-xs font-semibold uppercase leading-relaxed tracking-[0.16em] text-white md:bottom-8 md:left-8">
             Content die meegroeide met de ambitie
           </p>

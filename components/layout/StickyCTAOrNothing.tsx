@@ -3,9 +3,19 @@
 import { usePathname } from "next/navigation";
 import StickyMobileCTA from "./StickyMobileCTA";
 
-/** Op services/aanbod tonen we geen gewone sticky CTA. */
 export default function StickyCTAOrNothing() {
   const pathname = usePathname();
-  if (pathname === "/services" || pathname === "/aanbod") return null;
-  return <StickyMobileCTA />;
+  if (
+    pathname === "/intake" ||
+    pathname === "/bedankt" ||
+    pathname === "/privacy" ||
+    pathname === "/aanbod" ||
+    pathname.startsWith("/voorstel/")
+  ) return null;
+  return (
+    <>
+      <StickyMobileCTA />
+      <div className="h-[5.25rem] bg-[var(--background)] md:hidden" aria-hidden />
+    </>
+  );
 }

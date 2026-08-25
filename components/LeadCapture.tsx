@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LeadCapture() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -17,7 +19,7 @@ export default function LeadCapture() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim() }),
       });
-      if (res.ok) setStatus("success");
+      if (res.ok) router.replace("/bedankt");
       else setStatus("error");
     } catch {
       setStatus("error");
@@ -29,16 +31,11 @@ export default function LeadCapture() {
       <h2 className="text-lg sm:text-xl text-center text-zinc-700 dark:text-zinc-300 mb-4">
         Kan je niet wachten?
       </h2>
-      {status === "success" ? (
-        <p className="text-center text-emerald-600 dark:text-emerald-400 font-medium">
-          Bedankt! We nemen snel contact op.
-        </p>
-      ) : (
-        <form
-          name="lead-capture"
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-3"
-        >
+      <form
+        name="lead-capture"
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-3"
+      >
           <label htmlFor="lead-email" className="sr-only">
             E-mailadres
           </label>
@@ -66,8 +63,7 @@ export default function LeadCapture() {
               Er ging iets mis. Probeer het later opnieuw.
             </p>
           )}
-        </form>
-      )}
+      </form>
     </section>
   );
 }

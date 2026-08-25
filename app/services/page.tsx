@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { packages } from "@/lib/content";
 import { officeCases, type OfficeCase } from "@/lib/office-cases";
 
 export const metadata = {
-  title: "Services | Office6",
+  title: "Content creation, performance marketing en platforms | Office6",
   description:
-    "Content creation, performance marketing en custom platforms voor merken die menselijker willen communiceren en meetbaar willen groeien.",
+    "Ontdek hoe Office6 content creation, performance marketing en custom platforms combineert tot digitale trajecten die merken helpen groeien.",
 };
 
 const serviceCaseSlugs: Record<string, string> = {
@@ -69,6 +70,7 @@ export default function ServicesPage() {
   return (
     <div className="bg-[var(--background)] pb-16 text-[var(--foreground)]">
       <section className="mx-auto max-w-7xl px-4 pb-10 pt-24 md:px-6 md:pb-16 md:pt-28 lg:px-8">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Diensten" }]} />
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--foreground-muted)]">
           Services
         </p>
@@ -107,16 +109,18 @@ export default function ServicesPage() {
                     <span className="block text-[var(--foreground-muted)]">{service.name.toLowerCase()}</span>
                   </p>
                   <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden bg-zinc-950">
-                    {serviceCase.thumbnail.image && (
-                      <Image
-                        src={serviceCase.thumbnail.image}
-                        alt={serviceCase.thumbnail.alt}
-                        fill
-                        priority={index === 0}
-                        className="object-cover transition-transform duration-700 hover:scale-[1.025]"
-                        sizes="(max-width: 767px) 100vw, 48vw"
-                      />
-                    )}
+                    <Link href={`/cases/${serviceCase.slug}`} className="absolute inset-0 block" aria-label={`Bekijk de case van ${serviceCase.title}`}>
+                      {serviceCase.thumbnail.image && (
+                        <Image
+                          src={serviceCase.thumbnail.image}
+                          alt={serviceCase.thumbnail.alt}
+                          fill
+                          priority={index === 0}
+                          className="object-cover transition-transform duration-700 hover:scale-[1.025]"
+                          sizes="(max-width: 767px) 100vw, 48vw"
+                        />
+                      )}
+                    </Link>
                   </div>
                 </div>
 
@@ -129,6 +133,12 @@ export default function ServicesPage() {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
+                  <Link
+                    href={`/cases/${serviceCase.slug}`}
+                    className="mt-6 inline-flex w-fit text-sm font-bold text-[var(--accent)] transition-colors hover:text-[var(--accent-hover)]"
+                  >
+                    Bekijk relevante case →
+                  </Link>
                 </div>
               </article>
             );

@@ -4,7 +4,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { mobilePrimaryLinks, navLinks } from "@/lib/content";
+import { mobilePrimaryLinks, mobileSecondaryLinks, navLinks } from "@/lib/content";
 import Office6Text from "@/components/ui/Office6Text";
 
 const MOBILE_MENU_ANIMATION_MS = 180;
@@ -279,6 +279,15 @@ export default function Navbar() {
                     Plan gesprek
                   </Link>
                 </li>
+              </ul>
+              <ul className="mobile-menu-item mt-7 flex items-center justify-center gap-5 border-t border-[var(--border-subtle)] pt-5 text-sm text-[var(--foreground-muted)]">
+                {mobileSecondaryLinks.map(({ href, label }) => (
+                  <li key={`${href}-${label}`}>
+                    <Link href={href} onClick={closeMobileMenu} className="transition-colors hover:text-[var(--foreground)]">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>

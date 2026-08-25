@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import IntakeForm from "@/components/intake/IntakeForm";
 
 export const metadata: Metadata = {
-  title: "Intake | Office6",
+  title: "Start je intake | Office6",
   description:
     "Beantwoord 8 korte vragen (±2 min). We plannen daarna je kennismakingscall en nemen binnen 24 uur contact op.",
+  robots: { index: false, follow: false },
 };
 
 export default function IntakePage() {

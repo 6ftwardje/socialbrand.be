@@ -104,13 +104,14 @@ export const methodSteps: MethodStep[] = [
 ];
 
 export const faqs: FAQ[] = [
-  { question: "Wat kost een traject?", answer: "Maatwerk. Op de kennismakingscall bepalen we de juiste scope en geven we een duidelijke prijsindicatie." },
-  { question: "Kunnen jullie content en performance combineren?", answer: "Ja. Dat is vaak net de kracht: creatie die niet losstaat van campagnes, data en conversie." },
-  { question: "Bouwen jullie ook websites of platformen?", answer: "Ja. We bouwen websites, landing pages, intakeflows, dashboards en custom platformen wanneer die nodig zijn voor groei." },
-  { question: "Hoeveel revisies?", answer: "Max. twee revisierondes per item." },
-  { question: "Moet ik zelf voor de camera?", answer: "Niet altijd. We kijken welk menselijk gezicht of verhaal het merk nodig heeft: founder, team, klant, expert of productervaring." },
-  { question: "Eigenaar van de content?", answer: "Jij. We leveren bestanden; portfolio alleen met toestemming." },
-  { question: "Werken jullie alleen organisch?", answer: "Nee. We doen content creation, performance marketing en custom platforms los of gecombineerd." },
+  { question: "Wat kost een traject?", answer: "Elk traject is maatwerk. Tijdens de kennismakingscall bepalen we de juiste scope en krijg je een duidelijke prijsindicatie zonder verplichting." },
+  { question: "Hoe verloopt een samenwerking?", answer: "We starten met een intake en scherpe briefing. Daarna volgen strategie, productie of ontwikkeling, feedback en oplevering. Bij campagnes en platformen voorzien we ook ruimte om verder te optimaliseren." },
+  { question: "Hoe lang duurt een traject?", answer: "Dat hangt af van de scope. Een gerichte contentproductie kan in enkele weken, terwijl een website of platform gefaseerd wordt gebouwd. Voor de start leggen we timing en beslismomenten duidelijk vast." },
+  { question: "Wat moeten we zelf aanleveren?", answer: "Vooral context, toegang tot de juiste mensen en tijdige feedback. We begeleiden briefing, formats, scripts en productie zodat je niet alles vooraf zelf hoeft uit te werken." },
+  { question: "Hoeveel revisies zijn inbegrepen?", answer: "Standaard voorzien we maximaal twee revisierondes per item. Afwijkende of uitgebreidere feedbackflows spreken we vooraf af." },
+  { question: "Kunnen jullie content, campagnes en platformen combineren?", answer: "Ja. Dat is vaak net de kracht: content die aansluit op campagnes, data en een website of platform dat de volgende stap ondersteunt." },
+  { question: "Moet ik zelf voor de camera?", answer: "Niet altijd. We kiezen het menselijke gezicht dat het verhaal nodig heeft: founder, team, klant, expert of een sterke productervaring." },
+  { question: "Wie is eigenaar van de opgeleverde content?", answer: "Na betaling kan je de afgesproken bestanden gebruiken binnen de overeengekomen scope. We nemen werk alleen met toestemming op in ons portfolio." },
 ];
 
 /** Aanbodpagina: bestaande faqs + aanbod-specifieke vragen (call, prijzen, start, zichtbaarheid). */
@@ -150,7 +151,6 @@ export const mobilePrimaryLinks = [
 /** Secondary links for mobile menu (utility: privacy, contact, socials). */
 export const mobileSecondaryLinks = [
   { href: "/privacy", label: "Privacy" },
-  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const socialLinks = [

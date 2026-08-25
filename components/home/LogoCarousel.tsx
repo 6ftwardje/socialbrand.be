@@ -73,7 +73,7 @@ function LogoGroup({ decorative = false }: { decorative?: boolean }) {
         >
           <Image
             src={logo.src}
-            alt={decorative ? "" : logo.name === "Het Trade Platform" ? "Het Trade Platform logo" : logo.name}
+            alt={decorative ? "" : `${logo.name} logo`}
             width={logo.width}
             height={logo.height}
             className="max-h-10 w-auto max-w-[8rem] object-contain opacity-65 brightness-0 transition-opacity duration-300 hover:opacity-100 md:max-h-12 md:max-w-[10rem]"

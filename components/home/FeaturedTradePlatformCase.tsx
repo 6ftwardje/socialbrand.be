@@ -9,7 +9,7 @@ export default function FeaturedTradePlatformCase() {
       className="grid grid-cols-1 bg-[var(--background)] lg:grid-cols-2"
       aria-labelledby="featured-trade-platform-case-heading"
     >
-      <div className="flex flex-col justify-center px-5 py-8 md:px-6 md:py-12 lg:aspect-[3/2] lg:min-h-0 lg:px-10 lg:py-8 xl:px-16">
+      <div className="flex flex-col justify-center px-5 py-8 md:px-6 md:py-10 lg:min-h-0 lg:px-10 lg:py-7 xl:px-14">
         <div className="mx-auto flex w-full max-w-2xl flex-col justify-center gap-3 text-base font-medium leading-relaxed text-[var(--foreground-muted)] md:text-lg lg:h-full lg:max-w-[38rem] lg:gap-4 xl:gap-5">
           <Image
             src="/cases/het-trade-platform/logo-dark.png"
@@ -54,7 +54,7 @@ export default function FeaturedTradePlatformCase() {
         </div>
       </div>
 
-      <div className="relative order-first mx-5 mt-5 aspect-[4/5] min-h-[22rem] w-auto overflow-hidden rounded-lg bg-zinc-950 md:mx-6 md:min-h-[28rem] lg:order-none lg:m-0 lg:min-h-0 lg:w-full lg:rounded-none">
+      <div className="relative order-first mx-5 mt-5 aspect-[4/5] min-h-[22rem] w-auto overflow-hidden rounded-lg bg-zinc-950 md:mx-6 md:min-h-[28rem] lg:order-none lg:m-0 lg:aspect-[4/3] lg:min-h-0 lg:w-full lg:rounded-none">
         <Image
           src="/cases/het-trade-platform/platform-mobile-mockup.webp"
           alt="Het Trade Platform leerplatform op een laptopmockup"

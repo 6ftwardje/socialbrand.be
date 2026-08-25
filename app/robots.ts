@@ -4,7 +4,11 @@ const BASE_URL = "https://office6.be";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/" },
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/voorstel/"],
+    },
     sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

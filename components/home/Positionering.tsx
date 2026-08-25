@@ -29,7 +29,7 @@ export default function Positionering() {
 
   return (
     <section
-      id="positionering"
+      id="over-office6"
       className="grid w-full grid-cols-1 border-t border-[var(--border-subtle)] bg-[var(--surface)] lg:grid-cols-2"
       aria-labelledby="positionering-heading"
     >
@@ -69,7 +69,6 @@ export default function Positionering() {
       {/* Foto – rechterkant, volledige helft,zelfde hoogte/verhouding als voorheen (aspect 4/3) */}
       <div
         className="relative order-first mx-5 mt-5 aspect-[4/5] min-h-[22rem] w-auto overflow-hidden rounded-lg md:mx-6 md:min-h-[28rem] lg:order-none lg:m-0 lg:aspect-[4/3] lg:min-h-0 lg:w-full lg:rounded-none"
-        aria-hidden
       >
         {hasImage ? (
           <Image
