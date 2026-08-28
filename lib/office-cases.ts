@@ -57,6 +57,7 @@ const thumbnails = {
   saturate: "/cases/saturate/thumbnail.webp",
   simBrugge: "/cases/sim-brugge/thumbnail-shoot-02.webp",
   tecjobz: "/cases/tecjobz/thumbnail.webp",
+  theBisous: "/cases/the-bisous/thumbnail.webp",
   theNight: "/cases/the-night/thumbnail.webp",
 } as const;
 
@@ -152,6 +153,9 @@ const muxVideos = {
     { title: "Tecjobz reel 3", playbackId: "H00ipcurlJPtzC1AvU01qjQ00xFo14IrkbLkePeYPgnS5o", aspectRatio: "9:16", format: "vertical" },
     { title: "Tecjobz reel 4", playbackId: "nc002sSB6hhUctosOpYd2CrfCMTfv5RFDnRsfUDMNsrs", aspectRatio: "9:16", format: "vertical" },
   ],
+  theBisous: [
+    { title: "The Bisous × Oto Sessions", playbackId: "9KSIs00R01qlK015FY6WVAi1k4gvDn3G00wvkSzTtFFwePU", aspectRatio: "4:3", format: "standard" },
+  ],
   theNight: [
     { title: "The Night reel 1", playbackId: "Byr6vRQoyFXZtQafJo5nTjLy7XymY2tVDMuAqWAm6DE", aspectRatio: "9:16", format: "vertical" },
   ],
@@ -216,6 +220,29 @@ const allOfficeCases: OfficeCase[] = [
       "BOHO kreeg een frisse visuele start van het seizoen en een collectie clips om de zomerbar ook na het openingsmoment top-of-mind te houden.",
     mediaPlan: [commonMedia.wide, commonMedia.vertical],
     muxVideos: muxVideos.boho,
+  },
+  {
+    slug: "the-bisous-oto-sessions",
+    title: "The Bisous × Oto Sessions",
+    subtitle: "Een energieke 4:3 eventfilm met snelle camera pans voor een clubnacht in Blankenberge.",
+    category: "Event coverage",
+    tags: ["4:3 video", "Event coverage", "Nightlife content"],
+    services: ["Content Creation"],
+    thumbnail: {
+      image: thumbnails.theBisous,
+      alt: "Clubnacht van Oto Sessions in The Bisous in Blankenberge",
+      shape: "standard",
+    },
+    intro:
+      "Voor The Bisous in Blankenberge legden we een clubnacht van Oto Sessions vast in een energieke eventvideo.",
+    challenge:
+      "Een nightlife-video moet meer doen dan sfeer registreren. De edit moest de beweging en intensiteit van de avond voelbaar maken, zonder te vervallen in een klassieke aftermovie.",
+    approach:
+      "We kozen voor een uitgesproken 4:3-kader en combineerden dat met snelle camera pans. Zo kreeg de video een compact, onvoorspelbaar ritme dat aansluit bij de energie op de dansvloer.",
+    outcome:
+      "Het resultaat is een korte, herkenbare eventfilm die de identiteit van The Bisous en de Oto Sessions-avond in één visuele stijl samenbrengt.",
+    mediaPlan: [commonMedia.standard, commonMedia.wide, commonMedia.vertical],
+    muxVideos: muxVideos.theBisous,
   },
   {
     slug: "bora-coworking",

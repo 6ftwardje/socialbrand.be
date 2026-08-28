@@ -19,6 +19,7 @@ function getCase(slug: string) {
 
 const columns: OfficeCase[][] = [
   [
+    getCase("the-bisous-oto-sessions"),
     getCase("chris-henry"),
     getCase("celsius"),
     getCase("bloom"),
