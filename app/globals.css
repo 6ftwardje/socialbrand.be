@@ -81,6 +81,7 @@ body {
 /* Huppa proposal — scoped to avoid changing the public Office6 pages. */
 .proposal-page { --proposal-black:#11100f; --proposal-paper:#f7f4ef; background:var(--proposal-paper); color:var(--proposal-black); overflow:clip; }
 body:has(.proposal-page) > header, body:has(.proposal-page) > footer { display:none; }
+body:has(.proposal-access-page) > header, body:has(.proposal-access-page) > footer { display:none; }
 .proposal-page h1,.proposal-page h2,.proposal-page h3,.proposal-page p { text-wrap:pretty; }
 .proposal-container { width:min(100% - 2.5rem, 1280px); margin-inline:auto; }
 .proposal-nav { position:sticky; top:0; z-index:45; height:3.75rem; border-bottom:1px solid rgba(17,16,15,.12); background:rgba(247,244,239,.92); backdrop-filter:blur(16px); }
