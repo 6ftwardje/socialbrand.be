@@ -32,6 +32,7 @@ function safeNextPath(value?: string) {
 export default async function ProposalAccessPage({ searchParams }: AccessPageProps) {
   const params = await searchParams;
   const nextPath = safeNextPath(params.next);
+  const isChrisHenryProposal = nextPath === "/voorstel/chris-henry";
   const token = (await cookies()).get(PROPOSAL_AUTH_COOKIE)?.value;
 
   if (await isValidProposalAccessToken(token)) {
@@ -42,14 +43,14 @@ export default async function ProposalAccessPage({ searchParams }: AccessPagePro
   const invalidPassword = params.error === "invalid";
 
   return (
-    <div className={`proposal-access-page ${styles.page}`}>
+    <div className={`proposal-access-page ${styles.page}`} lang={isChrisHenryProposal ? "en" : "nl"}>
       <div className={styles.art} aria-hidden>
         <span>6</span>
         <i />
       </div>
 
       <header className={styles.header}>
-        <Link href="/" aria-label="Naar Office6">
+        <Link href="/" aria-label={isChrisHenryProposal ? "Go to Office6" : "Naar Office6"}>
           <Image
             src="/logos/office6-white.png"
             alt="Office6"
@@ -58,20 +59,22 @@ export default async function ProposalAccessPage({ searchParams }: AccessPagePro
             priority
           />
         </Link>
-        <p><LockKeyhole aria-hidden /> Beveiligde omgeving</p>
+        <p><LockKeyhole aria-hidden /> {isChrisHenryProposal ? "Secure environment" : "Beveiligde omgeving"}</p>
       </header>
 
       <main className={styles.content}>
-        <p className={styles.eyebrow}>Vertrouwelijk voorstel</p>
-        <h1>Dit voorstel is persoonlijk.</h1>
+        <p className={styles.eyebrow}>{isChrisHenryProposal ? "Confidential proposal" : "Vertrouwelijk voorstel"}</p>
+        <h1>{isChrisHenryProposal ? "This proposal is personal." : "Dit voorstel is persoonlijk."}</h1>
         <p className={styles.intro}>
-          Voer het gedeelde wachtwoord in om de inhoud te bekijken. Je toegang blijft zeven dagen actief op dit toestel.
+          {isChrisHenryProposal
+            ? "Enter the shared password to view the proposal. Access will remain active on this device for seven days."
+            : "Voer het gedeelde wachtwoord in om de inhoud te bekijken. Je toegang blijft zeven dagen actief op dit toestel."}
         </p>
 
         <form action={unlockProposals} className={styles.form}>
           <input type="hidden" name="next" value={nextPath} />
           <input type="text" name="username" value="office6" autoComplete="username" hidden readOnly />
-          <label htmlFor="proposal-password">Wachtwoord</label>
+          <label htmlFor="proposal-password">{isChrisHenryProposal ? "Password" : "Wachtwoord"}</label>
           <div className={styles.fieldRow}>
             <input
               id="proposal-password"
@@ -83,26 +86,26 @@ export default async function ProposalAccessPage({ searchParams }: AccessPagePro
               aria-describedby={invalidPassword || configurationMissing ? "access-error" : undefined}
             />
             <button type="submit" disabled={configurationMissing}>
-              <span>Open voorstel</span>
+              <span>{isChrisHenryProposal ? "Open proposal" : "Open voorstel"}</span>
               <ArrowRight aria-hidden />
             </button>
           </div>
 
           {invalidPassword && (
             <p id="access-error" className={styles.error} role="alert">
-              Dat wachtwoord klopt niet. Probeer opnieuw.
+              {isChrisHenryProposal ? "That password is incorrect. Please try again." : "Dat wachtwoord klopt niet. Probeer opnieuw."}
             </p>
           )}
           {configurationMissing && (
             <p id="access-error" className={styles.error} role="alert">
-              De toegang is nog niet geconfigureerd. Neem contact op met Office6.
+              {isChrisHenryProposal ? "Access has not been configured yet. Please contact Office6." : "De toegang is nog niet geconfigureerd. Neem contact op met Office6."}
             </p>
           )}
         </form>
       </main>
 
       <footer className={styles.footer}>
-        <p>Enkel bestemd voor interne evaluatie.</p>
+        <p>{isChrisHenryProposal ? "For internal evaluation only." : "Enkel bestemd voor interne evaluatie."}</p>
         <a href="mailto:hello@office6.be">hello@office6.be</a>
       </footer>
     </div>
