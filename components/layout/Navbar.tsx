@@ -166,16 +166,7 @@ export default function Navbar() {
             </span>
           </button>
 
-          <div className="pointer-events-auto relative hidden items-start gap-2 md:flex">
-            <Link
-              href="/platform"
-              className="group inline-flex h-12 items-center gap-2 rounded-full bg-[var(--foreground)] px-5 text-sm font-semibold text-[var(--surface)] shadow-[0_12px_40px_rgba(21,21,21,0.14)] transition-colors hover:bg-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/40"
-            >
-              Platforms
-              <span className="inline-flex h-5 items-center rounded-full bg-[var(--accent)] px-2 text-[.55rem] font-bold uppercase tracking-[.12em] text-white transition-colors group-hover:bg-white group-hover:text-[var(--foreground)]">Private</span>
-            </Link>
-
-            <div className="relative flex flex-col items-end">
+          <div className="pointer-events-auto relative hidden flex-col items-end md:flex">
               <button
               ref={desktopTriggerRef}
               type="button"
@@ -187,10 +178,10 @@ export default function Navbar() {
             >
               <span>{desktopOpen ? "Sluit" : "Menu"}</span>
               {desktopOpen ? <X className="h-4 w-4" aria-hidden /> : <Menu className="h-4 w-4" aria-hidden />}
-              </button>
+            </button>
 
-              {desktopOpen && (
-                <div
+            {desktopOpen && (
+              <div
                 ref={desktopMenuRef}
                 id="desktop-menu"
                 role="dialog"
@@ -204,13 +195,13 @@ export default function Navbar() {
                         <Link
                           href={href}
                           onClick={() => setDesktopOpen(false)}
-                          className={`group flex items-center justify-between gap-6 rounded-xl px-3 py-4 text-2xl font-semibold leading-none tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 md:text-3xl ${href === "/platform" ? "bg-[var(--foreground)] text-[var(--surface)] hover:bg-[var(--accent)]" : "hover:bg-[var(--background-muted)]"}`}
+                          className="group flex items-center justify-between gap-6 rounded-xl px-3 py-4 text-2xl font-semibold leading-none tracking-tight transition-colors hover:bg-[var(--background-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 md:text-3xl"
                         >
                           <span>
                             <Office6Text>{label}</Office6Text>
                           </span>
                           <ArrowRight
-                            className={`h-5 w-5 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100 ${href === "/platform" ? "text-[var(--accent)] opacity-100 group-hover:text-white" : "text-[var(--accent)] opacity-0"}`}
+                            className="h-5 w-5 text-[var(--accent)] opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100"
                             aria-hidden
                           />
                         </Link>
@@ -240,9 +231,8 @@ export default function Navbar() {
                     </Link>
                   </div>
                 </div>
-                </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </header>
@@ -274,7 +264,7 @@ export default function Navbar() {
                     <Link
                       href={href}
                       onClick={closeMobileMenu}
-                      className={`flex min-h-12 w-full items-center justify-center rounded-lg px-4 py-3 text-xl font-bold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35 ${href === "/platform" ? "bg-[var(--foreground)] text-[var(--surface)] hover:bg-[var(--accent)]" : "text-[var(--foreground)] hover:bg-[var(--surface)]"}`}
+                      className="flex min-h-12 w-full items-center justify-center rounded-lg px-4 py-3 text-xl font-bold text-[var(--foreground)] transition-colors duration-200 hover:bg-[var(--surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/35"
                     >
                       <Office6Text>{label}</Office6Text>
                     </Link>

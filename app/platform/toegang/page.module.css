@@ -16,8 +16,9 @@
   z-index: -2;
   inset: 0;
   background:
-    linear-gradient(90deg, #0d0d0c 0%, #0d0d0cf2 40%, #0d0d0c9e 72%, #0d0d0cbd 100%),
-    url("/cases/coachedby/platform/hero-bg.webp") 70% center / cover no-repeat;
+    radial-gradient(ellipse 55% 80% at 92% 52%, rgb(220 19 38 / 18%), transparent 70%),
+    radial-gradient(ellipse 42% 65% at 64% 100%, rgb(255 255 255 / 5%), transparent 72%),
+    linear-gradient(118deg, #0b0b0a 0%, #11100f 50%, #181310 100%);
   animation: backgroundIn 1.1s cubic-bezier(.22, 1, .36, 1) both;
 }
 
@@ -25,39 +26,20 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, transparent calc(50% - .5px), rgb(255 255 255 / 7%) 50%, transparent calc(50% + .5px)),
-    repeating-linear-gradient(0deg, transparent 0, transparent 8.9rem, rgb(255 255 255 / 4%) 9rem);
-  mask-image: linear-gradient(to bottom, #000, transparent 92%);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 3%) 50%, transparent);
 }
 
 .scanLine {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: linear-gradient(transparent 8%, #dc132690 48%, transparent 88%);
-  box-shadow: 0 0 28px #dc132670;
-  opacity: .7;
+  display: none;
 }
 
 .orbitOne,
 .orbitTwo {
-  position: absolute;
-  right: -12vw;
-  top: 50%;
-  width: min(58vw, 52rem);
-  aspect-ratio: 1;
-  border: 1px solid rgb(255 255 255 / 11%);
-  border-radius: 50%;
-  transform: translateY(-50%);
+  display: none;
 }
 
 .orbitTwo {
-  right: -4vw;
-  width: min(41vw, 36rem);
-  border-color: rgb(220 19 38 / 32%);
+  display: none;
 }
 
 .header,
@@ -70,6 +52,8 @@
   gap: 1.5rem;
 }
 
+.header { justify-content: flex-start; }
+
 .header img {
   display: block;
   width: 8.5rem;
@@ -77,14 +61,7 @@
 }
 
 .secureLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  color: rgb(247 244 239 / 55%);
-  font-size: .64rem;
-  font-weight: 650;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  display: none;
 }
 
 .secureLabel svg {
@@ -134,9 +111,7 @@
 }
 
 .previewIndex {
-  max-width: 570px;
-  margin-top: clamp(2.5rem, 5vh, 4.5rem);
-  border-top: 1px solid rgb(255 255 255 / 15%);
+  display: none;
 }
 
 .previewIndex > div {
@@ -199,17 +174,7 @@
 }
 
 .panelTopline {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid rgb(255 255 255 / 13%);
-  color: rgb(247 244 239 / 43%);
-  font-size: .55rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  display: none;
 }
 
 .panelTopline > span {

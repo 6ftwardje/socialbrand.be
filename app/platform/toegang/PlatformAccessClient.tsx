@@ -6,11 +6,8 @@ import { FormEvent, useState } from "react";
 import {
   ArrowRight,
   Check,
-  CircleDashed,
-  Layers3,
   LockKeyhole,
   Mail,
-  ShieldCheck,
 } from "lucide-react";
 import { unlockPlatform } from "./actions";
 import styles from "./page.module.css";
@@ -75,7 +72,6 @@ export default function PlatformAccessClient({
         <Link href="/" aria-label="Naar Office6">
           <Image src="/logos/office6-white.png" alt="Office6" width={590} height={104} priority />
         </Link>
-        <div className={styles.secureLabel}><ShieldCheck /> Private preview · 2026</div>
       </header>
 
       <main className={styles.main}>
@@ -84,19 +80,9 @@ export default function PlatformAccessClient({
           <h1>Niet alles wat we bouwen staat publiek.</h1>
           <p className={styles.lead}>Bekijk hoe we expertise vertalen naar een eigen leerplatform—van courseproductie en development tot lancering.</p>
 
-          <div className={styles.previewIndex} aria-label="Inhoud van de preview">
-            <div><span>01</span><Layers3 /><p><strong>Platformarchitectuur</strong><small>Modules, lessen en begeleiding</small></p><LockKeyhole /></div>
-            <div><span>02</span><CircleDashed /><p><strong>Productie & flow</strong><small>Van curriculum tot livegang</small></p><LockKeyhole /></div>
-            <div><span>03</span><ArrowRight /><p><strong>Investering & groei</strong><small>Scope, care en go-to-market</small></p><LockKeyhole /></div>
-          </div>
         </section>
 
         <section className={styles.accessPanel} aria-labelledby="access-title">
-          <div className={styles.panelTopline}>
-            <span><i /> Office6 secure environment</span>
-            <small>O6 / PLT–01</small>
-          </div>
-
           <div className={styles.accessContent}>
             <span className={styles.lockIcon}><LockKeyhole /></span>
             <p className={styles.panelEyebrow}>Access required</p>
