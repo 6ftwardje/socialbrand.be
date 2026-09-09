@@ -134,6 +134,7 @@ export const cases: CaseStudy[] = [
 ];
 
 export const navLinks = [
+  { href: "/platform", label: "Platforms" },
   { href: "/cases", label: "Cases" },
   { href: "/services", label: "Diensten" },
   { href: "/#over-office6", label: "Over Office6" },
@@ -142,6 +143,7 @@ export const navLinks = [
 
 /** Primary nav for mobile menu (main sections, max 5–7). Contact moved to secondary. */
 export const mobilePrimaryLinks = [
+  { href: "/platform", label: "Platforms" },
   { href: "/cases", label: "Cases" },
   { href: "/services", label: "Diensten" },
   { href: "/#over-office6", label: "Over Office6" },

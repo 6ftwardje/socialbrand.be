@@ -10,6 +10,7 @@ export default function StickyCTAOrNothing() {
     pathname === "/bedankt" ||
     pathname === "/privacy" ||
     pathname === "/aanbod" ||
+    pathname.startsWith("/platform") ||
     pathname.startsWith("/voorstel/")
   ) return null;
   return (
