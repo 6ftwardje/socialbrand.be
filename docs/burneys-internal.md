@@ -23,3 +23,7 @@ Burney’s bouwt voort op de bestaande Office6-offertes: de FoodFair-paletvariab
 Op verzoek zijn foundersinterviews binnen de basisdraaidag opgenomen als basis voor de zes ads, samen met inhoudelijke afstemming op de bestaande website-intake. De zes verhaallijnen blijven afzonderlijk. Technische website- en intakeaanpassingen zijn uitgesloten.
 
 De supplementtarieven sluiten aan bij eerdere projectoffertes: €300 per extra reel uit bestaand materiaal (Huppa: vier extra socialvideo’s voor €1.200) en €1.350 per extra opnamedag (Huppa/Jabeja). Voor Burney’s is een extra opnamedag afgebakend op maximaal acht uur, inclusief Brugge–Mechelen, met extra montage afzonderlijk. Dit zijn de voor deze offerte gekozen tarieven, geen algemene Office6-voorwaarden. De bedragen staan samen met de scope in de centrale JSON en worden in web en PDF gelijk weergegeven.
+
+## Actuele versie zonder kalenderdatums
+
+De niet-gepubliceerde compacte herwerking is op uitdrukkelijk verzoek volledig verworpen. Uitgangspunt is opnieuw de live versie uit commit `6dabda3`. Offertedatum, shootdatum en kalenderdatums van voorbereiding en eerste montages zijn verwijderd uit de centrale bron, webpagina en PDF. De procesvolgorde, acht uur opname, zes reels, foundersaanpak, funnelafstemming, supplementen en commerciële afspraken blijven behouden. Het offertenummer blijft de bestaande identificatie.

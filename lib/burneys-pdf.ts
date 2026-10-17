@@ -57,7 +57,7 @@ export async function createBurneysPdf() {
   y = text(burneysPrice, y, { size: 44, weight: true, color: red }) - 2;
   y = text("Vaste pakketprijs · excl. btw", y, { size: 10 }) - 25;
   rule(y); y -= 25;
-  const facts = [["Klant", `${p.client} · ${p.contact}`], ["Locatie", p.location], ["Geplande shoot", p.shootDate], ["Oplevering", `${p.reelCount} afzonderlijke reels · ${p.themeCount} B2B-thema’s`], ["Formaat", `${p.format} · ${p.duration}`], ["Bestanden", p.delivery]];
+  const facts = [["Klant", `${p.client} · ${p.contact}`], ["Locatie", p.location], ["Opnames", `1 draaidag · max. ${p.maxShootHours} uur`], ["Oplevering", `${p.reelCount} afzonderlijke reels · ${p.themeCount} B2B-thema’s`], ["Formaat", `${p.format} · ${p.duration}`], ["Bestanden", p.delivery]];
   for (const [label, value] of facts) {
     text(label, y, { w: 115, size: 9, color: muted });
     y = text(value, y, { x: margin + 125, w: content - 125, size: 10, color: ink }) - 13;
@@ -133,8 +133,8 @@ export async function createBurneysPdf() {
   next();
   y = title("Planning & praktische afspraken.", 747, 28) - 24;
   let left = y, right = y;
-  for (const item of p.schedule) {
-    left = text(item.date, left, { w: column, size: 9, color: red }) - 4;
+  for (const [index, item] of p.schedule.entries()) {
+    left = text(`Stap ${index + 1}`, left, { w: column, size: 9, color: red }) - 4;
     left = text(item.title, left, { w: column, size: 14, weight: true, color: ink }) - 3;
     left = text(item.description, left, { w: column, size: 9, leading: 13 }) - 22;
   }

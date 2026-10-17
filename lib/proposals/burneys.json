@@ -1,8 +1,6 @@
 {
   "quoteNumber": "O6-BUR-2026-1015",
   "client": "Burney’s",
-  "date": "15 oktober 2026",
-  "shootDate": "21 oktober 2026",
   "currency": "EUR",
   "totalExVat": 3000,
   "title": "Zes B2B-reels voor jullie volgende bedrijfsevents",
@@ -114,22 +112,18 @@
   ],
   "schedule": [
     {
-      "date": "19–20 oktober 2026",
       "title": "Voorbereiding",
       "description": "Foundersinterviews voorbereiden, zes verhaallijnen uitwerken en de aansluiting op website-intake, deelnemers en dagplanning afstemmen."
     },
     {
-      "date": "21 oktober 2026",
       "title": "Draaidag",
       "description": "Maximaal acht uur opnemen bij Burney’s: foundersinterviews, teammomenten en de afgesproken busopnames."
     },
     {
-      "date": "28 oktober 2026",
       "title": "Eerste montages",
       "description": "Voorgestelde eerste versies; daarna twee gebundelde feedbackrondes."
     },
     {
-      "date": "Na de gebundelde feedback",
       "title": "Oplevering",
       "description": "Zes finale reels na goedkeuring. Tijdige feedback bepaalt de opleverdatum."
     }

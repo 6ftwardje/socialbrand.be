@@ -43,7 +43,7 @@ export default function BurneysProposalPage() {
             <span aria-hidden="true">×</span>
             <Image src="/logos/office6-white.png" alt="Office6" width={590} height={104} priority />
           </div>
-          <p>{p.quoteNumber}<br />{p.date}</p>
+          <p>{p.quoteNumber}</p>
         </div>
         <div className={s.heroCopy}>
           <h1>Collega’s.<br />Ook na<br /><span>de meeting.</span></h1>
@@ -51,7 +51,7 @@ export default function BurneysProposalPage() {
           <dl className={s.heroFacts}>
             <div><dt>Vaste pakketprijs</dt><dd>{burneysPrice} <small>excl. btw</small></dd></div>
             <div><dt>Oplevering</dt><dd>{p.reelCount} afzonderlijke reels</dd></div>
-            <div><dt>Geplande shoot</dt><dd>{p.shootDate}</dd></div>
+            <div><dt>Opnames</dt><dd>1 draaidag · max. {p.maxShootHours} uur</dd></div>
           </dl>
           <div className={s.heroLinks}><a href="#reels">Ontdek de zes reels <ArrowDown aria-hidden="true" /></a><a href={p.pdfPath} download>Download PDF <Download aria-hidden="true" /></a></div>
         </div>
@@ -128,7 +128,7 @@ export default function BurneysProposalPage() {
     <section id="planning" className={s.section}>
       <div className={s.container}>
         <Heading title="Van voorbereiding tot zes finale reels." text="We stemmen de scripts en de dagplanning vooraf af. Zo halen we de juiste momenten uit één gerichte draaidag." />
-        <ol className={s.schedule}>{p.schedule.map(item => <li key={item.title}><p>{item.date}</p><div><h3>{item.title}</h3><p>{item.description}</p></div></li>)}</ol>
+        <ol className={s.schedule}>{p.schedule.map((item, index) => <li key={item.title}><p>Stap {index + 1}</p><div><h3>{item.title}</h3><p>{item.description}</p></div></li>)}</ol>
         <div className={s.practical}>
           <figure><Image src="/voorstel/burneys/assets/burneys-teambuilding.webp" alt="Een groep beleeft samen een activiteit bij Burney’s" width={1400} height={934} unoptimized sizes="(max-width: 760px) 100vw, 40vw" /><figcaption>Burney’s · fotografie Kamill Cosemans</figcaption></figure>
           <div><h3>Voor een vlotte draaidag.</h3><ul>{p.practical.map(item => <li key={item}>{item}</li>)}</ul></div>
@@ -147,10 +147,10 @@ export default function BurneysProposalPage() {
     </section>
 
     <section className={`${s.section} ${s.closing}`}>
-      <div className={s.container}><h2>Geef jullie volgende bedrijfsevent een gezicht.</h2><p>Bespreken we de zes invalshoeken en de draaidag op {p.shootDate}? We stemmen de definitieve scripts en praktische afspraken samen af.</p><Actions full /></div>
+      <div className={s.container}><h2>Geef jullie volgende bedrijfsevent een gezicht.</h2><p>Bespreken we de zes invalshoeken en de draaidag? We stemmen de definitieve scripts en praktische afspraken samen af.</p><Actions full /></div>
     </section>
     <footer className={base.footer}><div className={s.container}>
-      <div><strong>{p.client} × Office6</strong><p>{p.quoteNumber} · {p.date}</p><p>Vertrouwelijk voorstel</p></div>
+      <div><strong>{p.client} × Office6</strong><p>{p.quoteNumber}</p><p>Vertrouwelijk voorstel</p></div>
       <Image src="/logos/office6-black-6.png" alt="Office6" width={590} height={104} />
       <div><a href="https://office6.be">office6.be</a><a href={`mailto:${p.contacts.email}`}>{p.contacts.email}</a></div>
     </div></footer>
