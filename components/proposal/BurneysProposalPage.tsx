@@ -1,13 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown, ArrowRight, Check, Download, Plus } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowDown, ArrowRight, Check, ChevronDown, Download, Plus } from "lucide-react";
+import { type ReactNode, useEffect, useState } from "react";
 import { burneysProposal as p, burneysPrice, burneysContactUrl, formatBurneysPrice } from "@/lib/burneys-proposal";
 import base from "./FoodFairProposalPage.module.css";
 import s from "./BurneysProposalPage.module.css";
 
 const sections = [["opdracht", "Opdracht"], ["reels", "De zes reels"], ["scope", "Scope"], ["investering", "Investering"], ["planning", "Planning"], ["referentie", "Referentie"]] as const;
+const copy = p.shortCopy;
+
+function Disclosure({ label, children }: { label: string; children: ReactNode }) {
+  return <details className={s.disclosure}><summary>{label}<ChevronDown aria-hidden="true" /></summary><div className={s.disclosureBody}>{children}</div></details>;
+}
 
 function Heading({ title, text }: { title: string; text?: string }) {
   return <header className={s.heading}><h2>{title}</h2>{text && <p>{text}</p>}</header>;
@@ -47,7 +52,7 @@ export default function BurneysProposalPage() {
         </div>
         <div className={s.heroCopy}>
           <h1>Collega’s.<br />Ook na<br /><span>de meeting.</span></h1>
-          <p>Zes verticale video’s die organisatoren hun volgende bedrijfsevent bij Burney’s laten beleven.</p>
+          <p>{copy.hero}</p>
           <dl className={s.heroFacts}>
             <div><dt>Vaste pakketprijs</dt><dd>{burneysPrice} <small>excl. btw</small></dd></div>
             <div><dt>Oplevering</dt><dd>{p.reelCount} afzonderlijke reels</dd></div>
@@ -69,9 +74,9 @@ export default function BurneysProposalPage() {
 
     <section id="opdracht" className={s.section}>
       <div className={s.container}>
-        <Heading title="Hun volgende teamdag begint met een goed beeld." text="Van een competitieve collega-challenge tot samen tafelen. We maken concreet wat een bedrijfsevent bij Burney’s kan zijn — en nodigen organisatoren uit om een voorstel op maat aan te vragen." />
+        <Heading title={copy.introTitle} text={copy.intro} />
         <div className={s.introGrid}>
-          <div><h3>Jullie creatieve productiepartner.</h3><p>{p.positioning}</p><p>Voor {p.contact} · {p.client}<br />{p.location}</p></div>
+          <div><h3>Jullie productiepartner.</h3><p>{copy.positioning}</p><p>Voor {p.contact} · {p.client}<br />{p.location}</p></div>
           <div className={s.specs}><h3>Wat jullie ontvangen</h3><dl>
             <div><dt>Reeks</dt><dd>{p.reelCount} reels · {p.themeCount} B2B-thema’s</dd></div>
             <div><dt>Beeld</dt><dd>{p.format}</dd></div>
@@ -81,23 +86,25 @@ export default function BurneysProposalPage() {
           </dl></div>
         </div>
         <div className={s.strategy}>
-          <div><h3>{p.creativeApproach.title}</h3><p>{p.creativeApproach.text}</p><p>{p.creativeApproach.productionNote}</p></div>
-          <div><h3>{p.funnel.title}</h3><p>{p.funnel.text}</p><ol className={s.funnel}>{p.funnel.steps.map((step, i) => <li key={step.title}><div><strong>{step.title}</strong><p>{step.text}</p></div>{i < p.funnel.steps.length - 1 && <ArrowRight aria-hidden="true" />}</li>)}</ol><p className={s.funnelBoundary}>{p.funnel.boundary}</p></div>
+          <div><h3>{p.creativeApproach.title}</h3><p>{copy.founders}</p><Disclosure label="Onze interviewaanpak"><p>{p.creativeApproach.text}</p><p>{p.creativeApproach.productionNote}</p></Disclosure></div>
+          <div><h3>{p.funnel.title}</h3><p>{copy.funnel}</p><Disclosure label="Aansluiting op de intake"><p>{p.funnel.text}</p><ol className={s.funnel}>{p.funnel.steps.map((step, i) => <li key={step.title}><div><strong>{step.title}</strong><p>{step.text}</p></div>{i < p.funnel.steps.length - 1 && <ArrowRight aria-hidden="true" />}</li>)}</ol><p className={s.funnelBoundary}>{p.funnel.boundary}</p></Disclosure></div>
         </div>
       </div>
     </section>
 
     <section id="reels" className={`${s.section} ${s.dark}`}>
       <div className={s.container}>
-        <Heading title="Drie thema’s. Zes eigen verhalen." text={p.scopeNote} />
-        <p className={s.scriptNote}>{p.scriptNote}</p>
-        <div className={s.reelJump} aria-label="Ga naar een reel">{p.concepts.flatMap(t => t.reels).map(r => <a href={`#reel-${r.number}`} key={r.number}><span>{String(r.number).padStart(2, "0")}</span>{r.title}<ArrowDown aria-hidden="true" /></a>)}</div>
+        <Heading title="Drie thema’s. Zes eigen verhalen." text={copy.scopeNote} />
+        <p className={s.scriptNote}>{copy.scriptNote}</p>
         {p.concepts.map((theme, i) => <div className={s.theme} key={theme.title}>
           <div className={s.themeTitle}><p>Thema {i + 1}</p><h3>{theme.title}</h3></div>
           <div className={s.reels}>{theme.reels.map(r => <article id={`reel-${r.number}`} className={s.reel} key={r.number}>
             <div className={s.reelTitle}><span>Reel {String(r.number).padStart(2, "0")}</span><h4>{r.title}</h4></div>
+            <p className={s.reelSummary}>{copy.reels[r.number - 1]}</p>
+            <Disclosure label="Opening, verhaal en CTA">
             <dl><div><dt>Opening</dt><dd className={s.hook}>“{r.hook}”</dd></div><div><dt>Verhaal</dt><dd>{r.description}</dd></div><div><dt>CTA</dt><dd className={s.reelCta}>{r.cta}</dd></div></dl>
             <p className={s.filename}>{r.filename}</p>
+            </Disclosure>
           </article>)}</div>
         </div>)}
       </div>
@@ -105,10 +112,10 @@ export default function BurneysProposalPage() {
 
     <section id="scope" className={`${s.section} ${s.warm}`}>
       <div className={s.container}>
-        <Heading title="Een volledige productie. Heldere afspraken." />
+        <Heading title="Wat is inbegrepen?" />
         <div className={`${base.scopeGrid} ${s.scopeGrid}`}>
-          <div><h3>Inbegrepen</h3><ul>{p.included.map(item => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul></div>
-          <div><h3>Niet inbegrepen</h3><ul>{p.excluded.map(item => <li key={item}><Plus aria-hidden="true" />{item}</li>)}</ul><p className={s.extraWork}>{p.extraWork}</p></div>
+          <div><h3>Inbegrepen</h3><ul>{copy.included.map(item => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul></div>
+          <div><h3>Niet inbegrepen</h3><ul>{copy.excluded.map(item => <li key={item}><Plus aria-hidden="true" />{item}</li>)}</ul><p className={s.extraWork}>{p.extraWork}</p></div>
         </div>
       </div>
     </section>
@@ -116,22 +123,22 @@ export default function BurneysProposalPage() {
     <section id="investering" className={`${s.section} ${s.dark}`}>
       <div className={`${s.container} ${s.investment}`}>
         <Heading title="Investering." text="Eén vaste pakketprijs voor de volledige reeks." />
-        <div className={s.price}><p><strong>{burneysPrice}</strong><span>excl. btw</span></p><p>{p.investmentSummary}</p><Actions full /></div>
+        <div className={s.price}><p><strong>{burneysPrice}</strong><span>excl. btw</span></p><p>{copy.investment}</p><Actions full /></div>
       </div>
       <div className={`${s.container} ${s.supplements}`}>
-        <h3>{p.supplements.title}</h3><p>{p.supplements.intro}</p>
-        <dl>{p.supplements.items.map(item => <div key={item.id}><dt>{item.title}</dt><dd className={s.supplementPrice}>+ {formatBurneysPrice(item.price)} <span>{item.unit} · excl. btw</span></dd><dd className={s.supplementDescription}>{item.description}</dd></div>)}</dl>
+        <h3>{p.supplements.title}</h3><p>{copy.supplementIntro}</p>
+        <dl>{p.supplements.items.map(item => <div key={item.id}><dt>{item.title}</dt><dd className={s.supplementPrice}>+ {formatBurneysPrice(item.price)} <span>{item.unit} · excl. btw</span></dd><dd className={s.supplementDescription}><p>{copy.supplements[item.id as keyof typeof copy.supplements]}</p><Disclosure label={`Details ${item.title.toLowerCase()}`}><p>{item.description}</p></Disclosure></dd></div>)}</dl>
         <p className={s.supplementNote}>{p.supplements.note}</p>
       </div>
     </section>
 
     <section id="planning" className={s.section}>
       <div className={s.container}>
-        <Heading title="Van voorbereiding tot zes finale reels." text="We stemmen de scripts en de dagplanning vooraf af. Zo halen we de juiste momenten uit één gerichte draaidag." />
-        <ol className={s.schedule}>{p.schedule.map((item, index) => <li key={item.title}><p>Stap {index + 1}</p><div><h3>{item.title}</h3><p>{item.description}</p></div></li>)}</ol>
+        <Heading title="Van voorbereiding tot oplevering." text={copy.planningIntro} />
+        <ol className={s.schedule}>{p.schedule.map((item, index) => <li key={item.title}><p>Stap {index + 1}</p><div><h3>{item.title}</h3><p>{copy.schedule[index]}</p></div></li>)}</ol>
         <div className={s.practical}>
           <figure><Image src="/voorstel/burneys/assets/burneys-teambuilding.webp" alt="Een groep beleeft samen een activiteit bij Burney’s" width={1400} height={934} unoptimized sizes="(max-width: 760px) 100vw, 40vw" /><figcaption>Burney’s · fotografie Kamill Cosemans</figcaption></figure>
-          <div><h3>Voor een vlotte draaidag.</h3><ul>{p.practical.map(item => <li key={item}>{item}</li>)}</ul></div>
+          <div><h3>Voor een vlotte draaidag.</h3><ul>{copy.practical.map(item => <li key={item}>{item}</li>)}</ul></div>
         </div>
       </div>
     </section>
@@ -140,14 +147,14 @@ export default function BurneysProposalPage() {
       <div className={s.container}>
         <div className={s.proof}>
           <a href={p.proof.url} className={s.caseImage} aria-label="Bekijk de SIM Brugge-case"><Image src="/cases/sim-brugge/thumbnail-shoot-02.webp" alt="SIM Brugge: belevingscontent door Office6" width={1200} height={800} sizes="(max-width: 760px) 100vw, 45vw" /></a>
-          <div><Heading title={p.proof.title} text={p.proof.text} /><a href={p.proof.url} className={s.textLink}>Bekijk de SIM Brugge-case <ArrowRight aria-hidden="true" /></a></div>
+          <div><Heading title="SIM Brugge. Mensen en beleving." text={copy.proof} /><a href={p.proof.url} className={s.textLink}>Bekijk de SIM Brugge-case <ArrowRight aria-hidden="true" /></a></div>
         </div>
-        <div className={s.measurement}><h3>Herkenbaar voor jullie campagnepartner.</h3><p>{p.proof.measurement}</p></div>
+        <div className={s.measurement}><h3>Elke reel herkenbaar benoemd.</h3><div><p>{copy.measurement}</p><Disclosure label="Bestanden en opvolging"><p>{p.proof.measurement}</p></Disclosure></div></div>
       </div>
     </section>
 
     <section className={`${s.section} ${s.closing}`}>
-      <div className={s.container}><h2>Geef jullie volgende bedrijfsevent een gezicht.</h2><p>Bespreken we de zes invalshoeken en de draaidag? We stemmen de definitieve scripts en praktische afspraken samen af.</p><Actions full /></div>
+      <div className={s.container}><h2>{copy.closingTitle}</h2><p>{copy.closing}</p><Actions full /></div>
     </section>
     <footer className={base.footer}><div className={s.container}>
       <div><strong>{p.client} × Office6</strong><p>{p.quoteNumber}</p><p>Vertrouwelijk voorstel</p></div>

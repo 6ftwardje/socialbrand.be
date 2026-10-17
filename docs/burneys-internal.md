@@ -27,3 +27,9 @@ De supplementtarieven sluiten aan bij eerdere projectoffertes: €300 per extra 
 ## Actuele versie zonder kalenderdatums
 
 De niet-gepubliceerde compacte herwerking is op uitdrukkelijk verzoek volledig verworpen. Uitgangspunt is opnieuw de live versie uit commit `6dabda3`. Offertedatum, shootdatum en kalenderdatums van voorbereiding en eerste montages zijn verwijderd uit de centrale bron, webpagina en PDF. De procesvolgorde, acht uur opname, zes reels, foundersaanpak, funnelafstemming, supplementen en commerciële afspraken blijven behouden. Het offertenummer blijft de bestaande identificatie.
+
+## Kortere tekst en uitklapbare toelichting
+
+De bestaande live opbouw, hero en fotografie zijn behouden. Kortere koppen en samenvattingen staan in `shortCopy`; de oorspronkelijke gegevens zijn ongewijzigd. Standaard zijn zes reelideeën, levering, prijs, uitsluitingen, extra opties en praktische afspraken zichtbaar. Interviewaanpak, funneldetails, de zes volledige concepten, toelichting bij supplementen en bestandsopvolging staan achter native `details`-elementen met zichtbare toetsenbordfocus. De PDF blijft het volledige, datumloze voorstel met alle details.
+
+De hoofdtekst is niet verkleind. Bij 1.440 px breed zijn standaard 747 woorden zichtbaar, bij 390 px 743: circa 45% minder dan de vorige volledige webtekst. Alle oorspronkelijke JSON-velden zijn gelijk aan de gepubliceerde datumloze versie; prijs en scope blijven behouden.
