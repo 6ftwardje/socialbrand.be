@@ -17,3 +17,9 @@ De productiehost is de Netlify-site `socialbrandbe` (`ebdbf466-15c6-44be-b736-b0
 ## Design evidence
 
 Burney’s bouwt voort op de bestaande Office6-offertes: de FoodFair-paletvariabelen voor papier, inkt, warme vlakken en rood, de globale offerteknoppen, de FoodFair-scope en footer, Geist en de fotografische hero met donkere overlay. Bronvergelijking met FoodFair, Jabeja en `app/globals.css`, plus de desktop- en mobiele reviewbeelden in `.impeccable/review`, bevestigen dit hergebruik. De lokale aanvulling maakt zes reels afzonderlijk leesbaar: twee kolommen op desktop, één onder 760 px. De sticky hoofdstukbalk wordt op mobiel horizontaal scrollbaar met een aparte PDF-knop; prijs, aantal en shootdatum blijven in de hero zichtbaar. Dit zijn keuzes voor deze offerte, geen nieuwe globale ontwerpregels. Bestaande systeemstijlen blijven behouden; in deze vergelijking is geen aanvullende, aantoonbare drift vastgesteld.
+
+## Aanvulling: founders, funnel en supplementen
+
+Op verzoek zijn foundersinterviews binnen de basisdraaidag opgenomen als basis voor de zes ads, samen met inhoudelijke afstemming op de bestaande website-intake. De zes verhaallijnen blijven afzonderlijk. Technische website- en intakeaanpassingen zijn uitgesloten.
+
+De supplementtarieven sluiten aan bij eerdere projectoffertes: €300 per extra reel uit bestaand materiaal (Huppa: vier extra socialvideo’s voor €1.200) en €1.350 per extra opnamedag (Huppa/Jabeja). Voor Burney’s is een extra opnamedag afgebakend op maximaal acht uur, inclusief Brugge–Mechelen, met extra montage afzonderlijk. Dit zijn de voor deze offerte gekozen tarieven, geen algemene Office6-voorwaarden. De bedragen staan samen met de scope in de centrale JSON en worden in web en PDF gelijk weergegeven.

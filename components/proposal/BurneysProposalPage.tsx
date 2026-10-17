@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowDown, ArrowRight, Check, Download, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
-import { burneysProposal as p, burneysPrice, burneysContactUrl } from "@/lib/burneys-proposal";
+import { burneysProposal as p, burneysPrice, burneysContactUrl, formatBurneysPrice } from "@/lib/burneys-proposal";
 import base from "./FoodFairProposalPage.module.css";
 import s from "./BurneysProposalPage.module.css";
 
@@ -80,6 +80,10 @@ export default function BurneysProposalPage() {
             <div><dt>Bestanden</dt><dd>{p.delivery}</dd></div>
           </dl></div>
         </div>
+        <div className={s.strategy}>
+          <div><h3>{p.creativeApproach.title}</h3><p>{p.creativeApproach.text}</p><p>{p.creativeApproach.productionNote}</p></div>
+          <div><h3>{p.funnel.title}</h3><p>{p.funnel.text}</p><ol className={s.funnel}>{p.funnel.steps.map((step, i) => <li key={step.title}><div><strong>{step.title}</strong><p>{step.text}</p></div>{i < p.funnel.steps.length - 1 && <ArrowRight aria-hidden="true" />}</li>)}</ol><p className={s.funnelBoundary}>{p.funnel.boundary}</p></div>
+        </div>
       </div>
     </section>
 
@@ -113,6 +117,11 @@ export default function BurneysProposalPage() {
       <div className={`${s.container} ${s.investment}`}>
         <Heading title="Investering." text="Eén vaste pakketprijs voor de volledige reeks." />
         <div className={s.price}><p><strong>{burneysPrice}</strong><span>excl. btw</span></p><p>{p.investmentSummary}</p><Actions full /></div>
+      </div>
+      <div className={`${s.container} ${s.supplements}`}>
+        <h3>{p.supplements.title}</h3><p>{p.supplements.intro}</p>
+        <dl>{p.supplements.items.map(item => <div key={item.id}><dt>{item.title}</dt><dd className={s.supplementPrice}>+ {formatBurneysPrice(item.price)} <span>{item.unit} · excl. btw</span></dd><dd className={s.supplementDescription}>{item.description}</dd></div>)}</dl>
+        <p className={s.supplementNote}>{p.supplements.note}</p>
       </div>
     </section>
 

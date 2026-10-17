@@ -1,5 +1,5 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-import { burneysProposal as p, burneysPrice, burneysContactUrl } from "./burneys-proposal";
+import { burneysProposal as p, burneysPrice, burneysContactUrl, formatBurneysPrice } from "./burneys-proposal";
 
 // The PDF and the page read the same proposal. No separately maintained price or scope.
 export async function createBurneysPdf() {
@@ -22,7 +22,6 @@ export async function createBurneysPdf() {
     page.drawText("BURNEY’S × OFFICE6", { x: margin, y: height - 35, font: bold, size: 8, color: ink });
     page.drawText(p.quoteNumber, { x: width - margin - regular.widthOfTextAtSize(p.quoteNumber, 8), y: height - 35, font: regular, size: 8, color: muted });
     page.drawText("Vertrouwelijk voorstel", { x: margin, y: 26, font: regular, size: 7.5, color: muted });
-    page.drawText(`${doc.getPageCount()} / 6`, { x: width - margin - 20, y: 26, font: regular, size: 7.5, color: muted });
   }
   function next() { page = doc.addPage([width, height]); start(); }
   function text(value: string, y: number, options: { x?: number; w?: number; size?: number; weight?: boolean; color?: ReturnType<typeof rgb>; leading?: number } = {}) {
@@ -70,6 +69,20 @@ export async function createBurneysPdf() {
   text("Bespreek de offerte · hello@office6.be", y, { size: 11, weight: true, color: red });
   const firstContactY = y;
 
+  next();
+  y = title(p.creativeApproach.title, 747, 30) - 22;
+  y = text(p.creativeApproach.text, y, { size: 11, leading: 17 }) - 14;
+  y = text(p.creativeApproach.productionNote, y, { size: 10 }) - 26;
+  rule(y); y -= 30;
+  y = title(p.funnel.title, y, 24) - 18;
+  y = text(p.funnel.text, y, { size: 10 }) - 20;
+  for (const step of p.funnel.steps) {
+    text(step.title, y, { w: 100, size: 13, weight: true, color: red });
+    y = text(step.text, y, { x: margin + 110, w: content - 110, size: 10 }) - 20;
+  }
+  rule(y); y -= 22;
+  text(p.funnel.boundary, y, { size: 9 });
+
   for (const [i, theme] of p.concepts.entries()) {
     next();
     y = title(theme.title, 747, 30);
@@ -104,6 +117,20 @@ export async function createBurneysPdf() {
   text(p.scopeNote, y, { size: 9 });
 
   next();
+  y = title(p.supplements.title, 747, 30) - 22;
+  y = text(p.supplements.intro, y, { size: 10 }) - 22;
+  y = text(`Basispakket: ${burneysPrice} excl. btw`, y, { size: 13, weight: true, color: ink }) - 26;
+  for (const item of p.supplements.items) {
+    rule(y); y -= 32;
+    text(item.title, y, { size: 18, weight: true, color: ink, w: 240 });
+    y = text(`+ ${formatBurneysPrice(item.price)}`, y, { x: margin + 320, w: content - 320, size: 25, color: red }) - 2;
+    y = text(`${item.unit} · excl. btw`, y, { x: margin + 320, w: content - 320, size: 9 }) - 18;
+    y = text(item.description, y, { size: 10, leading: 16 }) - 32;
+  }
+  rule(y); y -= 24;
+  text(p.supplements.note, y, { size: 9 });
+
+  next();
   y = title("Planning & praktische afspraken.", 747, 28) - 24;
   let left = y, right = y;
   for (const item of p.schedule) {
@@ -129,7 +156,10 @@ export async function createBurneysPdf() {
     doc.getPage(pageIndex).node.addAnnot(doc.context.register(annotation));
   }
   link(0, burneysContactUrl, firstContactY);
-  link(5, p.proof.url, caseLinkY);
-  link(5, burneysContactUrl, y);
+  link(doc.getPageCount() - 1, p.proof.url, caseLinkY);
+  link(doc.getPageCount() - 1, burneysContactUrl, y);
+  doc.getPages().forEach((pdfPage, index) => {
+    pdfPage.drawText(`${index + 1} / ${doc.getPageCount()}`, { x: width - margin - 20, y: 26, font: regular, size: 7.5, color: muted });
+  });
   return doc.save();
 }

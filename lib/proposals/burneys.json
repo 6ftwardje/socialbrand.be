@@ -20,7 +20,7 @@
           "number": 1,
           "title": "De collega-challenge",
           "hook": "Wie is de meest competitieve collega van jullie team?",
-          "description": "Eén herkenbare challenge vormt de verhaallijn: de uitdaging, het duel en de reactie van de winnaar. De competitie maakt het team zichtbaar.",
+          "description": "Een founder introduceert één herkenbare collega-challenge. Daarna volgen de uitdaging, het duel en de reactie van de winnaar. Het verhaal krijgt zo een persoonlijk vertrekpunt én een concreet bewijs in de groep.",
           "cta": "Plan jullie teambuilding bij Burney’s.",
           "filename": "burneys-01-de-collega-challenge.mp4"
         },
@@ -28,7 +28,7 @@
           "number": 2,
           "title": "Even uit de werkmodus",
           "hook": "Tijd om jullie collega’s eens op een andere manier te leren kennen.",
-          "description": "Een korte, echte reactie van een deelnemer leidt de reel. We combineren die met spontane teammomenten en samen napraten na de activiteit.",
+          "description": "Een founder vertelt waarom collega’s elkaar buiten de werkcontext anders leren kennen. Een korte, echte reactie van een deelnemer, spontane teammomenten en samen napraten maken dat herkenbaar.",
           "cta": "Ontdek jullie volgende teamavond.",
           "filename": "burneys-02-even-uit-de-werkmodus.mp4"
         }
@@ -41,7 +41,7 @@
           "number": 3,
           "title": "Van meeting tot diner",
           "hook": "Een meeting, teambuilding én diner op één locatie?",
-          "description": "We volgen dezelfde groep van ontvangst en meetingsetting naar activiteiten en samen eten. Zo krijgt de volledige teamdag een herkenbare, chronologische opbouw.",
+          "description": "Een founder schetst de mogelijkheden van een volledige teamdag. We volgen dezelfde groep van ontvangst en meetingsetting naar activiteiten en samen eten: één doorlopend verhaal op één adres.",
           "cta": "Vraag een voorstel voor jullie team aan.",
           "filename": "burneys-03-van-meeting-tot-diner.mp4"
         },
@@ -49,7 +49,7 @@
           "number": 4,
           "title": "Voor de organisator",
           "hook": "Jij regelt de teamdag. Wij brengen alles samen.",
-          "description": "Een medewerker licht het organiseren bij Burney’s kort toe. Beelden van ontvangst, begeleiding en catering maken de praktische ondersteuning concreet.",
+          "description": "Een founder spreekt de organisator rechtstreeks aan: hoe helpt Burney’s bij een bedrijfsevent? Ontvangst, begeleiding en catering maken de aanpak concreet. We tonen ook kort de eventpagina en intake als logische stap naar een voorstel op maat.",
           "cta": "Bespreek jullie bedrijfsevent met Burney’s.",
           "filename": "burneys-04-voor-de-organisator.mp4"
         }
@@ -62,7 +62,7 @@
           "number": 5,
           "title": "Samen vertrekken",
           "hook": "Jullie teamuitstap begint al op de bus.",
-          "description": "Het samen instappen en de interactie in de bus vormen het begin van het verhaal. We schakelen daarna naar aankomst en een gezamenlijk moment bij Burney’s.",
+          "description": "Een founder vertelt hoe samen vertrekken al deel kan zijn van de teamuitstap. Instappen, interactie in de bus, aankomst en een gezamenlijk moment bij Burney’s geven het verhaal een duidelijke opbouw.",
           "cta": "Ontdek jullie teamdag met de Burney’s Bus.",
           "filename": "burneys-05-samen-vertrekken.mp4"
         },
@@ -70,7 +70,7 @@
           "number": 6,
           "title": "Vervoer mee geregeld",
           "hook": "Het hele team mee? De Burney’s Bus maakt het praktisch.",
-          "description": "Een korte uitleg over de busoptie spreekt de organisator aan. Busdetails, instappen en ontvangst tonen hoe vervoer deel kan uitmaken van het event.",
+          "description": "Een founder licht de busoptie kort en praktisch toe voor de organisator. Busdetails, instappen en ontvangst tonen hoe vervoer deel kan uitmaken van het bedrijfsevent.",
           "cta": "Vraag naar de busoptie voor jullie bedrijfsevent.",
           "filename": "burneys-06-vervoer-mee-geregeld.mp4"
         }
@@ -80,11 +80,11 @@
   "lineItems": [
     {
       "label": "Creatieve voorbereiding",
-      "description": "Zes invalshoeken, scripts en shotlist"
+      "description": "Foundersinterviews voorbereiden, zes verhaallijnen en afstemming op de website-intake"
     },
     {
       "label": "Productie op locatie",
-      "description": "Eén draaidag op 21 oktober, inclusief verplaatsing"
+      "description": "Eén draaidag met foundersinterviews en belevingsbeelden, inclusief verplaatsing"
     },
     {
       "label": "Montage en afwerking",
@@ -93,6 +93,8 @@
   ],
   "included": [
     "Creatieve voorbereiding, scripts en shotlist voor zes reels binnen drie B2B-thema’s",
+    "Voorbereiding en opname van foundersinterviews als inhoudelijke basis voor de zes ads",
+    "Inhoudelijke afstemming op de bestaande website-intake en een korte weergave ervan in een passende reel",
     "Eén draaidag van maximaal acht uur bij Burney’s",
     "Verplaatsing Brugge–Mechelen voor deze draaidag",
     "Zes afzonderlijke montages van circa 20–40 seconden",
@@ -103,6 +105,7 @@
   ],
   "excluded": [
     "Mediabudget, campagnebeheer, tracking en rapportage",
+    "Websiteaanpassingen en technische bouw of aanpassing van de intake",
     "Extra draaidagen of heropnames",
     "Nieuwe scripts na akkoord",
     "Extra hooks, formaten of taalversies",
@@ -113,12 +116,12 @@
     {
       "date": "19–20 oktober 2026",
       "title": "Voorbereiding",
-      "description": "Scripts, deelnemers, activiteiten en praktische planning afstemmen."
+      "description": "Foundersinterviews voorbereiden, zes verhaallijnen uitwerken en de aansluiting op website-intake, deelnemers en dagplanning afstemmen."
     },
     {
       "date": "21 oktober 2026",
       "title": "Draaidag",
-      "description": "Maximaal acht uur opnemen bij Burney’s, inclusief de afgesproken busopnames."
+      "description": "Maximaal acht uur opnemen bij Burney’s: foundersinterviews, teammomenten en de afgesproken busopnames."
     },
     {
       "date": "28 oktober 2026",
@@ -132,7 +135,8 @@
     }
   ],
   "practical": [
-    "Burney’s voorziet een geloofwaardige volwassen collega-groep, beschikbare ruimtes, medewerkers, foodmomenten en de bus.",
+    "Burney’s voorziet de founders voor de interviews, een geloofwaardige volwassen collega-groep, beschikbare ruimtes, medewerkers, foodmomenten en de bus.",
+    "Burney’s deelt vooraf de relevante eventpagina en intakeflow. We stemmen boodschap en CTA inhoudelijk af met de marketing- of campagnepartner.",
     "Busopnames vallen binnen dezelfde draaidag en de afgesproken locatieplanning. Een externe busrit is niet automatisch inbegrepen.",
     "Eén contactpersoon bundelt de feedback per correctieronde.",
     "Portrettoestemming, muziekgebruik en gebruiksrechten worden vooraf afgestemd."
@@ -150,9 +154,9 @@
   "duration": "Circa 20–40 seconden per reel",
   "delivery": "Zes herkenbaar benoemde MP4-bestanden",
   "positioning": "Office6 sluit als creatieve productiepartner aan op jullie bestaande marketingorganisatie. Wij maken de content; jullie campagnepartner kan ze inzetten voor B2B-communicatie en social ads.",
-  "scopeNote": "Zes afzonderlijke reels, geen drie montages met telkens een andere openingszin. Elke reel krijgt een eigen opening, verhaallijn en montage. Beelden uit dezelfde draaidag kunnen in meerdere reels terugkomen.",
-  "scriptNote": "Dit zijn creatieve voorstellen. We stemmen de definitieve scripts vooraf samen af.",
-  "investmentSummary": "Inclusief voorbereiding, één draaidag van maximaal acht uur bij Burney’s, verplaatsing Brugge–Mechelen, montage en afwerking van zes reels en twee gebundelde correctierondes.",
+  "scopeNote": "Zes afzonderlijke reels, elk met een eigen opening, verhaallijn en montage, opgebouwd rond de foundersinterviews en belevingsbeelden. Beelden en interviewfragmenten uit dezelfde draaidag kunnen in meerdere reels terugkomen.",
+  "scriptNote": "Dit zijn creatieve voorstellen. De definitieve scripts stemmen we vooraf af; de founders vertellen hun verhaal in hun eigen woorden.",
+  "investmentSummary": "Inclusief voorbereiding, foundersinterviews, afstemming op de bestaande website-intake, één draaidag van maximaal acht uur bij Burney’s, verplaatsing Brugge–Mechelen, montage en afwerking van zes reels en twee gebundelde correctierondes.",
   "extraWork": "Meerwerk wordt vooraf besproken.",
   "proof": {
     "title": "SIM Brugge. De beleving, verteld door mensen.",
@@ -160,5 +164,50 @@
     "url": "https://office6.be/cases/sim-brugge",
     "measurement": "Elke reel krijgt een eigen, herkenbare bestandsnaam. Zo kan jullie campagnepartner de invalshoeken vergelijken en de resultaten meenemen in de kwartaalrapportage. Campagnebeheer, tracking en rapportage vallen buiten dit productieaanbod."
   },
-  "pdfPath": "/voorstel/burneys/pdf"
+  "pdfPath": "/voorstel/burneys/pdf",
+  "creativeApproach": {
+    "title": "De founders als gezicht van jullie ads.",
+    "text": "We interviewen de founders over hun visie op bedrijfsevents, hun persoonlijke aanpak en wat een sterke teamdag voor een bedrijf kan betekenen. Hun eigen woorden vormen de basis van de ads. We combineren die met echte teammomenten, zodat ondernemers en organisatoren zich herkennen in het verhaal.",
+    "productionNote": "We bereiden gerichte interviewvragen en zes verhaallijnen voor. De foundersinterviews vinden plaats binnen de inbegrepen draaidag; we monteren elk verhaal tot een afzonderlijke reel."
+  },
+  "funnel": {
+    "title": "Van herkenning naar een concrete aanvraag.",
+    "text": "We nemen in de voorbereiding de tijd om de ads af te stemmen op jullie bestaande website en intake. Boodschap, aanbod en CTA sluiten op elkaar aan. In een passende reel tonen we de eventpagina en intake kort in beeld, zodat de volgende stap voor een geïnteresseerde ondernemer duidelijk wordt.",
+    "steps": [
+      {
+        "title": "Ad",
+        "text": "De founders wekken interesse met een menselijk B2B-verhaal."
+      },
+      {
+        "title": "Website",
+        "text": "Dezelfde belofte krijgt verdieping op de relevante eventpagina."
+      },
+      {
+        "title": "Intake",
+        "text": "Een duidelijke uitnodiging om een voorstel op maat aan te vragen."
+      }
+    ],
+    "boundary": "Inbegrepen: inhoudelijke afstemming met jullie marketing- of campagnepartner. Websiteaanpassingen, bouw van de intake, campagnebeheer en tracking vallen buiten dit pakket."
+  },
+  "supplements": {
+    "title": "Meer content of extra opnametijd?",
+    "intro": "Optioneel toe te voegen aan het basispakket. We bevestigen de extra scope en planning vooraf; de pakketprijs van zes reels blijft apart vermeld.",
+    "items": [
+      {
+        "id": "extra-reel",
+        "title": "Extra reel",
+        "price": 300,
+        "unit": "per reel",
+        "description": "Eén extra, afzonderlijke montage uit het beschikbare beeld- en interviewmateriaal. Circa 20–40 seconden, 9:16, met Nederlandse ondertitels, afwerking en twee gebundelde correctierondes. Zonder bijkomende opnames."
+      },
+      {
+        "id": "extra-day",
+        "title": "Extra opnamedag",
+        "price": 1350,
+        "unit": "per dag",
+        "description": "Maximaal acht uur extra opnemen bij Burney’s, inclusief verplaatsing Brugge–Mechelen. Voor meer interviews, activiteiten of een ruimer opnameplan. Extra montages zijn afzonderlijk bij te boeken."
+      }
+    ],
+    "note": "Alle supplementprijzen zijn excl. btw. Een supplement wordt alleen uitgevoerd na voorafgaand akkoord."
+  }
 }

@@ -46,6 +46,25 @@
 .specs dl { margin-top: 1.5rem; }
 .specs dl > div { display: grid; grid-template-columns: 100px 1fr; gap: 1rem; padding: .9rem 0; border-top: 1px solid var(--line); font-size: .9rem; line-height: 1.5; }
 .specs dt { color: #625c56; }
+.strategy { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(3rem, 8vw, 8rem); margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.strategy h3 { max-width: 500px; font-size: clamp(1.6rem, 2.7vw, 2.5rem); font-weight: 500; line-height: 1.15; letter-spacing: -.03em; }
+.strategy p { margin-top: 1rem; line-height: 1.65; color: #625c56; }
+.funnel { margin-top: 1.5rem; }
+.funnel li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--line); }
+.funnel strong { color: var(--red); font-size: 1rem; font-weight: 600; }
+.funnel li p { margin-top: .3rem; font-size: .85rem; }
+.funnel svg { width: 1rem; flex-shrink: 0; color: var(--red); }
+.strategy .funnelBoundary { font-size: .8rem; }
+.supplements { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #7b7067; }
+.supplements h3 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 500; line-height: 1.15; letter-spacing: -.03em; }
+.supplements > p { max-width: 700px; margin-top: 1rem; color: #c0b9b1; line-height: 1.65; }
+.supplements dl { margin-top: 2rem; }
+.supplements dl > div { display: grid; grid-template-columns: 1fr 1.5fr auto; gap: 1rem 2rem; padding-block: 1.5rem; border-top: 1px solid #48423e; }
+.supplements dt { font-size: 1.3rem; font-weight: 500; }
+.supplementPrice { grid-column: 3; grid-row: 1; color: #ff6774; font-size: 1.6rem; white-space: nowrap; }
+.supplementPrice span { display: block; margin-top: .4rem; color: #c0b9b1; font-size: .75rem; }
+.supplementDescription { grid-column: 2; grid-row: 1; color: #cfc8c0; font-size: .9rem; line-height: 1.65; }
+.supplements .supplementNote { font-size: .8rem; }
 .dark { background: var(--ink); color: white; }
 .dark .heading > p { color: #c0b9b1; }
 .scriptNote { color: #c0b9b1; margin-top: 1rem; line-height: 1.6; font-size: .9rem; }
@@ -147,7 +166,10 @@
   .navPdf { padding-inline: .9rem; flex-shrink: 0; border-left: 1px solid var(--line); }
   .navPdf span { display: none; }
   .section { scroll-margin-top: 54px; }
-  .introGrid, .investment, .practical, .proof, .measurement { grid-template-columns: 1fr; }
+  .introGrid, .investment, .practical, .proof, .measurement, .strategy { grid-template-columns: 1fr; }
+  .supplements dl > div { grid-template-columns: 1fr auto; }
+  .supplementPrice { grid-column: 2; }
+  .supplementDescription { grid-column: 1 / -1; grid-row: 2; }
   .introGrid { gap: 3rem; margin-top: 3rem; }
   .reelJump { grid-template-columns: repeat(2, 1fr); gap: 0 1.5rem; }
   .reelJump a { font-size: .75rem; }
