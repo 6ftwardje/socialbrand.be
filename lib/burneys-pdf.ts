@@ -128,7 +128,13 @@ export async function createBurneysPdf() {
     y = text(item.description, y, { size: 10, leading: 16 }) - 32;
   }
   rule(y); y -= 24;
-  text(p.supplements.note, y, { size: 9 });
+  y = text(p.supplements.note, y, { size: 9 }) - 26;
+  y = text(p.paymentTerms.title, y, { size: 17, weight: true, color: ink }) - 12;
+  for (const item of p.paymentTerms.installments) {
+    y = text(`${item.percentage}% ${item.title.toLowerCase()} · ${formatBurneysPrice(p.totalExVat * item.percentage / 100)} excl. btw`, y, { size: 11, weight: true, color: ink }) - 3;
+    y = text(item.description, y, { size: 9, leading: 13 }) - 10;
+  }
+  text(p.paymentTerms.note, y, { size: 8, leading: 12 });
 
   next();
   y = title("Planning & praktische afspraken.", 747, 28) - 24;
@@ -146,7 +152,7 @@ export async function createBurneysPdf() {
   y = text(p.proof.text, y, { size: 9, leading: 13 }) - 9;
   const caseLinkY = y;
   y = text(p.proof.url, y, { size: 9, color: red }) - 18;
-  y = text(p.proof.measurement, y, { size: 9, leading: 13 }) - 18;
+  y = text(p.shortCopy.closing, y, { size: 10, leading: 15 }) - 18;
   text("Bespreek de offerte · hello@office6.be", y, { size: 11, weight: true, color: red });
 
   // Clickable contact and case URLs in PDF readers, without third-party requests.

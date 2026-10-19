@@ -8,7 +8,7 @@
 
 ## Nog vooraf te bevestigen
 
-Er is geen aantoonbare algemene Office6-standaard voor betaling, offertegeldigheid of licentietermijnen aangetroffen. De FoodFair-offerte bevat projectspecifieke voorwaarden; die zijn niet overgenomen. Leg betaling, geldigheidsduur en toepasselijke gebruiks- en muziekrechten schriftelijk vast voor akkoord/productie. Stem ook portrettoestemming, definitieve scripts, deelnemers, ruimtes en busplanning af.
+Er is geen aantoonbare algemene Office6-standaard voor offertegeldigheid of licentietermijnen aangetroffen. De FoodFair-offerte bevat projectspecifieke voorwaarden; die zijn niet overgenomen. Leg geldigheidsduur en toepasselijke gebruiks- en muziekrechten schriftelijk vast voor akkoord/productie. De betaalschijven voor dit voorstel staan hieronder en in de centrale JSON. Stem ook portrettoestemming, definitieve scripts, deelnemers, ruimtes en busplanning af.
 
 ## Publicatie
 
@@ -33,3 +33,7 @@ De niet-gepubliceerde compacte herwerking is op uitdrukkelijk verzoek volledig v
 De bestaande live opbouw, hero en fotografie zijn behouden. Kortere koppen en samenvattingen staan in `shortCopy`; de oorspronkelijke gegevens zijn ongewijzigd. Standaard zijn zes reelideeën, levering, prijs, uitsluitingen, extra opties en praktische afspraken zichtbaar. Interviewaanpak, funneldetails, de zes volledige concepten, toelichting bij supplementen en bestandsopvolging staan achter native `details`-elementen met zichtbare toetsenbordfocus. De PDF blijft het volledige, datumloze voorstel met alle details.
 
 De hoofdtekst is niet verkleind. Bij 1.440 px breed zijn standaard 747 woorden zichtbaar, bij 390 px 743: circa 45% minder dan de vorige volledige webtekst. Alle oorspronkelijke JSON-velden zijn gelijk aan de gepubliceerde datumloze versie; prijs en scope blijven behouden.
+
+## Groen licht en betaalschijven
+
+De aparte bestandsopvolging-sectie is op verzoek verwijderd. De afsluiting vraagt groen licht, gevolgd door een voorschotofferte en een planningscall. Bij de investering en in de PDF staan twee schijven voor het basispakket: 50% (€1.500 excl. btw) voorschot na akkoord, betaalbaar vóór de voorbereiding; 50% (€1.500 excl. btw) saldo bij oplevering. Goedgekeurde supplementen worden apart gefactureerd. Dit zijn projectspecifieke afspraken, geen algemene Office6-voorwaarden.

@@ -112,6 +112,13 @@
 .price strong { color: var(--red); font-size: clamp(4.5rem, 8vw, 7.5rem); line-height: 1; letter-spacing: -.04em; font-weight: 500; }
 .price span { font-size: .95rem; color: #c0b9b1; }
 .price > p + p { max-width: 58ch; color: #cfc8c0; line-height: 1.65; margin-top: 1.5rem; }
+.paymentTerms { margin-top: 2rem; }
+.paymentTerms h3 { font-size: 1.25rem; font-weight: 500; }
+.paymentTerms dl { margin-top: 1rem; }
+.paymentTerms dl > div { display: grid; grid-template-columns: 1fr auto; gap: .5rem 1rem; padding-block: 1rem; border-top: 1px solid #48423e; }
+.paymentTerms dt, .paymentTerms dd:first-of-type { font-size: 1rem; color: white; font-variant-numeric: tabular-nums; }
+.paymentTerms dd:last-of-type { grid-column: 1 / -1; color: #cfc8c0; line-height: 1.6; }
+.paymentTerms > p { margin-top: .5rem; font-size: .9rem; color: #cfc8c0; line-height: 1.6; }
 .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
 .actions a { min-height: 48px; }
 .schedule { margin-top: 2.5rem; }
@@ -132,9 +139,6 @@
 .proof h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); }
 .textLink { display: inline-flex; gap: .7rem; align-items: center; min-height: 44px; margin-top: 1.5rem; border-bottom: 1px solid var(--ink); font-size: .9rem; }
 .textLink svg { width: 1rem; }
-.measurement { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); padding-top: 2rem; margin-top: 4rem; border-top: 1px solid #bdb6ad; }
-.measurement h3 { max-width: 460px; font-size: 1.8rem; line-height: 1.2; letter-spacing: -.025em; font-weight: 500; }
-.measurement p { color: #625c56; line-height: 1.65; }
 .closing { background: var(--ink); color: white; }
 .closing h2 { max-width: 950px; }
 .closing p { max-width: 620px; margin-top: 1.5rem; line-height: 1.65; color: #cfc8c0; }
@@ -180,7 +184,7 @@
   .navPdf { padding-inline: .9rem; flex-shrink: 0; border-left: 1px solid var(--line); }
   .navPdf span { display: none; }
   .section { scroll-margin-top: 54px; }
-  .introGrid, .investment, .practical, .proof, .measurement, .strategy { grid-template-columns: 1fr; }
+  .introGrid, .investment, .practical, .proof, .strategy { grid-template-columns: 1fr; }
   .supplements dl > div { grid-template-columns: 1fr auto; }
   .supplementPrice { grid-column: 2; }
   .supplementDescription { grid-column: 1 / -1; grid-row: 2; }
@@ -197,7 +201,6 @@
   .schedule li { grid-template-columns: 1fr; gap: .6rem; padding-block: 1.6rem; }
   .practical { margin-top: 3rem; }
   .caseImage img { aspect-ratio: 4/3; }
-  .measurement { gap: 1rem; margin-top: 3rem; }
 }
 @media (max-width: 380px) {
   .container { width: calc(100% - 2rem); }

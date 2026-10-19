@@ -123,7 +123,7 @@ export default function BurneysProposalPage() {
     <section id="investering" className={`${s.section} ${s.dark}`}>
       <div className={`${s.container} ${s.investment}`}>
         <Heading title="Investering." text="Eén vaste pakketprijs voor de volledige reeks." />
-        <div className={s.price}><p><strong>{burneysPrice}</strong><span>excl. btw</span></p><p>{copy.investment}</p><Actions full /></div>
+        <div className={s.price}><p><strong>{burneysPrice}</strong><span>excl. btw</span></p><p>{copy.investment}</p><div className={s.paymentTerms}><h3>{p.paymentTerms.title}</h3><dl>{p.paymentTerms.installments.map(item => <div key={item.title}><dt>{item.percentage}% {item.title.toLowerCase()}</dt><dd>{formatBurneysPrice(p.totalExVat * item.percentage / 100)} excl. btw</dd><dd>{item.description}</dd></div>)}</dl><p>{p.paymentTerms.note}</p></div><Actions full /></div>
       </div>
       <div className={`${s.container} ${s.supplements}`}>
         <h3>{p.supplements.title}</h3><p>{copy.supplementIntro}</p>
@@ -149,7 +149,6 @@ export default function BurneysProposalPage() {
           <a href={p.proof.url} className={s.caseImage} aria-label="Bekijk de SIM Brugge-case"><Image src="/cases/sim-brugge/thumbnail-shoot-02.webp" alt="SIM Brugge: belevingscontent door Office6" width={1200} height={800} sizes="(max-width: 760px) 100vw, 45vw" /></a>
           <div><Heading title="SIM Brugge. Mensen en beleving." text={copy.proof} /><a href={p.proof.url} className={s.textLink}>Bekijk de SIM Brugge-case <ArrowRight aria-hidden="true" /></a></div>
         </div>
-        <div className={s.measurement}><h3>Elke reel herkenbaar benoemd.</h3><div><p>{copy.measurement}</p><Disclosure label="Bestanden en opvolging"><p>{p.proof.measurement}</p></Disclosure></div></div>
       </div>
     </section>
 

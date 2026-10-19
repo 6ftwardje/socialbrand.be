@@ -155,8 +155,7 @@
   "proof": {
     "title": "SIM Brugge. De beleving, verteld door mensen.",
     "text": "Voor SIM Brugge maakten we belevingscontent met de oprichters en authentieke reacties van bezoekers. Menselijke verhalen en een ritmische, verticale montage maakten de video’s geschikt voor social ads. Die creatieve ervaring nemen we mee naar Burney’s.",
-    "url": "https://office6.be/cases/sim-brugge",
-    "measurement": "Elke reel krijgt een eigen, herkenbare bestandsnaam. Zo kan jullie campagnepartner de invalshoeken vergelijken en de resultaten meenemen in de kwartaalrapportage. Campagnebeheer, tracking en rapportage vallen buiten dit productieaanbod."
+    "url": "https://office6.be/cases/sim-brugge"
   },
   "pdfPath": "/voorstel/burneys/pdf",
   "creativeApproach": {
@@ -263,8 +262,23 @@
       "Portrettoestemming, muziekgebruik en gebruiksrechten vooraf afstemmen."
     ],
     "proof": "Video’s met de oprichters en reacties van bezoekers, gemonteerd voor verticale social ads.",
-    "measurement": "Jullie campagnepartner kan elke invalshoek apart vergelijken.",
     "closingTitle": "Bespreken we de offerte?",
-    "closing": "We stemmen de zes invalshoeken en praktische afspraken samen af."
+    "closing": "Geef me gerust groen licht om dit in gang te zetten. Dan stuur ik een voorschotofferte en plannen we een call voor de concrete planning."
+  },
+  "paymentTerms": {
+    "title": "Betaling in twee schijven",
+    "installments": [
+      {
+        "percentage": 50,
+        "title": "Voorschot",
+        "description": "Na groen licht sturen we de voorschotofferte en plannen we de call. Het voorschot is betaalbaar vóór de start van de voorbereiding."
+      },
+      {
+        "percentage": 50,
+        "title": "Saldo",
+        "description": "Bij oplevering van de zes finale reels."
+      }
+    ],
+    "note": "Bedragen voor het basispakket, excl. btw. Goedgekeurde supplementen worden apart gefactureerd."
   }
 }
