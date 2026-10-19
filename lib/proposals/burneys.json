@@ -263,7 +263,7 @@
     ],
     "proof": "Video’s met de oprichters en reacties van bezoekers, gemonteerd voor verticale social ads.",
     "closingTitle": "Bespreken we de offerte?",
-    "closing": "Geef me gerust groen licht om dit in gang te zetten. Dan stuur ik een voorschotofferte en plannen we een call voor de concrete planning."
+    "closing": "Geef me gerust groen licht om dit in gang te zetten. Dan stuur ik een voorschotfactuur en plannen we een call voor de concrete planning."
   },
   "paymentTerms": {
     "title": "Betaling in twee schijven",
@@ -271,7 +271,7 @@
       {
         "percentage": 50,
         "title": "Voorschot",
-        "description": "Na groen licht sturen we de voorschotofferte en plannen we de call. Het voorschot is betaalbaar vóór de start van de voorbereiding."
+        "description": "Na groen licht sturen we de voorschotfactuur en plannen we de call. Het voorschot is betaalbaar vóór de start van de voorbereiding."
       },
       {
         "percentage": 50,

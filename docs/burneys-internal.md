@@ -36,4 +36,4 @@ De hoofdtekst is niet verkleind. Bij 1.440 px breed zijn standaard 747 woorden z
 
 ## Groen licht en betaalschijven
 
-De aparte bestandsopvolging-sectie is op verzoek verwijderd. De afsluiting vraagt groen licht, gevolgd door een voorschotofferte en een planningscall. Bij de investering en in de PDF staan twee schijven voor het basispakket: 50% (€1.500 excl. btw) voorschot na akkoord, betaalbaar vóór de voorbereiding; 50% (€1.500 excl. btw) saldo bij oplevering. Goedgekeurde supplementen worden apart gefactureerd. Dit zijn projectspecifieke afspraken, geen algemene Office6-voorwaarden.
+De aparte bestandsopvolging-sectie is op verzoek verwijderd. De afsluiting vraagt groen licht, gevolgd door een voorschotfactuur en een planningscall. Bij de investering en in de PDF staan twee schijven voor het basispakket: 50% (€1.500 excl. btw) voorschot na akkoord, betaalbaar vóór de voorbereiding; 50% (€1.500 excl. btw) saldo bij oplevering. Goedgekeurde supplementen worden apart gefactureerd. Dit zijn projectspecifieke afspraken, geen algemene Office6-voorwaarden.
